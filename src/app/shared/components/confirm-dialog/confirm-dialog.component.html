@@ -1,0 +1,54 @@
+<div
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+  (click)="onBackdropClick($event)">
+  <div
+    class="bg-card rounded-2xl p-6 max-w-md w-full shadow-2xl border animate-in fade-in zoom-in-95 duration-200">
+    <!-- Header -->
+    <div class="flex items-start justify-between mb-4">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center"
+          [class.bg-primary/10]="confirmVariant() === 'primary'"
+          [class.bg-destructive/10]="confirmVariant() === 'danger'">
+          <lucide-icon
+            [img]="AlertCircle"
+            class="h-5 w-5"
+            [class.text-primary]="confirmVariant() === 'primary'"
+            [class.text-destructive]="confirmVariant() === 'danger'">
+          </lucide-icon>
+        </div>
+        <h2 class="text-lg font-semibold">{{ title() }}</h2>
+      </div>
+      <button
+        (click)="cancel()"
+        class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+        <lucide-icon [img]="X" class="h-4 w-4"></lucide-icon>
+      </button>
+    </div>
+
+    <!-- Message -->
+    <div class="text-muted-foreground mb-6 whitespace-pre-line">
+      {{ message() }}
+    </div>
+
+    <!-- Actions -->
+    <div class="flex gap-3 justify-end">
+      <button
+        (click)="cancel()"
+        class="px-4 py-2 rounded-lg border hover:bg-secondary transition-colors font-medium">
+        {{ cancelText() }}
+      </button>
+      <button
+        (click)="confirm()"
+        class="px-4 py-2 rounded-lg font-medium transition-colors"
+        [class.bg-primary]="confirmVariant() === 'primary'"
+        [class.text-primary-foreground]="confirmVariant() === 'primary'"
+        [class.hover:bg-primary/90]="confirmVariant() === 'primary'"
+        [class.bg-destructive]="confirmVariant() === 'danger'"
+        [class.text-destructive-foreground]="confirmVariant() === 'danger'"
+        [class.hover:bg-destructive/90]="confirmVariant() === 'danger'">
+        {{ confirmText() }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+# robots.txt für bzf.borowski-software.de
+
+# Allgemeine Regeln für alle Bots
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Crawl-Delay (optional, falls Server-Last ein Problem ist)
+# Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://bzf.borowski-software.de/sitemap.xml
+
+# Spezifische Regeln für Google Bot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+# Spezifische Regeln für Bing Bot
+User-agent: bingbot
+Allow: /
+Disallow: /api/
+
+# Block für schlechte Bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

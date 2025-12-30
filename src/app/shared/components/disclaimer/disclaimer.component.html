@@ -1,0 +1,110 @@
+<div
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+  (click)="aboutMode() ? close() : null"
+>
+  <div
+    class="bg-card rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border max-h-[90vh] overflow-y-auto"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Header -->
+    <div class="flex items-start justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+          <lucide-icon [img]="AlertTriangle" class="h-6 w-6 text-amber-500"></lucide-icon>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold">{{ aboutMode() ? 'Über diese App' : 'Hinweis' }}</h2>
+          <p class="text-sm text-muted-foreground">
+            {{ aboutMode() ? 'BZF I/II Trainer' : 'Bitte vor der Nutzung lesen' }}
+          </p>
+        </div>
+      </div>
+      @if (aboutMode()) {
+      <button (click)="close()" class="p-2 hover:bg-secondary rounded-lg transition-colors">
+        <lucide-icon [img]="X" class="h-5 w-5"></lucide-icon>
+      </button>
+      }
+    </div>
+
+    <!-- Content -->
+    <div class="space-y-4 text-sm text-muted-foreground">
+      <div class="bg-secondary/50 rounded-xl p-4">
+        <p class="font-medium text-foreground mb-1">Hobby-Projekt</p>
+        <p>
+          Dies ist ein privates Hobby-Projekt von
+          <a
+            href="https://borowski-software.de"
+            target="_blank"
+            rel="noopener"
+            class="text-primary hover:underline inline-flex items-center gap-1"
+          >
+            Tim Borowski
+            <lucide-icon [img]="ExternalLink" class="h-3 w-3"></lucide-icon> </a
+          >, einem IT-Freelancer.
+        </p>
+      </div>
+
+      <div class="bg-secondary/50 rounded-xl p-4">
+        <p class="font-medium text-foreground mb-1">Verwendungszweck</p>
+        <p>
+          Diese App dient
+          <strong class="text-foreground">ausschließlich zum Lernen für Flugsimulatoren</strong>
+          wie dem Microsoft Flight Simulator. Sie ist nicht für die Vorbereitung auf eine echte
+          BZF-Prüfung gedacht.
+        </p>
+      </div>
+
+      <div class="bg-secondary/50 rounded-xl p-4">
+        <p class="font-medium text-foreground mb-1">Fragenquelle</p>
+        <p>
+          Die Fragen stammen aus dem offiziellen Fragenkatalog der
+          <strong class="text-foreground"
+            >Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und
+            Eisenbahnen</strong
+          >
+          (Stand 2024). Die Fragen wurden mit AI aus dem Original-PDF extrahiert und gruppiert.
+        </p>
+      </div>
+
+      <div class="bg-secondary/50 rounded-xl p-4">
+        <p class="font-medium text-foreground mb-1">🤖 Mit AI erstellt</p>
+        <p>
+          Diese Webseite wurde mit Unterstützung von
+          <strong class="text-foreground">Künstlicher Intelligenz</strong> programmiert.
+        </p>
+      </div>
+
+      <div class="bg-secondary/50 rounded-xl p-4">
+        <p class="font-medium text-foreground mb-1">Datenschutz</p>
+        <p>
+          <strong class="text-foreground"
+            >Alle Daten werden ausschließlich lokal in deinem Browser gespeichert.</strong
+          >
+          Es findet keine Datenübertragung an ein Backend statt.
+        </p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl p-4 border border-primary/20">
+        <p class="font-medium text-foreground mb-1">💬 Feedback willkommen!</p>
+        <p>
+          Ich freue mich über Feedback von Flugschüler*innen, (Simulator-)Pilot*innen und
+          Lehrer*innen!
+        </p>
+        <p class="mt-2">
+          <strong class="text-foreground">E-Mail:</strong>
+          <a href="mailto:tim@borowski-software.de" class="text-primary hover:underline"
+            >tim[at]borowski-software.de</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Accept Button -->
+    <button
+      (click)="accept()"
+      class="w-full mt-6 py-3 px-6 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors"
+    >
+      {{ aboutMode() ? 'Schließen' : 'Verstanden' }}
+    </button>
+  </div>
+</div>

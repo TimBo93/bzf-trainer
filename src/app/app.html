@@ -1,0 +1,10 @@
+<div class="min-h-screen bg-background text-foreground">
+  <app-header></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+@if (showDisclaimer()) {
+<app-disclaimer (accepted)="onDisclaimerAccepted()"></app-disclaimer>
+}

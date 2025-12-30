@@ -1,0 +1,195 @@
+<div class="min-h-screen pb-8">
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-primary/10 via-background to-background py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-2xl sm:text-3xl font-bold mb-2">Einstellungen</h1>
+      <p class="text-muted-foreground">Passe die App an deine Bedürfnisse an</p>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 py-6 space-y-6">
+    <!-- Theme Settings -->
+    <section class="bg-card rounded-xl border p-6">
+      <h2 class="text-lg font-semibold mb-4">Erscheinungsbild</h2>
+      <p class="text-sm text-muted-foreground mb-4">Wähle dein bevorzugtes Farbschema</p>
+
+      <div class="grid grid-cols-3 gap-3">
+        <button
+          (click)="setTheme('light')"
+          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          [class]="
+            settingsService.theme() === 'light'
+              ? 'border-primary bg-primary/5'
+              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+          "
+        >
+          <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
+            <lucide-icon [img]="Sun" class="h-6 w-6 text-amber-500"></lucide-icon>
+          </div>
+          <span class="text-sm font-medium">Hell</span>
+        </button>
+
+        <button
+          (click)="setTheme('dark')"
+          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          [class]="
+            settingsService.theme() === 'dark'
+              ? 'border-primary bg-primary/5'
+              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+          "
+        >
+          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
+            <lucide-icon [img]="Moon" class="h-6 w-6 text-slate-300"></lucide-icon>
+          </div>
+          <span class="text-sm font-medium">Dunkel</span>
+        </button>
+
+        <button
+          (click)="setTheme('system')"
+          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          [class]="
+            settingsService.theme() === 'system'
+              ? 'border-primary bg-primary/5'
+              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+          "
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-100 to-slate-800 flex items-center justify-center"
+          >
+            <lucide-icon [img]="Monitor" class="h-6 w-6 text-white"></lucide-icon>
+          </div>
+          <span class="text-sm font-medium">System</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Quiz Settings -->
+    <section class="bg-card rounded-xl border p-6">
+      <h2 class="text-lg font-semibold mb-4">Quiz-Einstellungen</h2>
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-start gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0"
+          >
+            <lucide-icon [img]="MessageSquare" class="h-5 w-5 text-blue-500"></lucide-icon>
+          </div>
+          <div>
+            <p class="font-medium">Sofortiges Feedback</p>
+            <p class="text-sm text-muted-foreground">
+              Zeige sofort an, ob die Antwort richtig oder falsch war
+            </p>
+          </div>
+        </div>
+        <button
+          (click)="toggleImmediateFeedback()"
+          class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          [class]="settingsService.immediateFeedback() ? 'bg-primary' : 'bg-secondary'"
+          role="switch"
+          [attr.aria-checked]="settingsService.immediateFeedback()"
+        >
+          <span
+            class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+            [class]="settingsService.immediateFeedback() ? 'translate-x-5' : 'translate-x-0'"
+          >
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Data Management -->
+    <section class="bg-card rounded-xl border p-6">
+      <h2 class="text-lg font-semibold mb-4">Daten verwalten</h2>
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-start gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0"
+          >
+            <lucide-icon [img]="Trash2" class="h-5 w-5 text-red-500"></lucide-icon>
+          </div>
+          <div>
+            <p class="font-medium">Fortschritt zurücksetzen</p>
+            <p class="text-sm text-muted-foreground">
+              Lösche alle gespeicherten Daten und beginne von vorn
+            </p>
+          </div>
+        </div>
+        <button
+          (click)="openResetDialog()"
+          class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium"
+        >
+          Zurücksetzen
+        </button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-card rounded-xl border p-6">
+      <h2 class="text-lg font-semibold mb-4">Über die App</h2>
+      <div class="space-y-2 text-sm text-muted-foreground">
+        <p>
+          <strong class="text-foreground">BZF Trainer</strong> - Übungsapp für das beschränkte
+          Sprechfunkzeugnis
+        </p>
+        <p>Diese App hilft dir bei der Vorbereitung auf die BZF I und BZF II Prüfung.</p>
+        <p>Alle 261 offiziellen Prüfungsfragen sind enthalten.</p>
+        <a
+          routerLink="/licenses"
+          class="inline-flex items-center gap-2 mt-3 text-primary hover:underline"
+        >
+          <lucide-icon [img]="FileText" class="h-4 w-4"></lucide-icon>
+          Open Source Lizenzen anzeigen
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Reset Confirmation Modal -->
+@if (showResetConfirm()) {
+<div
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+  (click)="closeResetDialog()"
+>
+  <div class="bg-card rounded-xl p-6 max-w-sm w-full shadow-xl" (click)="$event.stopPropagation()">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center">
+        <lucide-icon [img]="AlertTriangle" class="h-6 w-6 text-red-500"></lucide-icon>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg">Fortschritt löschen?</h3>
+      </div>
+    </div>
+    <p class="text-muted-foreground mb-6">
+      Diese Aktion kann nicht rückgängig gemacht werden. Dein gesamter Lernfortschritt wird
+      unwiderruflich gelöscht.
+    </p>
+    <div class="flex gap-3">
+      <button
+        (click)="closeResetDialog()"
+        class="flex-1 px-4 py-2 bg-secondary text-foreground rounded-lg hover:bg-secondary/80 transition-colors font-medium"
+      >
+        Abbrechen
+      </button>
+      <button
+        (click)="confirmReset()"
+        [disabled]="isResetting()"
+        class="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium disabled:opacity-50"
+      >
+        @if (isResetting()) { Lösche... } @else { Löschen }
+      </button>
+    </div>
+  </div>
+</div>
+}
+
+<!-- Success Toast -->
+@if (resetSuccess()) {
+<div
+  class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in"
+>
+  <lucide-icon [img]="CheckCircle" class="h-5 w-5"></lucide-icon>
+  <span class="font-medium">Fortschritt wurde zurückgesetzt</span>
+</div>
+}

@@ -1,0 +1,165 @@
+<!-- Search Trigger Button -->
+<button
+  (click)="openSearch()"
+  class="flex items-center gap-2 px-3 py-1.5 text-sm text-muted-foreground bg-secondary/50 hover:bg-secondary border rounded-lg transition-colors">
+  <lucide-icon [img]="Search" class="h-4 w-4"></lucide-icon>
+  <span class="hidden sm:inline">Suchen...</span>
+  <kbd class="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs bg-background border rounded">
+    @if (isMac()) {
+      <lucide-icon [img]="Command" class="h-3 w-3"></lucide-icon>
+    } @else {
+      <span>Ctrl</span>
+    }
+    <span>K</span>
+  </kbd>
+</button>
+
+<!-- Search Modal -->
+@if (isOpen()) {
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center pt-[10vh]">
+    <div
+      #searchContainer
+      class="bg-card rounded-2xl shadow-2xl border w-full max-w-2xl mx-4 max-h-[70vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Search Input -->
+      <div class="flex items-center gap-3 p-4 border-b">
+        <lucide-icon [img]="Search" class="h-5 w-5 text-muted-foreground shrink-0"></lucide-icon>
+        <input
+          #searchInput
+          type="text"
+          [value]="searchQuery()"
+          (input)="onSearchInput($event)"
+          placeholder="Fragen und Antworten durchsuchen..."
+          class="flex-1 bg-transparent text-lg outline-none placeholder:text-muted-foreground"
+        />
+        @if (searchQuery()) {
+          <button
+            (click)="searchQuery.set(''); selectedResult.set(null)"
+            class="p-1 hover:bg-secondary rounded transition-colors">
+            <lucide-icon [img]="X" class="h-4 w-4"></lucide-icon>
+          </button>
+        }
+        <button
+          (click)="closeSearch()"
+          class="px-2 py-1 text-xs text-muted-foreground hover:text-foreground border rounded transition-colors">
+          ESC
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1 overflow-y-auto">
+        @if (selectedResult(); as result) {
+          <!-- Question Detail View -->
+          <div class="p-4">
+            <button
+              (click)="backToResults()"
+              class="text-sm text-primary hover:underline mb-4 flex items-center gap-1">
+              ← Zurück zu den Ergebnissen
+            </button>
+            
+            <div class="space-y-4">
+              <!-- Category & Number -->
+              <div class="flex items-center gap-2 text-sm">
+                <span class="px-2 py-1 bg-primary/10 text-primary rounded-full">
+                  {{ getCategoryName(result.question.number) }}
+                </span>
+                <span class="text-muted-foreground">
+                  Frage {{ result.question.number }}
+                </span>
+              </div>
+              
+              <!-- Question -->
+              <div class="p-4 bg-secondary/50 rounded-xl">
+                <p class="font-medium" [innerHTML]="highlightMatch(result.question.question)"></p>
+              </div>
+              
+              <!-- Answers -->
+              <div class="space-y-2">
+                <p class="text-sm font-medium text-muted-foreground">Antworten:</p>
+                @for (answer of result.answers; track answer.label) {
+                  <div
+                    class="p-3 rounded-xl border-2 transition-colors"
+                    [class.border-green-500]="answer.isCorrect"
+                    [class.bg-green-500/10]="answer.isCorrect"
+                    [class.border-border]="!answer.isCorrect">
+                    <div class="flex items-start gap-3">
+                      <span
+                        class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium shrink-0"
+                        [class.bg-green-500]="answer.isCorrect"
+                        [class.text-white]="answer.isCorrect"
+                        [class.bg-secondary]="!answer.isCorrect">
+                        {{ answer.label }}
+                      </span>
+                      <div class="flex-1">
+                        <span [innerHTML]="highlightMatch(answer.text)"></span>
+                        @if (answer.isCorrect) {
+                          <lucide-icon [img]="CheckCircle" class="inline-block h-4 w-4 text-green-500 ml-2"></lucide-icon>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        } @else if (searchQuery().length < 2) {
+          <!-- Empty State -->
+          <div class="p-8 text-center text-muted-foreground">
+            <lucide-icon [img]="Search" class="h-12 w-12 mx-auto mb-4 opacity-50"></lucide-icon>
+            <p>Gib mindestens 2 Zeichen ein, um zu suchen.</p>
+            <p class="text-sm mt-2">z.B. "WILCO", "Frequenz", "Notfall"</p>
+          </div>
+        } @else if (searchResults().length === 0) {
+          <!-- No Results -->
+          <div class="p-8 text-center text-muted-foreground">
+            <p>Keine Ergebnisse für "{{ searchQuery() }}"</p>
+            <p class="text-sm mt-2">Versuche einen anderen Suchbegriff.</p>
+          </div>
+        } @else {
+          <!-- Results List -->
+          <div class="divide-y">
+            @for (result of searchResults(); track result.question.number; let i = $index) {
+              <button
+                (click)="selectResult(result)"
+                (mouseenter)="highlightedIndex.set(i)"
+                class="w-full p-4 text-left hover:bg-secondary/50 transition-colors"
+                [class.bg-secondary/50]="highlightedIndex() === i">
+                <div class="flex items-start gap-3">
+                  <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground shrink-0">
+                    #{{ result.question.number }}
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium line-clamp-2" [innerHTML]="highlightMatch(result.question.question)"></p>
+                    @if (result.matchedIn === 'answer') {
+                      <p class="text-sm text-muted-foreground mt-1 line-clamp-1">
+                        Treffer in Antwort: <span [innerHTML]="highlightMatch(result.matchedText)"></span>
+                      </p>
+                    }
+                  </div>
+                </div>
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Footer -->
+      @if (searchResults().length > 0 && !selectedResult()) {
+        <div class="p-3 border-t text-xs text-muted-foreground flex items-center justify-between">
+          <span>{{ searchResults().length }} Ergebnis{{ searchResults().length !== 1 ? 'se' : '' }}</span>
+          <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 bg-secondary rounded">↑</kbd>
+              <kbd class="px-1.5 py-0.5 bg-secondary rounded">↓</kbd>
+              navigieren
+            </span>
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 bg-secondary rounded">Enter</kbd>
+              auswählen
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}
