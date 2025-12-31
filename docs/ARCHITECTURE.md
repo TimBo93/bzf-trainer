@@ -79,9 +79,10 @@ bzf-trainer/
 │   │   ├── app.config.ts
 │   │   └── app.routes.ts
 │   │
-│   ├── assets/
-│   │   ├── questions.json            # Original Prüfungsfragen
-│   │   └── categories.json           # Kategorie-Mapping
+│   ├── public/
+│   │   ├── questions.json            # Prüfungsfragen BZF (Deutsch)
+│   │   ├── questions-e.json          # Prüfungsfragen BZF‑E (Englisch)
+│   │   └── categories.json           # Kategorie-Mapping (gemeinsam)
 │   │
 │   ├── styles/
 │   │   ├── _variables.scss
@@ -103,18 +104,11 @@ bzf-trainer/
 
 ---
 
-## Datenfluss
-
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         App Component                            │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
 │  │   Header    │  │  Navigation │  │      Router Outlet      │  │
 │  └─────────────┘  └─────────────┘  └─────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
-                              │
                               ▼
-┌─────────────────────────────────────────────────────────────────┐
 │                        Pages (Smart)                             │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐│
 │  │   Home   │ │   Quiz   │ │ Results  │ │  Stats   │ │Settings││
@@ -149,14 +143,12 @@ bzf-trainer/
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                        Static Assets                             │
-│  ┌────────────────────┐  ┌────────────────────┐                 │
-│  │   questions.json   │  │   categories.json  │                 │
-│  │   (230 Fragen)     │  │   (Mapping)        │                 │
-│  └────────────────────┘  └────────────────────┘                 │
+│  ┌────────────────────┐  ┌────────────────────┐  ┌────────────┐ │
+│  │   questions.json   │  │  questions-e.json  │  │categories  │ │
+│  │   (BZF, DE)        │  │  (BZF‑E, EN)       │  │ (Mapping)  │ │
+│  └────────────────────┘  └────────────────────┘  └────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
 
 ## State Management
 
@@ -170,7 +162,7 @@ export class QuizService {
   private _currentSession = signal<QuizSession | null>(null);
   private _currentQuestionIndex = signal(0);
   private _isLoading = signal(false);
-  
+
   // Computed Values
   currentQuestion = computed(() => {
     const session = this._currentSession();
@@ -178,13 +170,13 @@ export class QuizService {
     if (!session) return null;
     return this.questionService.getById(session.questions[index]);
   });
-  
+
   progress = computed(() => {
     const session = this._currentSession();
     if (!session) return 0;
     return (this._currentQuestionIndex() / session.questions.length) * 100;
   });
-  
+
   // Public readonly signals
   currentSession = this._currentSession.asReadonly();
   isLoading = this._isLoading.asReadonly();
@@ -200,37 +192,34 @@ export class QuizService {
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'quiz',
-    loadComponent: () => import('./pages/quiz/quiz.component')
-      .then(m => m.QuizComponent)
+    loadComponent: () => import('./pages/quiz/quiz.component').then((m) => m.QuizComponent),
   },
   {
     path: 'quiz/:mode',
-    loadComponent: () => import('./pages/quiz/quiz.component')
-      .then(m => m.QuizComponent)
+    loadComponent: () => import('./pages/quiz/quiz.component').then((m) => m.QuizComponent),
   },
   {
     path: 'results/:sessionId',
-    loadComponent: () => import('./pages/results/results.component')
-      .then(m => m.ResultsComponent)
+    loadComponent: () => import('./pages/results/results.component'),
   },
   {
     path: 'statistics',
-    loadComponent: () => import('./pages/statistics/statistics.component')
-      .then(m => m.StatisticsComponent)
+    loadComponent: () =>
+      import('./pages/statistics/statistics.component').then((m) => m.StatisticsComponent),
   },
   {
     path: 'settings',
-    loadComponent: () => import('./pages/settings/settings.component')
-      .then(m => m.SettingsComponent)
+    loadComponent: () =>
+      import('./pages/settings/settings.component').then((m) => m.SettingsComponent),
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 ```
 
@@ -240,10 +229,9 @@ export const routes: Routes = [
 
 ```typescript
 // core/db/database.ts
-import Dexie, { Table } from 'dexie';
 
 export interface QuestionProgress {
-  questionId: number;      // Primary Key
+  questionId: number; // Primary Key
   correctCount: number;
   wrongCount: number;
   lastAnswered: Date;
@@ -251,7 +239,7 @@ export interface QuestionProgress {
 }
 
 export interface QuizSession {
-  id: string;              // UUID
+  id: string; // UUID
   mode: QuizMode;
   categoryId?: string;
   startedAt: Date;
@@ -264,13 +252,13 @@ export interface QuizSession {
 
 export interface QuizAnswer {
   questionId: number;
-  selectedAnswer: string;  // 'A' | 'B' | 'C' | 'D'
+  selectedAnswer: string; // 'A' | 'B' | 'C' | 'D'
   isCorrect: boolean;
   answeredAt: Date;
 }
 
 export interface Setting {
-  key: string;             // Primary Key
+  key: string; // Primary Key
   value: any;
 }
 
@@ -281,11 +269,11 @@ export class BZFDatabase extends Dexie {
 
   constructor() {
     super('bzf-trainer-db');
-    
+
     this.version(1).stores({
       questionProgress: 'questionId, lastAnswered',
       quizSessions: 'id, mode, startedAt, completedAt',
-      settings: 'key'
+      settings: 'key',
     });
   }
 }
@@ -297,13 +285,13 @@ export const db = new BZFDatabase();
 
 ## Quiz-Modi
 
-| Modus | Beschreibung | Parameter |
-|-------|--------------|-----------|
-| `all` | Alle Fragen der Reihe nach | - |
-| `random` | Zufällige Auswahl | `count?: number` |
-| `category` | Nur eine Kategorie | `categoryId: string` |
-| `weak` | Falsch beantwortete Fragen | - |
-| `exam` | Prüfungssimulation | `count: number`, `timeLimit?: number` |
+| Modus      | Beschreibung               | Parameter                             |
+| ---------- | -------------------------- | ------------------------------------- |
+| `all`      | Alle Fragen der Reihe nach | -                                     |
+| `random`   | Zufällige Auswahl          | `count?: number`                      |
+| `category` | Nur eine Kategorie         | `categoryId: string`                  |
+| `weak`     | Falsch beantwortete Fragen | -                                     |
+| `exam`     | Prüfungssimulation         | `count: number`, `timeLimit?: number` |
 
 ```typescript
 export type QuizMode = 'all' | 'random' | 'category' | 'weak' | 'exam';
@@ -314,7 +302,7 @@ export interface QuizConfig {
   questionCount?: number;
   timeLimitMinutes?: number;
   shuffleQuestions: boolean;
-  shuffleAnswers: boolean;  // Always true
+  shuffleAnswers: boolean; // Always true
 }
 ```
 
@@ -328,8 +316,8 @@ Da die richtige Antwort immer "A" ist, müssen wir beim Anzeigen die Antworten m
 interface ShuffledQuestion {
   original: Question;
   shuffledAnswers: {
-    label: string;      // 'A', 'B', 'C', 'D' (Anzeige)
-    text: string;       // Der Antworttext
+    label: string; // 'A', 'B', 'C', 'D' (Anzeige)
+    text: string; // Der Antworttext
     isCorrect: boolean; // true wenn original 'A'
   }[];
 }
@@ -341,20 +329,20 @@ function shuffleAnswers(question: Question): ShuffledQuestion {
     { text: question.C, isCorrect: false },
     { text: question.D, isCorrect: false },
   ];
-  
+
   // Fisher-Yates shuffle
   for (let i = answers.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [answers[i], answers[j]] = [answers[j], answers[i]];
   }
-  
+
   return {
     original: question,
     shuffledAnswers: answers.map((a, i) => ({
       label: String.fromCharCode(65 + i), // A, B, C, D
       text: a.text,
-      isCorrect: a.isCorrect
-    }))
+      isCorrect: a.isCorrect,
+    })),
   };
 }
 ```

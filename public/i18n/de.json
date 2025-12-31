@@ -7,7 +7,7 @@
     "about": "Über"
   },
   "home": {
-    "title": "BZF I/II Trainer",
+    "title": "BZF/BZF-E Trainer",
     "subtitle": "Übe die offiziellen Prüfungsfragen für dein Flugfunk-Zeugnis.",
     "questionsWaiting": "Fragen warten auf dich!",
     "continueQuiz": "Laufendes Quiz fortsetzen",
@@ -85,6 +85,8 @@
     "language": "Sprache",
     "chooseLanguage": "Wähle deine bevorzugte Sprache",
     "quizSettings": "Quiz-Einstellungen",
+    "defaultVariant": "Standardvariante",
+    "defaultVariantDesc": "Wähle, ob standardmäßig BZF (Deutsch) oder BZF-E (Englisch) verwendet werden soll",
     "immediateFeedback": "Sofortiges Feedback",
     "feedbackDesc": "Zeige sofort an, ob die Antwort richtig oder falsch war",
     "dataManagement": "Daten verwalten",
@@ -93,7 +95,7 @@
     "reset": "Zurücksetzen",
     "aboutApp": "Über die App",
     "appDesc": "Übungsapp für das beschränkte Sprechfunkzeugnis",
-    "appHelp": "Diese App hilft dir bei der Vorbereitung auf die BZF I und BZF II Prüfung.",
+    "appHelp": "Diese App hilft dir bei der Vorbereitung auf die BZF I, BZF II und BZF-E Prüfung.",
     "questionsIncluded": "Alle 261 offiziellen Prüfungsfragen sind enthalten.",
     "licenses": "Open Source Lizenzen anzeigen",
     "deleteTitle": "Fortschritt löschen?",
@@ -143,7 +145,7 @@
   "disclaimer": {
     "title": "Hinweis",
     "aboutTitle": "Über diese App",
-    "appName": "BZF I/II Trainer",
+    "appName": "BZF/BZF-E Trainer",
     "readFirst": "Bitte vor der Nutzung lesen",
     "hobbyProject": "Hobby-Projekt",
     "hobbyText": "Dies ist ein privates Hobby-Projekt von",
@@ -162,7 +164,7 @@
     "close": "Schließen",
     "understood": "Verstanden",
     "language": "Sprache",
-    "languageNote": "Die Prüfungsfragen bleiben im amtlichen Deutsch."
+    "languageNote": "Die Prüfungsfragen werden je nach Variante angezeigt: BZF (Deutsch) oder BZF-E (Englisch). Der Sprachwechsel (DE/EN) betrifft nur die UI-Texte."
   },
   "confirm": {
     "title": "Bestätigung",

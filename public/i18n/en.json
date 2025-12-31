@@ -7,7 +7,7 @@
     "about": "About"
   },
   "home": {
-    "title": "BZF I/II Trainer",
+    "title": "BZF/BZF-E Trainer",
     "subtitle": "Practice the official exam questions for your aviation radio certificate.",
     "questionsWaiting": "questions are waiting for you!",
     "continueQuiz": "Continue current quiz",
@@ -85,6 +85,8 @@
     "language": "Language",
     "chooseLanguage": "Choose your preferred language",
     "quizSettings": "Quiz Settings",
+    "defaultVariant": "Default Variant",
+    "defaultVariantDesc": "Choose whether BZF (German) or BZF-E (English) is used by default",
     "immediateFeedback": "Immediate Feedback",
     "feedbackDesc": "Immediately show whether the answer was correct or wrong",
     "dataManagement": "Data Management",
@@ -93,7 +95,7 @@
     "reset": "Reset",
     "aboutApp": "About the App",
     "appDesc": "Practice app for the restricted radiotelephone certificate",
-    "appHelp": "This app helps you prepare for the BZF I and BZF II exam.",
+    "appHelp": "This app helps you prepare for the BZF I, BZF II and BZF-E exam.",
     "questionsIncluded": "All 261 official exam questions are included.",
     "licenses": "View Open Source Licenses",
     "deleteTitle": "Delete progress?",
@@ -143,7 +145,7 @@
   "disclaimer": {
     "title": "Notice",
     "aboutTitle": "About this App",
-    "appName": "BZF I/II Trainer",
+    "appName": "BZF/BZF-E Trainer",
     "readFirst": "Please read before using",
     "hobbyProject": "Hobby Project",
     "hobbyText": "This is a private hobby project by",
@@ -162,7 +164,7 @@
     "close": "Close",
     "understood": "Understood",
     "language": "Language",
-    "languageNote": "Exam questions remain in official German."
+    "languageNote": "Exam questions are shown based on the selected variant: BZF (German) or BZF-E (English). The language switch (DE/EN) affects UI texts only."
   },
   "confirm": {
     "title": "Confirmation",

@@ -9,99 +9,95 @@
 
   <div class="container mx-auto px-4 py-6 space-y-6">
     <!-- Language Settings -->
-    <section class="bg-card rounded-xl border p-6">
+    <section class="bg-card rounded-xl border p-4">
       <h2 class="text-lg font-semibold mb-4">{{ 'settings.language' | translate }}</h2>
       <p class="text-sm text-muted-foreground mb-4">{{ 'settings.chooseLanguage' | translate }}</p>
 
-      <div class="grid grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 gap-2">
         <button
           (click)="setLanguage('de')"
-          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          class="flex items-center gap-2 p-2 rounded-lg border transition-all text-sm"
           [class]="
             translationService.language() === 'de'
               ? 'border-primary bg-primary/5'
-              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+              : 'border-transparent bg-secondary/40 hover:bg-secondary'
           "
         >
-          <div
-            class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-2xl"
-          >
+          <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-xl">
             🇩🇪
           </div>
-          <span class="text-sm font-medium">Deutsch</span>
+          <span class="font-medium">Deutsch</span>
         </button>
 
         <button
           (click)="setLanguage('en')"
-          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          class="flex items-center gap-2 p-2 rounded-lg border transition-all text-sm"
           [class]="
             translationService.language() === 'en'
               ? 'border-primary bg-primary/5'
-              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+              : 'border-transparent bg-secondary/40 hover:bg-secondary'
           "
         >
-          <div
-            class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-2xl"
-          >
+          <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-xl">
             🇬🇧
           </div>
-          <span class="text-sm font-medium">English</span>
+          <span class="font-medium">English</span>
         </button>
       </div>
       <p class="text-xs text-muted-foreground mt-3">{{ 'disclaimer.languageNote' | translate }}</p>
     </section>
 
     <!-- Theme Settings -->
-    <section class="bg-card rounded-xl border p-6">
+    <section class="bg-card rounded-xl border p-4">
       <h2 class="text-lg font-semibold mb-4">{{ 'settings.appearance' | translate }}</h2>
       <p class="text-sm text-muted-foreground mb-4">{{ 'settings.chooseTheme' | translate }}</p>
 
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-3 gap-2">
         <button
           (click)="setTheme('light')"
-          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          class="flex items-center gap-2 p-2 rounded-lg border transition-all text-sm"
           [class]="
             settingsService.theme() === 'light'
               ? 'border-primary bg-primary/5'
-              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+              : 'border-transparent bg-secondary/40 hover:bg-secondary'
           "
         >
-          <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
-            <lucide-icon [img]="Sun" class="h-6 w-6 text-amber-500"></lucide-icon>
+          <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+            <lucide-icon [img]="Sun" class="h-4 w-4 text-amber-500"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">{{ 'settings.light' | translate }}</span>
+          <span class="font-medium">{{ 'settings.light' | translate }}</span>
         </button>
 
         <button
           (click)="setTheme('dark')"
-          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          class="flex items-center gap-2 p-2 rounded-lg border transition-all text-sm"
           [class]="
             settingsService.theme() === 'dark'
               ? 'border-primary bg-primary/5'
-              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+              : 'border-transparent bg-secondary/40 hover:bg-secondary'
           "
         >
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
-            <lucide-icon [img]="Moon" class="h-6 w-6 text-slate-300"></lucide-icon>
+          <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">
+            <lucide-icon [img]="Moon" class="h-4 w-4 text-slate-300"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">{{ 'settings.dark' | translate }}</span>
+          <span class="font-medium">{{ 'settings.dark' | translate }}</span>
         </button>
 
         <button
           (click)="setTheme('system')"
-          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          class="flex items-center gap-2 p-2 rounded-lg border transition-all text-sm"
           [class]="
             settingsService.theme() === 'system'
               ? 'border-primary bg-primary/5'
-              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+              : 'border-transparent bg-secondary/40 hover:bg-secondary'
           "
         >
           <div
-            class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-100 to-slate-800 flex items-center justify-center"
+            class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-100 to-slate-800 flex items-center justify-center"
           >
-            <lucide-icon [img]="Monitor" class="h-6 w-6 text-white"></lucide-icon>
+            <lucide-icon [img]="Monitor" class="h-4 w-4 text-white"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">{{ 'settings.system' | translate }}</span>
+          <span class="font-medium">{{ 'settings.system' | translate }}</span>
         </button>
       </div>
     </section>
@@ -109,6 +105,41 @@
     <!-- Quiz Settings -->
     <section class="bg-card rounded-xl border p-6">
       <h2 class="text-lg font-semibold mb-4">{{ 'settings.quizSettings' | translate }}</h2>
+
+      <!-- Default Variant (BZF / BZF-E) -->
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-start gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-xs font-bold text-primary">BZF</span>
+          </div>
+          <div>
+            <p class="font-medium">{{ 'settings.defaultVariant' | translate }}</p>
+            <p class="text-sm text-muted-foreground">
+              {{ 'settings.defaultVariantDesc' | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            (click)="setQuestionVariant('bzf')"
+            class="px-3 py-1 rounded-full text-xs border"
+            [class.bg-primary]="settingsService.questionVariant() === 'bzf'"
+            [class.text-primary-foreground]="settingsService.questionVariant() === 'bzf'"
+          >
+            BZF
+          </button>
+          <button
+            (click)="setQuestionVariant('bzf-e')"
+            class="px-3 py-1 rounded-full text-xs border"
+            [class.bg-primary]="settingsService.questionVariant() === 'bzf-e'"
+            [class.text-primary-foreground]="settingsService.questionVariant() === 'bzf-e'"
+          >
+            BZF-E
+          </button>
+        </div>
+      </div>
 
       <div class="flex items-center justify-between">
         <div class="flex items-start gap-3">

@@ -62,15 +62,16 @@ export class HomeComponent implements OnInit {
 
   hasActiveQuiz = this.quizService.hasActiveQuiz;
 
-  confirmDialogMessage = computed(() => {
+  // Params for translate pipe to keep message reactive to language
+  confirmDialogParams = computed(() => {
     const info = this.activeQuizInfo();
-    if (!info) return '';
+    if (!info) return {};
     const modeName = this.getActiveQuizModeName(info);
-    return this.translateService.instant('home.confirmMessage', {
+    return {
       mode: modeName,
       progress: info.progress,
       total: info.total,
-    });
+    };
   });
 
   progressPercentage = computed(() => {
@@ -112,7 +113,13 @@ export class HomeComponent implements OnInit {
   getActiveQuizModeName(info: { mode: QuizMode; categoryId?: string }): string {
     if (info.mode === 'category' && info.categoryId) {
       const category = this.categories().find((c) => c.id === info.categoryId);
-      return category?.name ?? this.translateService.instant('mode.category');
+      if (category) {
+        const translated = this.translateService.instant(`categories.${category.id}.name`);
+        return translated && translated !== `categories.${category.id}.name`
+          ? translated
+          : category.name;
+      }
+      return this.translateService.instant('mode.category');
     }
     return this.getModeName(info.mode);
   }

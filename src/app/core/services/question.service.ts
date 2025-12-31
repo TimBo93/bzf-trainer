@@ -1,11 +1,14 @@
 import { Injectable, signal } from '@angular/core';
-import { Question, ShuffledQuestion, ShuffledAnswer, Category, CategoriesData } from '../models';
+import { CategoriesData, Category, Question, ShuffledAnswer, ShuffledQuestion } from '../models';
+import { QuestionVariant, SettingsService } from './settings.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionService {
   private _questions = signal<Question[]>([]);
+  private _questionsBZF = signal<Question[]>([]);
+  private _questionsBZFE = signal<Question[]>([]);
   private _categories = signal<Category[]>([]);
   private _questionMapping = signal<Record<string, string>>({});
   private _isLoaded = signal<boolean>(false);
@@ -15,19 +18,27 @@ export class QuestionService {
   questionMapping = this._questionMapping.asReadonly();
   isLoaded = this._isLoaded.asReadonly();
 
+  constructor(private settingsService: SettingsService) {}
+
   async loadData(): Promise<void> {
     if (this._isLoaded()) return;
 
     try {
-      const [questionsResponse, categoriesResponse] = await Promise.all([
+      const [questionsResponse, questionsEResponse, categoriesResponse] = await Promise.all([
         fetch('/questions.json'),
-        fetch('/categories.json')
+        fetch('/questions-e.json'),
+        fetch('/categories.json'),
       ]);
 
       const questions: Question[] = await questionsResponse.json();
+      const questionsE: Question[] = await questionsEResponse.json();
       const categoriesData: CategoriesData = await categoriesResponse.json();
 
-      this._questions.set(questions);
+      this._questionsBZF.set(questions);
+      this._questionsBZFE.set(questionsE);
+      // Set default active questions based on selected variant
+      const variant = this.settingsService.questionVariant();
+      this._questions.set(variant === 'bzf-e' ? this._questionsBZFE() : this._questionsBZF());
       this._categories.set(categoriesData.categories);
       this._questionMapping.set(categoriesData.questionMapping);
       this._isLoaded.set(true);
@@ -38,20 +49,31 @@ export class QuestionService {
   }
 
   getQuestionById(id: number): Question | undefined {
-    return this._questions().find(q => q.number === id);
+    const variant = this.settingsService.questionVariant();
+    return this.getVariantQuestionById(id, variant);
+  }
+
+  getVariantQuestionById(id: number, variant: QuestionVariant): Question | undefined {
+    const source = variant === 'bzf-e' ? this._questionsBZFE() : this._questionsBZF();
+    return source.find((q) => q.number === id);
+  }
+
+  refreshActiveQuestions(): void {
+    const variant = this.settingsService.questionVariant();
+    this._questions.set(variant === 'bzf-e' ? this._questionsBZFE() : this._questionsBZF());
   }
 
   getQuestionsByIds(ids: number[]): Question[] {
-    return ids.map(id => this.getQuestionById(id)).filter((q): q is Question => q !== undefined);
+    return ids.map((id) => this.getQuestionById(id)).filter((q): q is Question => q !== undefined);
   }
 
   getQuestionsByCategory(categoryId: string): Question[] {
     const mapping = this._questionMapping();
-    return this._questions().filter(q => mapping[q.number.toString()] === categoryId);
+    return this._questions().filter((q) => mapping[q.number.toString()] === categoryId);
   }
 
   getCategoryById(id: string): Category | undefined {
-    return this._categories().find(c => c.id === id);
+    return this._categories().find((c) => c.id === id);
   }
 
   getCategoryForQuestion(questionId: number): Category | undefined {
@@ -80,7 +102,7 @@ export class QuestionService {
 
     return {
       original: question,
-      shuffledAnswers: answers
+      shuffledAnswers: answers,
     };
   }
 
@@ -94,7 +116,7 @@ export class QuestionService {
   }
 
   getAllQuestionIds(): number[] {
-    return this._questions().map(q => q.number);
+    return this._questions().map((q) => q.number);
   }
 
   getRandomQuestionIds(count: number): number[] {
@@ -108,11 +130,12 @@ export class QuestionService {
   }
 
   getCategoryQuestionIds(categoryId: string): number[] {
-    return this.getQuestionsByCategory(categoryId).map(q => q.number);
+    return this.getQuestionsByCategory(categoryId).map((q) => q.number);
   }
 
   getTotalQuestionCount(): number {
-    return this._questions().length;
+    // Both variants are expected to have the same count; fall back to BZF
+    return this._questionsBZF().length || this._questions().length;
   }
 
   getQuestionCountByCategory(categoryId: string): number {

@@ -13,7 +13,12 @@ import {
   Settings,
   Sun,
 } from 'lucide-angular';
-import { Language, SettingsService, TranslationService } from '../../../core/services';
+import {
+  Language,
+  QuestionService,
+  SettingsService,
+  TranslationService,
+} from '../../../core/services';
 import { DisclaimerComponent } from '../disclaimer/disclaimer.component';
 import { SearchComponent } from '../search/search.component';
 
@@ -27,6 +32,7 @@ import { SearchComponent } from '../search/search.component';
 export class HeaderComponent {
   settingsService = inject(SettingsService);
   translationService = inject(TranslationService);
+  questionService = inject(QuestionService);
 
   readonly Plane = Plane;
   readonly Moon = Moon;
@@ -40,6 +46,7 @@ export class HeaderComponent {
 
   showAboutDialog = signal(false);
   showLanguageDropdown = signal(false);
+  showVariantDropdown = signal(false);
 
   toggleTheme() {
     this.settingsService.toggleTheme();
@@ -68,5 +75,23 @@ export class HeaderComponent {
 
   getCurrentLanguageLabel(): string {
     return this.translationService.language() === 'de' ? 'DE' : 'EN';
+  }
+
+  toggleVariantDropdown() {
+    this.showVariantDropdown.update((v) => !v);
+  }
+
+  closeVariantDropdown() {
+    this.showVariantDropdown.set(false);
+  }
+
+  setVariant(variant: 'bzf' | 'bzf-e') {
+    this.settingsService.setQuestionVariant(variant);
+    this.questionService.refreshActiveQuestions();
+    this.showVariantDropdown.set(false);
+  }
+
+  getCurrentVariantLabel(): string {
+    return this.settingsService.questionVariant() === 'bzf-e' ? 'BZF-E' : 'BZF';
   }
 }

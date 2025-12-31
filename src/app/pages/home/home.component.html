@@ -165,7 +165,7 @@
             <h3 class="font-medium group-hover:text-primary transition-colors">
               {{ 'categories.' + category.id + '.name' | translate }}
             </h3>
-            <p class="text-sm text-muted-foreground line-clamp-1">
+            <p class="text-sm text-muted-foreground">
               {{ 'categories.' + category.id + '.description' | translate }}
             </p>
           </div>
@@ -196,7 +196,7 @@
 @if (showConfirmDialog()) {
 <app-confirm-dialog
   [title]="'home.confirmTitle' | translate"
-  [message]="confirmDialogMessage()"
+  [message]="'home.confirmMessage' | translate : confirmDialogParams()"
   [confirmText]="'home.confirmNewQuiz' | translate"
   [cancelText]="'home.cancel' | translate"
   confirmVariant="danger"

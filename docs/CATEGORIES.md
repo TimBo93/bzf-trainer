@@ -2,24 +2,26 @@
 
 ## Geplante Kategorien
 
+Hinweis: Die Kategorien und das Mapping gelten gleichermaßen für beide Varianten (BZF und BZF‑E). Die Frage‑IDs sind identisch, nur die Sprachvariante der Texte unterscheidet sich.
+
 Basierend auf der Analyse der Prüfungsfragen werden folgende Kategorien erstellt:
 
-| ID | Kategorie | Beschreibung | Fragen (geschätzt) |
-|----|-----------|--------------|-------------------|
-| `legal` | Rechtliche Grundlagen | TKG, Flugfunkzeugnisse, Zuständigkeiten | ~10 |
-| `definitions` | Begriffsbestimmungen | Luft-/Bodenfunkstelle, Blindsendung, etc. | ~15 |
-| `abbreviations` | Abkürzungen | IMC, FIR, ATIS, CTR, AIS, SAR, UTC, etc. | ~20 |
-| `q-codes` | Q-Gruppen | QNH, QFE, QDM, QDR, QTE, etc. | ~15 |
-| `message-types` | Meldungsarten | Not-, Dringlichkeits-, Flugsicherheitsmeldungen | ~15 |
-| `callsigns` | Rufzeichen | Luftfunkstellen, Bodenfunkstellen, Buchstabieren | ~15 |
-| `transmission` | Übermittlung | Zeit, Zahlen, Frequenzen, Höhen | ~10 |
-| `atc` | Flugverkehrskontrolle | Freigaben, Anweisungen, Verfahren | ~30 |
-| `airspace` | Lufträume | Luftraumklassen, CTR, FIR, etc. | ~15 |
-| `emergency` | Notverfahren | Mayday, Pan Pan, Transponder, Signale | ~20 |
-| `radar` | Radar & Navigation | Radar-Dienste, Peilung, VDF | ~15 |
-| `weather` | Meteorologie | ATIS, VOLMET, Wettermeldungen | ~15 |
-| `procedures` | Betriebsverfahren | Start, Landung, Platzrunde, Rollen | ~25 |
-| `equipment` | Funkausrüstung | Frequenzen, Reichweite, Störungen | ~10 |
+| ID              | Kategorie             | Beschreibung                                     | Fragen (geschätzt) |
+| --------------- | --------------------- | ------------------------------------------------ | ------------------ |
+| `legal`         | Rechtliche Grundlagen | TKG, Flugfunkzeugnisse, Zuständigkeiten          | ~10                |
+| `definitions`   | Begriffsbestimmungen  | Luft-/Bodenfunkstelle, Blindsendung, etc.        | ~15                |
+| `abbreviations` | Abkürzungen           | IMC, FIR, ATIS, CTR, AIS, SAR, UTC, etc.         | ~20                |
+| `q-codes`       | Q-Gruppen             | QNH, QFE, QDM, QDR, QTE, etc.                    | ~15                |
+| `message-types` | Meldungsarten         | Not-, Dringlichkeits-, Flugsicherheitsmeldungen  | ~15                |
+| `callsigns`     | Rufzeichen            | Luftfunkstellen, Bodenfunkstellen, Buchstabieren | ~15                |
+| `transmission`  | Übermittlung          | Zeit, Zahlen, Frequenzen, Höhen                  | ~10                |
+| `atc`           | Flugverkehrskontrolle | Freigaben, Anweisungen, Verfahren                | ~30                |
+| `airspace`      | Lufträume             | Luftraumklassen, CTR, FIR, etc.                  | ~15                |
+| `emergency`     | Notverfahren          | Mayday, Pan Pan, Transponder, Signale            | ~20                |
+| `radar`         | Radar & Navigation    | Radar-Dienste, Peilung, VDF                      | ~15                |
+| `weather`       | Meteorologie          | ATIS, VOLMET, Wettermeldungen                    | ~15                |
+| `procedures`    | Betriebsverfahren     | Start, Landung, Platzrunde, Rollen               | ~25                |
+| `equipment`     | Funkausrüstung        | Frequenzen, Reichweite, Störungen                | ~10                |
 
 **Gesamt: ~230 Fragen**
 
@@ -27,7 +29,7 @@ Basierend auf der Analyse der Prüfungsfragen werden folgende Kategorien erstell
 
 ## Kategorie-Mapping Format
 
-Die Datei `assets/categories.json` wird folgendes Format haben:
+Die Datei `public/categories.json` hat folgendes Format:
 
 ```json
 {
@@ -76,6 +78,7 @@ Die Datei `assets/categories.json` wird folgendes Format haben:
 ## Detaillierte Fragen-Zuordnung
 
 ### Rechtliche Grundlagen (`legal`) - Fragen 1-9
+
 - Frage 1: ITU - Internationale Organisation
 - Frage 2: TKG - Rechtliche Grundlage
 - Frage 3: Bundesnetzagentur - Frequenzzuteilung
@@ -83,6 +86,7 @@ Die Datei `assets/categories.json` wird folgendes Format haben:
 - Frage 7-9: BZF I/II Berechtigungen
 
 ### Begriffsbestimmungen (`definitions`) - Fragen 10-14
+
 - Frage 10: Luftfunkstelle
 - Frage 11: Bodenfunkstelle
 - Frage 12: Blindsendung
@@ -90,6 +94,7 @@ Die Datei `assets/categories.json` wird folgendes Format haben:
 - Frage 14: Rollhalt
 
 ### Abkürzungen (`abbreviations`) - Fragen 15-24
+
 - Frage 15: CTR
 - Frage 16: IMC
 - Frage 17: FIR
@@ -102,16 +107,19 @@ Die Datei `assets/categories.json` wird folgendes Format haben:
 - Frage 24: ATIS
 
 ### Q-Gruppen (`q-codes`) - Fragen 25-33
+
 - Frage 25-26: QFE, QNH
 - Frage 27-28: Höhenmesser-Einstellung
 - Frage 29-32: QDM, QDR
 - Frage 33: Peilfunkmeldungen
 
 ### Meldungsarten (`message-types`) - Fragen 34-43
+
 - Frage 34-35: Meldungsprioritäten
 - Frage 36-43: Klassifizierung von Meldungen
 
 ### Übermittlung (`transmission`) - Fragen 44-50
+
 - Frage 44: Uhrzeitübermittlung
 - Frage 45-46: Buchstabieren
 - Frage 47: Höhenübermittlung
@@ -120,11 +128,12 @@ Die Datei `assets/categories.json` wird folgendes Format haben:
 - Frage 50: Zeitübermittlung
 
 ### Rufzeichen (`callsigns`) - Fragen 51-62
+
 - Frage 51-56: Bodenfunkstellen-Rufzeichen
 - Frage 57: Rufzeichen weglassen
 - Frage 58-61: Luftfunkstellen-Rufzeichen
 
-*... weitere Zuordnung wird bei der Implementierung vervollständigt*
+_... weitere Zuordnung wird bei der Implementierung vervollständigt_
 
 ---
 

@@ -71,6 +71,38 @@
         }
       </div>
 
+      <!-- Variant Dropdown (BZF / BZF-E) -->
+      <div class="relative">
+        <button
+          (click)="toggleVariantDropdown()"
+          class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring gap-1"
+        >
+          <span class="text-xs font-semibold">{{ getCurrentVariantLabel() }}</span>
+          <lucide-icon [img]="ChevronDown" class="h-4 w-4"></lucide-icon>
+        </button>
+        @if (showVariantDropdown()) {
+        <div
+          class="absolute right-0 top-full mt-1 bg-card border rounded-lg shadow-lg py-1 min-w-[120px] z-50"
+          (mouseleave)="closeVariantDropdown()"
+        >
+          <button
+            (click)="setVariant('bzf')"
+            class="w-full px-3 py-2 text-left text-sm hover:bg-accent transition-colors flex items-center gap-2"
+            [class.bg-accent]="settingsService.questionVariant() === 'bzf'"
+          >
+            BZF (DE)
+          </button>
+          <button
+            (click)="setVariant('bzf-e')"
+            class="w-full px-3 py-2 text-left text-sm hover:bg-accent transition-colors flex items-center gap-2"
+            [class.bg-accent]="settingsService.questionVariant() === 'bzf-e'"
+          >
+            BZF-E (EN)
+          </button>
+        </div>
+        }
+      </div>
+
       <!-- Theme Toggle -->
       <button
         (click)="toggleTheme()"

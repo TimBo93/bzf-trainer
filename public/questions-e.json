@@ -1,0 +1,1290 @@
+[
+  {
+    "number": 1,
+    "A": "ITU",
+    "B": "IATA",
+    "C": "UNESCO",
+    "D": "NATO",
+    "question": "Which international organisation is of particular importance to the aeronautical radio service worldwide?"
+  },
+  {
+    "number": 2,
+    "A": "Telecommunications Act (TKG)",
+    "B": "Air Traffic Act (LuftVG)",
+    "C": "Convention on International Civil Aviation",
+    "D": "Ordinance on the fitting of aircraft with navigational equipment",
+    "question": "What is the legal basis for the setting-up and operation of radio installations in the Federal Republic of Germany?"
+  },
+  {
+    "number": 3,
+    "A": "Federal Network Agency (Bundesnetzagentur)",
+    "B": "Federal Minister of the Interior",
+    "C": "Aeronautical Authorities of the Lands (federal states)",
+    "D": "Air traffic service (DFS)",
+    "question": "Who is responsible for frequency assignments for the operation of aeronautical stations and aircraft stations in the Federal Republic of Germany?"
+  },
+  {
+    "number": 4,
+    "A": "Switch transponder to Mode/Code 1352",
+    "B": "Count 1-3-5-2 for radio bearing",
+    "C": "Request test transmission on frequency 135.200 MHz",
+    "D": "Switch to frequency 135.200 If you receive a report from radar control \"UNKNOWN TRAFFIC AT TEN O’CLOCK, DISTANCE 81",
+    "question": "Who requires an operator's certificate to conduct radiotelephony communication?"
+  },
+  {
+    "number": 5,
+    "A": "Operator of a radio station with the call sign \"RETRIEVER (RÜCKHOLER)\"",
+    "B": "Air traffic controller",
+    "C": "Chief flying instructor at glider sites",
+    "D": "Sport pilot in Class C airspace",
+    "question": "Who does not need an operator's certificate to perform radiotelephony communication?"
+  },
+  {
+    "number": 6,
+    "A": "Student pilot in the traffic circuit of aerodromes with controlled/uncontrolled air traffic control",
+    "B": "Air traffic controller",
+    "C": "Chief flying instructor at an airfield",
+    "D": "Aviation Safety Oversight Officer",
+    "question": "Who does not need an operator's certificate to perform radiotelephony communication?"
+  },
+  {
+    "number": 7,
+    "A": "in the German language within the Federal Republic of Germany",
+    "B": "in the English language for VFR flights",
+    "C": "for IFR flights",
+    "D": "in the German and English language at any German aeronautical station",
+    "question": "The \"Radiotelephone Operator's Restricted Certificate (BZF II)\" entitles its holder to perform radiotelephony communication …"
+  },
+  {
+    "number": 8,
+    "A": "in the German language for VFR flights within the Federal Republic of Germany",
+    "B": "in the English language for VFR flights within the Federal Republic of Germany",
+    "C": "for IFR flights",
+    "D": "in any of the ICAO languages for VFR flights",
+    "question": "The \"Radiotelephone Operator's Restricted Certificate (BZF II)\" entitles its holder to perform radiotelephony communication …"
+  },
+  {
+    "number": 9,
+    "A": "BZF I",
+    "B": "BZF II",
+    "C": "No operator's certificate required since it is a VFR flight",
+    "D": "No operator's certificate required if the flight instructor has issued a written flight order",
+    "question": "Which operator's certificate is required to perform radiotelephony communication in German and English during a VFR flight?"
+  },
+  {
+    "number": 10,
+    "A": "of the aeronautical mobile service on board an aircraft",
+    "B": "on board an aircraft carrier",
+    "C": "of the aeronautical mobile service at an international airport",
+    "D": "of the aeronautical mobile service at an airfield",
+    "question": "What is an aircraft station? A station …"
+  },
+  {
+    "number": 11,
+    "A": "platform at sea",
+    "B": "Station of the aeronautical fixed telecommunication service",
+    "C": "Any station used to exchange radio messages Station of the aeronautical telecommunication service located on land or on board a ship for the exchange",
+    "D": "of radio messages",
+    "question": "What is an aeronautical station? Land station in the aeronautical mobile service. In certain instances it may be located on board ship or on a"
+  },
+  {
+    "number": 12,
+    "A": "Transmission of a message to the air traffic service in cases where radio contact cannot be established Transmission of meteorological and flight operational information to aircraft over the high seas or deserts",
+    "B": "beyond the radio coverage of VHF aeronautical stations",
+    "C": "Transmission of aeronautical information that is not addressed to a specific receiving station",
+    "D": "Radio message to be repeated by the receiving station",
+    "question": "What does the term \"BLIND TRANSMISSION\" mean?"
+  },
+  {
+    "number": 13,
+    "A": "on a frequency Transmission of reports on meteorological phenomena which could affect the safety of flight operations,",
+    "B": "intended for one or more specific stations",
+    "C": "Communication whose receipt has to be acknowledged",
+    "D": "Radiotelephony communication from an aeronautical station to a specific aircraft station",
+    "question": "What does the term \"GENERAL CALL\" mean? Stations in the aeronautical mobile service may simultaneously call all stations maintaining listening watch"
+  },
+  {
+    "number": 14,
+    "A": "aircraft and vehicles shall stop and hold, unless otherwise authorised by the aerodrome control tower",
+    "B": "Unmarked position in the parking area for general aviation",
+    "C": "Marked position on a runway where the take-off run is commenced",
+    "D": "Marked parking area on the apron of a commercial airport",
+    "question": "What does the term \"HOLDING POINT\" mean?"
+  },
+  {
+    "number": 15,
+    "A": "CTR",
+    "B": "CZ",
+    "C": "CTZ",
+    "D": "CTA",
+    "question": "Which abbreviation is used for the term \"CONTROL ZONE\"?"
+  },
+  {
+    "number": 16,
+    "A": "Instrument Meteorological Conditions",
+    "B": "Visual Meteorological Conditions",
+    "C": "Instrument Flight",
+    "D": "Visual Flight",
+    "question": "What does the abbreviation \"IMC\" mean?"
+  },
+  {
+    "number": 17,
+    "A": "Flight Information Region",
+    "B": "Flight Information Radar",
+    "C": "Flight Information Requested",
+    "D": "Flight Information Received",
+    "question": "What does the abbreviation \"FIR\" mean?"
+  },
+  {
+    "number": 18,
+    "A": "Continuous day and night service",
+    "B": "Sunset to sunrise",
+    "C": "No specific working hours",
+    "D": "Altitude 2400 feet",
+    "question": "What does the abbreviation \"H24\" mean?"
+  },
+  {
+    "number": 19,
+    "A": "No specific working hours",
+    "B": "Altitude not specified",
+    "C": "Sunrise to sunset",
+    "D": "Continuous day and night service",
+    "question": "What does the abbreviation \"HX\" mean?"
+  },
+  {
+    "number": 20,
+    "A": "Sunrise to sunset",
+    "B": "No specific working hours",
+    "C": "Sunset to sunrise",
+    "D": "Continuous day and night service",
+    "question": "What does the abbreviation \"HJ\" mean?"
+  },
+  {
+    "number": 21,
+    "A": "Aeronautical Information Services",
+    "B": "Airport Information System",
+    "C": "General Information Centre",
+    "D": "All-weather Information System",
+    "question": "What does the abbreviation \"AIS\" mean?"
+  },
+  {
+    "number": 22,
+    "A": "Search and Rescue",
+    "B": "\"STOP AT THE TAXI HOLDING POINT\"",
+    "C": "Secondary Approach Radar",
+    "D": "Standard Approach Route",
+    "question": "What does the abbreviation \"SAR\" mean?"
+  },
+  {
+    "number": 23,
+    "A": "UTC",
+    "B": "GMT",
+    "C": "Z time",
+    "D": "CUT",
+    "question": "Which abbreviation is used for the term \"COORDINATED UNIVERSAL TIME\"?"
+  },
+  {
+    "number": 24,
+    "A": "Automatic Terminal Information Service",
+    "B": "Air Traffic Information Service",
+    "C": "Airport Terminal Information Service",
+    "D": "Automatic Information System",
+    "question": "What does the abbreviation \"ATIS\" mean?"
+  },
+  {
+    "number": 25,
+    "A": "Atmospheric pressure at aerodrome elevation or at runway threshold",
+    "B": "Atmospheric pressure in reference to a point on the surface of Earth",
+    "C": "Atmospheric pressure in reference to the highest fixed obstacle at an aerodrome",
+    "D": "Altimeter sub-scale setting to obtain elevation when on ground",
+    "question": "What does the Q Code \"QFE\" mean?"
+  },
+  {
+    "number": 26,
+    "A": "Altimeter sub-scale setting to obtain aerodrome elevation when on the ground",
+    "B": "Atmospheric pressure at aerodrome elevation or at runway threshold",
+    "C": "Atmospheric pressure measured at the aerodrome reference point",
+    "D": "Atmospheric pressure in reference to the highest obstacle at an aerodrome",
+    "question": "What does the Q Code \"QNH\" mean?"
+  },
+  {
+    "number": 27,
+    "A": "QNH",
+    "B": "QFE",
+    "C": "QUJ",
+    "D": "QDM",
+    "question": "If you want the altimeter to indicate the altitude above MSL, which atmospheric pressure shall the altimeter be set to?"
+  },
+  {
+    "number": 28,
+    "A": "QFE",
+    "B": "QDR",
+    "C": "QNH",
+    "D": "QTE",
+    "question": "If you want the altimeter to indicate the height above aerodrome, which atmospheric pressure shall the altimeter be set to?"
+  },
+  {
+    "number": 29,
+    "A": "Magnetic heading to the station",
+    "B": "True bearing from the station",
+    "C": "Magnetic bearing from the station",
+    "D": "True heading to the station (zero wind)",
+    "question": "What does the Q Code \"QDM\" mean?"
+  },
+  {
+    "number": 30,
+    "A": "QDM",
+    "B": "QNE",
+    "C": "QDR",
+    "D": "QTE",
+    "question": "What is the Q Code for \"MAGNETIC HEADING TO THE STATION\"?"
+  },
+  {
+    "number": 31,
+    "A": "Magnetic bearing from the station",
+    "B": "Magnetic heading to the station (zero wind)",
+    "C": "True bearing/position line from the station",
+    "D": "True heading to the station",
+    "question": "What does the Q Code \"QDR\" mean?"
+  },
+  {
+    "number": 32,
+    "A": "QDR",
+    "B": "QDM",
+    "C": "QTE",
+    "D": "QFE",
+    "question": "What is the Q Code for \"MAGNETIC BEARING FROM THE STATION\"?"
+  },
+  {
+    "number": 33,
+    "A": "transmit direction finding values to provide navigational assistance",
+    "B": "relate to the failure of radio navigation equipment on board an aircraft",
+    "C": "transmit QNH values",
+    "D": "relate to the failure of radio navigation equipment on the ground",
+    "question": "What are Messages Relating to Direction Finding? Messages which …"
+  },
+  {
+    "number": 34,
+    "A": "Messages Relating to Direction Finding",
+    "B": "State Telegram",
+    "C": "Meteorological Message",
+    "D": "Flight Regularity Message",
+    "question": "In order of priority, which type of message precedes a Flight Safety Message?"
+  },
+  {
+    "number": 35,
+    "A": "Flight Safety Messages",
+    "B": "Messages Relating to Direction Finding",
+    "C": "Flight Regularity Messages",
+    "D": "Urgency Messages",
+    "question": "Messages transmitted while performing air traffic control are …"
+  },
+  {
+    "number": 36,
+    "A": "an Urgency Message",
+    "B": "a Flight Regularity Message",
+    "C": "a Distress Message",
+    "D": "a Flight Safety Message",
+    "question": "A message concerning the safety of an aircraft, any other vehicle or person on board is …"
+  },
+  {
+    "number": 37,
+    "A": "a Flight Regularity Message",
+    "B": "an Urgency Message",
+    "C": "a Flight Safety Message",
+    "D": "an Air Traffic Control Message",
+    "question": "A message concerning aircraft parts urgently required is …"
+  },
+  {
+    "number": 38,
+    "A": "pilot's message to the control tower \"ESTIMATED TIME OF ARRIVAL 1206, PLEASE CALL ME A",
+    "B": "Administrative Messages from the Aeronautical Authorities of the Lands (federal states)",
+    "C": "Messages from aircraft operators",
+    "D": "Teletype Messages",
+    "question": "Which of the following messages are authorized in the aeronautical mobile service?"
+  },
+  {
+    "number": 39,
+    "A": "pilot's message to the ATC service \"REQUEST RADAR VECTORING TO CIRCUMFLY THE",
+    "B": "an Urgency Message",
+    "C": "a Flight Safety Message",
+    "D": "a Flight Regularity Message",
+    "question": "TAXI\" is …"
+  },
+  {
+    "number": 40,
+    "A": "a Flight Safety Message",
+    "B": "a Meteorological Message",
+    "C": "an Urgency Message",
+    "D": "a Message Relating to Direction Finding",
+    "question": "THUNDERSTORM\" is …"
+  },
+  {
+    "number": 41,
+    "A": "a Flight Safety Message",
+    "B": "an unauthorized message",
+    "C": "an Urgency Message",
+    "D": "a Flight Regularity Message",
+    "question": "The clearance \"RUNWAY 05, CLEARED FOR TAKE-OFF\" is …"
+  },
+  {
+    "number": 42,
+    "A": "higher than \"CLEARED FOR TAKE-OFF\"",
+    "B": "lower than \"REQUEST QNH\"",
+    "C": "lower than \"CLIMB FLIGHT LEVEL 85\"",
+    "D": "same as \"RUNWAY 32, CLEARED TO LAND\"",
+    "question": "The priority of a pilot’s message \"REQUEST QDM\" is …"
+  },
+  {
+    "number": 43,
+    "A": "same as \"LINE UP RUNWAY 05 AND WAIT\"",
+    "B": "lower than \"CLEARED TO LAND\"",
+    "C": "higher than \"TRANSMIT FOR BEARING\"",
+    "D": "higher than \"CAUTION CONSTRUCTION WORK LEFT OF TAXIWAY G\"",
+    "question": "The priority of the instruction \"TAXI TO HOLDING POINT RUNWAY 12 VIA C\" is …"
+  },
+  {
+    "number": 44,
+    "A": "Minutes, two digits",
+    "B": "Hours and minutes",
+    "C": "Minutes and seconds",
+    "D": "At discretion",
+    "question": "What is the correct way of transmitting the time in the aeronautical radio service if there is no possibility of confusion?"
+  },
+  {
+    "number": 45,
+    "A": "DELTA ECHO JULIETT FOXTROT CHARLIE",
+    "B": "DELTA ECHO YULIETT FOXTROTT CHARLIE",
+    "C": "DELTA ECHO JULIETT FOX CHARLIE",
+    "D": "DELTA ECHO YULIETT FOX CHARLIE",
+    "question": "What is the correct way of spelling the call sign DEJFC?"
+  },
+  {
+    "number": 46,
+    "A": "DELTA INDIA JULIETT YANKEE FOXTROT",
+    "B": "DELTA YULIETT INDIA JANKEE FOXTROT",
+    "C": "DELTA INDIA JULIETT YANKEE FOX",
+    "D": "DELTA INDIA JANKEE YULIETT FOXTROT",
+    "question": "What is the correct way of spelling the call sign DIJYF?"
+  },
+  {
+    "number": 47,
+    "A": "THREE THOUSAND FIVE HUNDRED FEET",
+    "B": "THREE FIVE HUNDRED FEET",
+    "C": "THREE FIVE ZERO ZERO FEET",
+    "D": "THREE THOUSAND FIVE ZERO ZERO FEEET",
+    "question": "What is the correct way of transmitting the altitude of 3500 ft?"
+  },
+  {
+    "number": 48,
+    "A": "QNH one zero zero one",
+    "B": "QNH one thousand one",
+    "C": "QNH one nought nought one",
+    "D": "QNH one thousand and one",
+    "question": "What is the correct way of transmitting \"QNH 1001\"?"
+  },
+  {
+    "number": 49,
+    "A": "one two zero decimal two seven five",
+    "B": "one twenty decimal two seven",
+    "C": "one two zero decimal two seven",
+    "D": "one two zero two seven five",
+    "question": "What is the correct way of transmitting the VHF frequency 120.275 MHz?"
+  },
+  {
+    "number": 50,
+    "A": "one three one eight",
+    "B": "thirteen one eight",
+    "C": "thirteen eighteen",
+    "D": "one eight past thirteen hours",
+    "question": "What is the correct way of transmitting the time 1318 in order to avoid any error or confusion?"
+  },
+  {
+    "number": 51,
+    "A": "GROUND",
+    "B": "INFORMATION",
+    "C": "RADAR",
+    "D": "TOWER",
+    "question": "What is the call sign of an aeronautical station at a controlled aerodrome for air traffic control on the manoeuvring area?"
+  },
+  {
+    "number": 52,
+    "A": "TOWER",
+    "B": "RETRIEVER (RÜCKHOLER)",
+    "C": "APRON",
+    "D": "INFORMATION",
+    "question": "What is the call sign of an aeronautical station at a controlled aerodrome for air traffic control in the traffic circuit?"
+  },
+  {
+    "number": 53,
+    "A": "RADIO",
+    "B": "AIR SUPERVISION (LUFTAUFSICHT)",
+    "C": "TOWER (TURM)",
+    "D": "AIR TRAFFIC CONTROL (FLUGLEITUNG)",
+    "question": "The call signs of German aeronautical stations at an uncontrolled airfield comprise the name of the airfield plus the term:"
+  },
+  {
+    "number": 54,
+    "A": "GLIDER ACTIVITY",
+    "B": "RADIO",
+    "C": "GROUND",
+    "D": "INFORMATION",
+    "question": "The call signs of German aeronautical stations at gliding sites comprise the name of the gliding site plus the term:"
+  },
+  {
+    "number": 55,
+    "A": "INFORMATION",
+    "B": "RADIO",
+    "C": "INFO",
+    "D": "FLIGHT INFORMATION",
+    "question": "The call sign the air traffic service uses for the Flight Information Service is:"
+  },
+  {
+    "number": 56,
+    "A": "Aerodrome weather",
+    "B": "Taxiing instructions",
+    "C": "Landing clearances",
+    "D": "Take-off clearances",
+    "question": "What is obtained from an aeronautical station with the call sign \"INFORMATION\"?"
+  },
+  {
+    "number": 57,
+    "A": "After the establishing of voice communication",
+    "B": "When the aircraft is in the traffic circuit",
+    "C": "In any radiotelephony call",
+    "D": "If confusion with any other aircraft station is ruled out",
+    "question": "When may the call sign of the aeronautical station be omitted in radiotelephony communication?"
+  },
+  {
+    "number": 58,
+    "A": "the characters of the registration mark of the aircraft",
+    "B": "the aircraft type designator and the last three characters of the registration mark",
+    "C": "the flight number combined with the registration mark",
+    "D": "the letter \"D\" and another three letters",
+    "question": "The call signs of German aircraft stations comprise …"
+  },
+  {
+    "number": 59,
+    "A": "on the instruction of an ATC unit in the interests of safety",
+    "B": "for powered gliders when changing from powered flight to gliding",
+    "C": "at the request of the pilot",
+    "D": "if the IFR flight plan is cancelled and the flight continues under VFR",
+    "question": "An aircraft shall not change the type of its radiotelephony call sign during flight, except temporarily …"
+  },
+  {
+    "number": 60,
+    "A": "the first character of the registration and at least the last two characters of the call sign",
+    "B": "the last three characters of the call sign",
+    "C": "the last two characters of the registration mark",
+    "D": "the aircraft type designator combined with the last character of the call sign",
+    "question": "The abbreviated call sign of an aircraft station comprises …"
+  },
+  {
+    "number": 61,
+    "A": "If it has already been used by the aeronautical station",
+    "B": "Only for flights in a traffic circuit",
+    "C": "In any radiotelephony call",
+    "D": "After establishment of radiotelephony contact with an aeronautical station",
+    "question": "When shall an aircraft station use its abbreviated call sign?"
+  },
+  {
+    "number": 62,
+    "A": "Air Traffic Control Service",
+    "B": "Air Navigation Service",
+    "C": "Aeronautical Telecommunication Service",
+    "D": "Aeronautical Information Service",
+    "question": "With which air traffic service can a pilot establish radio contact during a flight in Class C airspace?"
+  },
+  {
+    "number": 63,
+    "A": "Flight Information Service",
+    "B": "Aeronautical Telecommunication Service",
+    "C": "Air Navigation Service",
+    "D": "Aeronautical Information Service",
+    "question": "With which air traffic service can radio contact be established during flight?"
+  },
+  {
+    "number": 64,
+    "A": "message is not completely repeated by a pilot, although this is required by the message type.",
+    "B": "MONITOR YOUR CALL SIGN",
+    "C": "VERIFY YOUR CALL SIGN",
+    "D": "CONFIRM YOUR CALL SIGN",
+    "question": "Which phrase shall be used if the call sign of the calling station is not understood?"
+  },
+  {
+    "number": 65,
+    "A": "READ BACK",
+    "B": "GO AHEAD",
+    "C": "CONFIRM",
+    "D": "SAY AGAIN",
+    "question": "Which phrase is used to request the pilot to repeat the message?"
+  },
+  {
+    "number": 66,
+    "A": "AFFIRM",
+    "B": "ROGER",
+    "C": "CORRECT",
+    "D": "THAT’S CORRECT",
+    "question": "Which phrase shall be used for \"YES\"?"
+  },
+  {
+    "number": 67,
+    "A": "NEGATIVE",
+    "B": "FALSE",
+    "C": "INCORRECT",
+    "D": "NO",
+    "question": "Which phrase shall be used for \"PERMISSION NOT GRANTED\"?"
+  },
+  {
+    "number": 68,
+    "A": "ROGER",
+    "B": "AFFIRM",
+    "C": "WILL COMPLY",
+    "D": "WILCO",
+    "question": "Which phrase shall be used for \"I HAVE RECEIVED ALL OF YOUR LAST TRANSMISSION\"?"
+  },
+  {
+    "number": 69,
+    "A": "CONFIRM",
+    "B": "READ BACK",
+    "C": "SAY AGAIN",
+    "D": "CORRECTION",
+    "question": "The content of a clearly understandable message appears doubtful to you. Which phrase do you use to dispel the doubt?"
+  },
+  {
+    "number": 70,
+    "A": "FL 75",
+    "B": "7500 ft",
+    "C": "7500 ft AGL",
+    "D": "7500 ft AMSL",
+    "question": "The altimeter is set to 1013.2 hPa and reads 7500 feet. The aeronautical station requests the current level of the aircraft. What shall be the pilot's answer?"
+  },
+  {
+    "number": 71,
+    "A": "QNH 1003 CORRECTION QNH 1002",
+    "B": "QNH 1003 BREAK BREAK 1002",
+    "C": "QNH 1003 NEGATIVE QNH 1002",
+    "D": "QNH 1003 I SAY AGAIN 1002",
+    "question": "Which phrase shall be used to say \"AN ERROR HAS BEEN MADE IN THIS TRANSMISSION\"? THE CORRECT VERSION IS …\"?"
+  },
+  {
+    "number": 72,
+    "A": "CLEARED",
+    "B": "AFFIRM",
+    "C": "APPROVED",
+    "D": "CORRECT",
+    "question": "Which phrase shall be used for \"AUTHORIZATION TO PROCEED UNDER CONDITIONS SPECIFIED\"?"
+  },
+  {
+    "number": 73,
+    "A": "SQUAWK",
+    "B": "OPERATE YOUR TRANSPONDER",
+    "C": "TRANSPOND",
+    "D": "RESPOND MODE .…/CODE ….",
+    "question": "Which phrase shall be used to instruct a pilot to set the transponder to a specific mode/code?"
+  },
+  {
+    "number": 74,
+    "A": "I understand your message and will comply with it",
+    "B": "Wait and I will call you",
+    "C": "I have received all of your last transmission",
+    "D": "I repeat for clarity or emphasis",
+    "question": "The phrase \"WILCO\" means:"
+  },
+  {
+    "number": 75,
+    "A": "Listen out on (frequency)",
+    "B": "Consider that transmission as not sent",
+    "C": "Establish radio contact with (station)",
+    "D": "Let me know that you have received and understood this message",
+    "question": "The phrase \"MONITOR\" means:"
+  },
+  {
+    "number": 76,
+    "A": "GOING AROUND",
+    "B": "ROGER",
+    "C": "WILCO",
+    "D": "AFFIRM",
+    "question": "Which phrase shall be used by a pilot to acknowledge the control tower’s instruction: \"GO AROUND, RUNWAY BLOCKED\"?"
+  },
+  {
+    "number": 77,
+    "A": "DEKMG HOLDING",
+    "B": "DEKMG ROGER",
+    "C": "DEKMG",
+    "D": "DEKMG AFFIRM",
+    "question": "Which phrase shall be used by a pilot to acknowledge the instruction \"DEKMG HOLD POSITION CANCEL TAKE-OFF, I SAY AGAIN CANCEL TAKE-OFF\"?"
+  },
+  {
+    "number": 78,
+    "A": "DEHOL RUNWAY 24 CLEARED FOR TAKE-OFF",
+    "B": "DEHOL CLEARED FOR TAKE-OFF",
+    "C": "DEHOL WILCO",
+    "D": "DEHOL I AM TAKING OFF",
+    "question": "DEHOL receives clearance for take-off on runway 24. How shall the pilot acknowledge the clearance?"
+  },
+  {
+    "number": 79,
+    "A": "DEKUL READY FOR DEPARTURE",
+    "B": "DEKUL CLEARED FOR TAKE-OFF",
+    "C": "DEKUL READY FOR TAKE-OFF",
+    "D": "DEKUL TAKING OFF",
+    "question": "DEKUL has completed take-off preparations. Which phrase shall be used by the pilot to inform the TOWER?"
+  },
+  {
+    "number": 80,
+    "A": "Switch transponder to Mode/Code 1352",
+    "B": "Count 1-3-5-2 for radio bearing",
+    "C": "Request test transmission on frequency 135.200 MHz",
+    "D": "Switch to frequency 135.200",
+    "question": "What does the instruction \"(call sign) SQUAWK 1352\" from an ATC unit mean?"
+  },
+  {
+    "number": 81,
+    "A": "Ahead to the left",
+    "B": "Abeam to the right",
+    "C": "Ahead to the right",
+    "D": "Directly ahead",
+    "question": "If you receive a report from radar control \"UNKNOWN TRAFFIC AT TEN O’CLOCK, DISTANCE 4 MILES\", where is the traffic in relation to your cockpit?"
+  },
+  {
+    "number": 82,
+    "A": "On establishing radio contact",
+    "B": "Only in emergencies",
+    "C": "If message has not been understood",
+    "D": "In any radiotelephony communication",
+    "question": "When shall an initial call be transmitted?"
+  },
+  {
+    "number": 83,
+    "A": "AACHEN RADIO DELID",
+    "B": "SAARBRÜCKEN TOWER, THIS IS DIAMK",
+    "C": "HAMBURG TOWER FROM DEMIL, GO AHEAD",
+    "D": "GLIDER D2468 FOR WASSERKUPPE, HOW DO YOU READ?",
+    "question": "Which of the following examples is an initial call?"
+  },
+  {
+    "number": 84,
+    "A": "No",
+    "B": "Yes, but only by the first pilot called",
+    "C": "Yes, by all pilots in any sequence",
+    "D": "Yes, by all pilots in the sequence called",
+    "question": "Does a \"GENERAL CALL\" require acknowledgement?"
+  },
+  {
+    "number": 85,
+    "A": "ALL STATIONS HAMBURG TOWER … OUT",
+    "B": "DEKOF, DIEBS, DKARL NÜRNBERG GROUND",
+    "C": "D8765 BERLIN INFORMATION",
+    "D": "LUFTHANSA 123, LUFTHANSA 456",
+    "question": "Which of the following radiotelephony calls is a \"GENERAL CALL\"?"
+  },
+  {
+    "number": 86,
+    "A": "DEABC, DGIAL, DHHIA CONTACT LEIPZIG TOWER (FREQUENCY)",
+    "B": "DIENO DELLW",
+    "C": "ALL STATIONS THIS IS DRESDEN TOWER",
+    "D": "DEAMM ERFURT GROUND",
+    "question": "Which of the following calls is a \"MULTIPLE CALL\"?"
+  },
+  {
+    "number": 87,
+    "A": "pilot receives a radiotelephony call but is uncertain whether they have been called. What is the",
+    "B": "Yes, in any sequence",
+    "C": "No",
+    "D": "Yes, but only by the first calling station",
+    "question": "Does a \"MULTIPLE CALL\" require acknowledgement?"
+  },
+  {
+    "number": 88,
+    "A": "wait until the call is repeated",
+    "B": "transmit their own call sign and wait",
+    "C": "transmit their own call sign using the phrase \"SAY AGAIN YOUR CALL SIGN\"",
+    "D": "answer by using the phrase \"SAY AGAIN\"",
+    "question": "correct procedure to be followed? The pilot shall …"
+  },
+  {
+    "number": 89,
+    "A": "radiotelephony communication",
+    "B": "A radio check shall have been carried out first",
+    "C": "The aircraft shall be airborne",
+    "D": "The distance between the aeronautical station and the aircraft station shall not be less than 30 NM",
+    "question": "What shall be taken into account before radiotelephony communication is commenced? After selecting the correct frequency, the pilot shall ensure that no interference is caused to any ongoing"
+  },
+  {
+    "number": 90,
+    "A": "5 minutes prior to reaching the compulsory reporting point",
+    "B": "Upon entering the airspace",
+    "C": "Immediately after take-off",
+    "D": "Above 3500 ft AGL",
+    "question": "Before entering Class D (CTR), when is the latest permissible time for establishing radiotelephony communication with the competent ATC unit?"
+  },
+  {
+    "number": 91,
+    "A": "the English language",
+    "B": "the German language",
+    "C": "any of the ICAO languages",
+    "D": "the German or English language",
+    "question": "Radiotelephony communication during VFR flights at and above Flight Level 100 is performed in …"
+  },
+  {
+    "number": 92,
+    "A": "continuous air-ground voice communication watch shall be maintained during VFR flights in",
+    "B": "DGIGA changing frequency",
+    "C": "DGIGA will call TOWER DGIGA",
+    "D": "HAMBURG TOWER DGIGA",
+    "question": "DGIGA receives the instruction to call HAMBURG TOWER on frequency 121.280 MHz. What is the correct confirmation by the pilot?"
+  },
+  {
+    "number": 93,
+    "A": "pilot flies an aircraft under VFR in the traffic circuit of a controlled aerodrome. What shall the pilot",
+    "B": "D only",
+    "C": "E",
+    "D": "E and D",
+    "question": "airspace(s):"
+  },
+  {
+    "number": 94,
+    "A": "Maintain a continuous air-ground voice communication watch on the aerodrome control frequency",
+    "B": "Transmit a position report at every leg of the traffic circuit",
+    "C": "Request a meteorological briefing",
+    "D": "Always file a flight plan before commencement of the flight",
+    "question": "always be obliged to do?"
+  },
+  {
+    "number": 95,
+    "A": "at night in Class G airspace (outside RMZ)",
+    "B": "at night in Class C airspace (outside the vicinity of the aerodrome)",
+    "C": "at night in Class D airspace (outside the vicinity of the aerodrome)",
+    "D": "at night in Class E airspace (outside the vicinity of the aerodrome)",
+    "question": "Which types of flight do not require maintain continuous air-ground voice communication watch? In the case of VFR flights, …"
+  },
+  {
+    "number": 96,
+    "A": "person operating an aircraft on a controlled aerodrome or in its vicinity is obliged, inter alia, to",
+    "B": "Flights in Class F airspace",
+    "C": "Flights in Class E airspace (outside RMZ)",
+    "D": "Flights in Class G airspace (outside RMZ)",
+    "question": "Which VFR flights require a pilot to maintain a continuous air-ground voice communication watch on the assigned frequency?"
+  },
+  {
+    "number": 97,
+    "A": "person operating an aircraft under VFR on a controlled aerodrome or in its vicinity shall be obliged",
+    "B": "preparatory to take-off and landing",
+    "C": "preparatory to taxiing, take-off and landing",
+    "D": "preparatory to or associated with take-off and landing",
+    "question": "obtain by radio or visual signs prior permission for all movements …"
+  },
+  {
+    "number": 98,
+    "A": "possible, pay attention to instructions given by light and ground signals or signs",
+    "B": "transmit a position report at every leg of the traffic circuit",
+    "C": "always file a flight plan before commencement of the flight",
+    "D": "request a meteorological and an AIS briefing",
+    "question": "to … maintain a continuous air-ground voice communication watch on the appropriate frequency, or, if this is not"
+  },
+  {
+    "number": 99,
+    "A": "readable now and then",
+    "B": "readable but with difficulty",
+    "C": "readable",
+    "D": "perfectly readable",
+    "question": "In a radio check, what does the message \"READ YOU TWO\" mean? The radio check is …"
+  },
+  {
+    "number": 100,
+    "A": "readable but with difficulty",
+    "B": "readable now and then",
+    "C": "readable",
+    "D": "perfectly readable",
+    "question": "In a radio check, what does the message \"READ YOU THREE\" mean? The radio check is …"
+  },
+  {
+    "number": 101,
+    "A": "readable",
+    "B": "readable but with difficulty",
+    "C": "unreadable",
+    "D": "perfectly readable",
+    "question": "In a radio check, what does the message \"READ YOU FOUR\" mean? The radio check is …"
+  },
+  {
+    "number": 102,
+    "A": "perfectly readable",
+    "B": "unreadable",
+    "C": "readable now and then",
+    "D": "readable but with difficulty",
+    "question": "In a radio check, what does the message \"READ YOU FIVE\" mean? The radio check is …"
+  },
+  {
+    "number": 103,
+    "A": "radio check is \"readable but with difficulty\". How is this expressed in radiotelephony",
+    "B": "Read you three",
+    "C": "Read you loud and clear",
+    "D": "Read you",
+    "question": "A radio check is \"readable\". How is this expressed in radiotelephony communication?"
+  },
+  {
+    "number": 104,
+    "A": "Read you three",
+    "B": "Read you",
+    "C": "Read you two",
+    "D": "Read you, GO AHEAD",
+    "question": "communication?"
+  },
+  {
+    "number": 105,
+    "A": "The words \"RADIO CHECK\"",
+    "B": "The words \" TRANSMISSION CHECK\"",
+    "C": "The words \"TEST CHECK\"",
+    "D": "The words \"CHECK CHECK\"",
+    "question": "What shall be included in a test transmission?"
+  },
+  {
+    "number": 106,
+    "A": "CLEARED FOR TAKE-OFF",
+    "B": "CAUTION OPPOSITE-DIRECTION HELICOPTER",
+    "C": "CONSTRUCTION WORK LEFT OF RUNWAY",
+    "D": "SEVERE THUNDERSTORMS IN RHINE VALLEY NEAR MANNHEIM",
+    "question": "Which message shall a pilot repeat?"
+  },
+  {
+    "number": 107,
+    "A": "Altimeter settings",
+    "B": "Traffic information",
+    "C": "Meteorological messages",
+    "D": "Messages on runway condition",
+    "question": "Which messages shall be repeated?"
+  },
+  {
+    "number": 108,
+    "A": "Frequency in the case of a frequency change",
+    "B": "Information concerning construction work on runways",
+    "C": "Meteorological information",
+    "D": "Wind direction and force",
+    "question": "Which messages shall be repeated?"
+  },
+  {
+    "number": 109,
+    "A": "By reading back the safety-related parts of clearances",
+    "B": "By pressing the microphone switch twice",
+    "C": "By transmitting one’s own abbreviated call sign",
+    "D": "By pressing the microphone switch three times DESEL receives the following clearance/instruction: \"DEL WHEN AIRBORNE CLIMB STRAIGHT",
+    "question": "How shall the receipt of an ATC clearance be acknowledged?"
+  },
+  {
+    "number": 110,
+    "A": "FOR TAKE-OFF",
+    "B": "DEL CLEARED FOR TAKE-OFF, RUNWAY 22, WIND 250 DEGREES, 7 KNOTS",
+    "C": "DEL WILCO, RUNWAY 22, CLEARED FOR TAKE-OFF",
+    "D": "DEL CLIMB 3000 FEET, CLEARED FOR TAKE-OFF",
+    "question": "AHEAD ALTITUDE 3000 FEET; THEN TURN RIGHT, WIND 250 DEGREES, 7 KNOTS, RUNWAY 22, CLEARED FOR TAKE-OFF\". What is the correct read back from DESEL? DEL CLIMB STRAIGHT AHEAD ALTITUDE 3000 FEET, THEN TURN RIGHT, RUNWAY 22, CLEARED"
+  },
+  {
+    "number": 111,
+    "A": "instructions, frequency in the case of frequency change Runway in use, ground visibility, dew point, take-off clearance, frequency in the case of frequency",
+    "B": "changes",
+    "C": "Clearances, wind direction/speed, heading instructions, QNH, frequency in the case of frequency changes Instructions concerning heading, flight level, speed, altimeter setting, flight visibility, wind direction, take-off",
+    "D": "clearance and frequency in the case of frequency changes",
+    "question": "Which elements of the instructions or information below shall be read back? Clearances, taxi instructions, runway-in-use, QNH, SSR codes, level instructions, heading and speed"
+  },
+  {
+    "number": 112,
+    "A": "Entering Class D airspace",
+    "B": "All flights in Class E airspace",
+    "C": "Night flights in Class G airspace",
+    "D": "Flights above cloud in Class E airspace",
+    "question": "Which VFR flights usually require the transmission of position reports?"
+  },
+  {
+    "number": 113,
+    "A": "be made in all cases, unless expressly stated to the contrary, irrespective of the clearance given",
+    "B": "be made only in the case of special VFR flights",
+    "C": "be made only if requested by the aerodrome control tower, irrespective of the clearance given",
+    "D": "not be made. Given the instruction to enter the traffic circuit, no further position reports over compulsory reporting points are required",
+    "question": "VFR flights to controlled aerodromes are governed by the procedures laid down in the \"Aeronautical Information Publication VFR\" [VFR AIP]. Position reports over compulsory reporting points shall …"
+  },
+  {
+    "number": 114,
+    "A": "position report normally comprises the radio call sign of the aircraft, position, time of crossing",
+    "B": "When leaving Class D airspace",
+    "C": "Only when flying over radio navigation stations (e.g. VOR, NDB)",
+    "D": "When entering Class E or F airspace",
+    "question": "reporting points are required When, in the case of a daytime VFR flight, shall a pilot transmit position reports to the competent ATC unit?"
+  },
+  {
+    "number": 115,
+    "A": "The time when the message is transmitted at the time of crossing",
+    "B": "The position provided it is published on the visual operation chart",
+    "C": "The flight level if it does not exceed 3500 ft AGL",
+    "D": "The call sign if it is a non-commercial flight",
+    "question": "and altitude. Which of these can be omitted under certain conditions in the case of VFR flights?"
+  },
+  {
+    "number": 116,
+    "A": "Radio call sign of the aircraft, position",
+    "B": "Radio call sign of the aircraft, position, time",
+    "C": "Radio call sign of the aircraft, position, altitude",
+    "D": "Radio call sign of the aircraft, position, altitude, time",
+    "question": "What data does a position report on flights in the traffic circuit contain?"
+  },
+  {
+    "number": 117,
+    "A": "Compulsory reporting point",
+    "B": "Aviation obstacle",
+    "C": "Radio navigation facility",
+    "D": "Non-compulsory reporting point (on-request reporting point)",
+    "question": "What does this symbol on the visual operation chart mean? (filled/black triangle ▲)"
+  },
+  {
+    "number": 118,
+    "A": "Non-compulsory reporting point (on-request reporting point)",
+    "B": "Compulsory reporting point",
+    "C": "Military aerodrome",
+    "D": "Lighted obstacle",
+    "question": "What does this symbol on the visual operation chart mean? (empty/open triangle △)"
+  },
+  {
+    "number": 119,
+    "A": "If the aircraft is in the traffic circuit and the landing can be regarded as assured",
+    "B": "If the traffic is observed in the traffic circuit",
+    "C": "At the aerodrome control's request of the airfield if the landing can be regarded as assured",
+    "D": "After approval from the aerodrome control of the airfield",
+    "question": "When may the estimated time of arrival instead of a report of arrival be transmitted to the competent ATC unit?"
+  },
+  {
+    "number": 120,
+    "A": "To the competent ATC unit or to the competent FIS for forwarding to the AIS-C",
+    "B": "To the radio navigation service for forwarding to the AIS-C",
+    "C": "To the Aeronautical Information Service",
+    "D": "To the aeronautical station at the destination aerodrome",
+    "question": "In the case of flight-plan filing and take-off from an uncontrolled aerodrome, the report of departure may be transmitted by radiotelephony. To whom shall it be transmitted in this case?"
+  },
+  {
+    "number": 121,
+    "A": "Aircraft identification, departure aerodrome, time of departure, arrival aerodrome",
+    "B": "Aircraft identification, departure aerodrome, time of departure",
+    "C": "Aircraft identification, departure aerodrome, arrival aerodrome",
+    "D": "Aircraft identification, time of departure, arrival aerodrome",
+    "question": "Which data shall a report of departure contain if transmitted by radiotelephony?"
+  },
+  {
+    "number": 122,
+    "A": "3 to 4 oktas",
+    "B": "8 oktas",
+    "C": "5 to 7 oktas",
+    "D": "1 to 2 oktas",
+    "question": "When the term \"SCATTERED (SCT)\" is used in radiotelephony in connection with meteorological conditions, the amount of cloud covering the sky is:"
+  },
+  {
+    "number": 123,
+    "A": "5 to 7 oktas",
+    "B": "1 to 2 oktas",
+    "C": "8 oktas",
+    "D": "3 to 4 oktas",
+    "question": "When the term \"BROKEN (BKN)\" is used in radiotelephony in connection with meteorological conditions, the amount of cloud covering the sky is:"
+  },
+  {
+    "number": 124,
+    "A": "8 oktas",
+    "B": "5 to 7 oktas",
+    "C": "3 to 4 oktas",
+    "D": "1 to 2 oktas",
+    "question": "When the term \"OVERCAST (OVC)\" is used in radiotelephony in connection with meteorological conditions, the amount of cloud covering the sky is:"
+  },
+  {
+    "number": 125,
+    "A": "SCATTERED",
+    "B": "OVERCAST",
+    "C": "BROKEN",
+    "D": "NO SIGNIFICANT CLOUDS",
+    "question": "What does \"3 to 4 OKTAS” in routine meteorological reports mean? The cloud amount is …"
+  },
+  {
+    "number": 126,
+    "A": "BROKEN",
+    "B": "FEW",
+    "C": "OVERCAST",
+    "D": "SCATTERED",
+    "question": "What does “5 to 7 OKTAS” in routine meteorological reports mean? The cloud amount is …"
+  },
+  {
+    "number": 127,
+    "A": "FEW",
+    "B": "BROKEN",
+    "C": "SCATTERED",
+    "D": "NO SIGNIFICANT CLOUDS",
+    "question": "What does \"1 to 2 OKTAS” in routine meteorological reports mean? The cloud amount is …"
+  },
+  {
+    "number": 128,
+    "A": "visibility 10 km or more, no cloud below 5000 ft AGL",
+    "B": "visibility 5000 m or more, no cloud below 5000 ft AGL",
+    "C": "visibility 10 km or more, no cloud below 1500 ft AGL",
+    "D": "visibility 5000 m or more, no cloud below 1500 ft AGL",
+    "question": "When the term \"CAVOK\" is used in a routine meteorological report (METAR), the values of visibility and clouds are:"
+  },
+  {
+    "number": 129,
+    "A": "Less than 5 km in metres, above in kilometres",
+    "B": "In feet and NM",
+    "C": "Up to 1500 m in metres, above in kilometres",
+    "D": "In NM only",
+    "question": "How are the values for flight visibility, ground visibility and runway visual range transmitted?"
+  },
+  {
+    "number": 130,
+    "A": "\"VISIBILITY THREE THOUSAND METRES\"",
+    "B": "\"VISIBILITY APPROXIMATELY NINE THOUSAND FEET\"",
+    "C": "\"VISIBILITY THREE KILOMETRES\"",
+    "D": "\"VISIBILITY ONE DECIMAL EIGHT NAUTICAL MILES\"",
+    "question": "Which of the following ground visibility reports is correct?"
+  },
+  {
+    "number": 131,
+    "A": "Meteorological broadcasts for aerodrome meteorological reports for airports",
+    "B": "Flight Information Service",
+    "C": "Radio call sign for a unit of the DWD",
+    "D": "Call sign of the Air Traffic Advisory Service",
+    "question": "What is VOLMET?"
+  },
+  {
+    "number": 132,
+    "A": "ATIS",
+    "B": "GAFOR",
+    "C": "AIS-C",
+    "D": "UHF",
+    "question": "During a flight a pilot shall request information on the aerodrome weather conditions via …"
+  },
+  {
+    "number": 133,
+    "A": "Arrival and departure information for the safe performance of VFR and IFR flights",
+    "B": "Meteorological reports for cross-country flights in VMC",
+    "C": "Meteorological reports for several airports",
+    "D": "The true bearing to the aerodrome of destination",
+    "question": "ATIS broadcasts serve to provide pilots with information. What information do they contain?"
+  },
+  {
+    "number": 134,
+    "A": "As an aeronautical broadcast on the FIS frequencies every half and full hour",
+    "B": "As an aeronautical broadcast on the published VOLMET frequencies",
+    "C": "At the request of the pilot",
+    "D": "As an aeronautical broadcast on the ATC frequencies",
+    "question": "How is SIGMET information disseminated from 0700 (0600 during the summer period) until SS+30?"
+  },
+  {
+    "number": 135,
+    "A": "Significant meteorological phenomena, e.g. thunderstorms, turbulence, icing",
+    "B": "Notification of the cloud base in Classes F and G airspace",
+    "C": "Routine meteorological reports",
+    "D": "Meteorological data in chart form, obtainable from aeronautical meteorological offices",
+    "question": "SIGMET messages are for the safety of general aviation flights. What information do they contain?"
+  },
+  {
+    "number": 136,
+    "A": "Nature of the distress condition, intention of the pilot-in-command, present position, level and heading",
+    "B": "Nature of distress, cause of emergency, request to change frequency to 121.500 MHz",
+    "C": "Nature of distress condition, intention of the pilot, speed",
+    "D": "Intention of the pilot, TAS, position, rate of descent",
+    "question": "What information shall a distress message contain?"
+  },
+  {
+    "number": 137,
+    "A": "being threatened by serious and/or imminent danger and of requiring immediate assistance",
+    "B": "a pilot has made or is about to make an unscheduled landing",
+    "C": "an aircraft is in a difficult situation",
+    "D": "a passenger on board an aircraft is seriously ill",
+    "question": "The distress signal MAYDAY means that …"
+  },
+  {
+    "number": 138,
+    "A": "on the frequency used or on an emergency frequency",
+    "B": "solely on a FIS frequency",
+    "C": "always on the emergency frequency 121.500 MHz",
+    "D": "on a SAR frequency",
+    "question": "A distress call shall be transmitted ..."
+  },
+  {
+    "number": 139,
+    "A": "MAYDAY, emitted preferably three times",
+    "B": "MAYDAY EMERGENCY MAYDAY",
+    "C": "PAN PAN, emitted preferably three times",
+    "D": "EMERGENCY, emitted preferably three times",
+    "question": "How shall a distress call be initiated?"
+  },
+  {
+    "number": 140,
+    "A": "The word MAYDAY transmitted by radiotelephony",
+    "B": "The firing of green and red flares",
+    "C": "The word PAN PAN transmitted by radiotelephony",
+    "D": "Repeated switching on and off of landing lights or navigation lights",
+    "question": "Which of the following signals is a distress signal?"
+  },
+  {
+    "number": 141,
+    "A": "PAN PAN, emitted preferably three times",
+    "B": "ATTENTION, I HAVE AN URGENT MESSAGE",
+    "C": "URGENCY URGENCY",
+    "D": "MAYDAY‚ emitted preferably three times",
+    "question": "How shall an urgency call be initiated?"
+  },
+  {
+    "number": 142,
+    "A": "is in a difficult situation",
+    "B": "has strayed into a restricted area",
+    "C": "has been hijacked",
+    "D": "is in imminent, serious danger and requires immediate assistance",
+    "question": "The radiotelephony signal PAN PAN means that an aircraft …"
+  },
+  {
+    "number": 143,
+    "A": "A 7700",
+    "B": "A 7500",
+    "C": "A 7600",
+    "D": "A 7000",
+    "question": "Which code shall be selected on an aircraft’s transponder in a distress situation?"
+  },
+  {
+    "number": 144,
+    "A": "the aircraft is in distress",
+    "B": "the aircraft has experienced radio communication failure",
+    "C": "the aircraft has been hijacked",
+    "D": "the aircraft is entering Class E airspace",
+    "question": "An aircraft squawking 7700 indicates to the aeronautical station that …"
+  },
+  {
+    "number": 145,
+    "A": "the arrival time by the most expeditious means to the appropriate ATC unit",
+    "B": "set the transponder code to Mode A 7600, if possible; and find a suitable emergency landing site set the transponder code to Mode A 7600, if possible; and draw attention to the aircraft by performing",
+    "C": "circles to the left and to the right set the transponder code to Mode A 7600, if possible; make a 180° turn, and return to the aerodrome of",
+    "D": "departure",
+    "question": "In case of radio communication failure prior to receipt or acknowledgement of a clearance to enter a control zone, the pilot shall … set the transponder code to Mode A 7600, if possible; land at the nearest suitable aerodrome; and report"
+  },
+  {
+    "number": 146,
+    "A": "The message shall be transmitted twice",
+    "B": "At the end of the blind transmission, the aircraft station’s call sign is repeated",
+    "C": "The message shall be transmitted three times",
+    "D": "At the end of the blind transmission, the aeronautical station’s call sign is repeated",
+    "question": "What is a specific feature of a blind transmission?"
+  },
+  {
+    "number": 147,
+    "A": "The time of the next intended transmission is announced",
+    "B": "The message commences with the phrase BLIND TRANSMISSION spoken three times",
+    "C": "At the end of the blind transmission, the aircraft station’s call sign is repeated",
+    "D": "At the end of the blind transmission, the aeronautical station’s call sign is repeated",
+    "question": "What is a specific feature of a blind transmission?"
+  },
+  {
+    "number": 148,
+    "A": "A 7600",
+    "B": "A 7700",
+    "C": "A 7500",
+    "D": "A 7000",
+    "question": "Which code shall be selected on an aircraft’s transponder in the case of radio communication failure?"
+  },
+  {
+    "number": 149,
+    "A": "Radio communication failure",
+    "B": "Request landing instructions",
+    "C": "Emergency",
+    "D": "Entering Class C airspace",
+    "question": "What does an aircraft indicate to the aeronautical station when it transmits the transponder code A 7600?"
+  },
+  {
+    "number": 150,
+    "A": "Instructions by radio have priority over signals and signs, with the exception of red pyrotechnic lights",
+    "B": "Audio signals can also be given",
+    "C": "Signals and signs have priority over radio instructions",
+    "D": "Ground signals have priority over light signals",
+    "question": "Upon observing a light signal directed towards the aircraft, the pilot shall take the prescribed measures. What shall the pilot take into account?"
+  },
+  {
+    "number": 151,
+    "A": "red pyrotechnic lights",
+    "B": "steady green lights",
+    "C": "steady red lights",
+    "D": "series of red flashes",
+    "question": "Radio instructions have priority over light and ground signals and visual signs. This does not apply to …"
+  },
+  {
+    "number": 152,
+    "A": "instructions by radio",
+    "B": "light signals",
+    "C": "ground signals",
+    "D": "flares discharged at intervals of about 10 seconds, which burst into red or green lights and stars",
+    "question": "A pilot shall follow, on a priority basis:"
+  },
+  {
+    "number": 153,
+    "A": "117.975 MHz - 137.000 MHz",
+    "B": "108.000 kHz - 136.000 kHz",
+    "C": "108.000 MHz - 117.975 MHz",
+    "D": "200 - 490 kHz",
+    "question": "Which frequency band is used for radiotelephony communication in the civil aeronautical mobile service?"
+  },
+  {
+    "number": 154,
+    "A": "25 kHz + 8.33 kHz",
+    "B": "25 MHz",
+    "C": "25 MHz + 8.33 MHz",
+    "D": "8.33 kHz",
+    "question": "Which channel spacing (frequency band 117.975 MHz – 137.000 MHz) is operated in the aeronautical mobile service in lower airspace?"
+  },
+  {
+    "number": 155,
+    "A": "Simplex operation",
+    "B": "Full-duplex operation",
+    "C": "Simplex and duplex operation",
+    "D": "Duplex operation",
+    "question": "Which operating mode is used for radiotelephony communication in the aeronautical mobile service?"
+  },
+  {
+    "number": 156,
+    "A": "International emergency frequency",
+    "B": "Instruction and training frequency",
+    "C": "Inter-pilot air-to-air frequency",
+    "D": "Information frequency",
+    "question": "Which designation does the frequency 121.500 MHz have?"
+  },
+  {
+    "number": 157,
+    "A": "118.305 MHz",
+    "B": "121.500 MHz",
+    "C": "109.550 MHz",
+    "D": "200 kHz",
+    "question": "Which of the frequencies listed below corresponds to that of a German aeronautical station with the call sign \"TOWER\"?"
+  },
+  {
+    "number": 158,
+    "A": "134.555 MHz",
+    "B": "121.500 MHz",
+    "C": "109.550 MHz",
+    "D": "200 kHz",
+    "question": "Which frequency is operated in 8.33 kHz channel spacing?"
+  },
+  {
+    "number": 159,
+    "A": "Keeping the talk button depressed",
+    "B": "Speaking too loudly",
+    "C": "Speaking too softly",
+    "D": "Switching the radiotelephony unit on and off",
+    "question": "How can a radiotelephony frequency be blocked?"
+  },
+  {
+    "number": 160,
+    "A": "Similar to light, i.e. \"quasi optically\"",
+    "B": "Similar to short waves but they are unaffected by atmospheric disturbances The waves travel as ground waves along the surface of Earth and, therefore, also penetrate into valleys,",
+    "C": "hence they cannot be influenced by topographical obstacles The waves are reflected by the ionosphere at an altitude of about 100 km and return to the Earth's surface",
+    "D": "as sky waves",
+    "question": "How do very high frequency (VHF) waves propagate?"
+  },
+  {
+    "number": 161,
+    "A": "Altitude of the aircraft and topographical features",
+    "B": "Day-night effect",
+    "C": "Ionosphere",
+    "D": "Atmospherics occurring particularly during thunderstorms",
+    "question": "Which phenomena can influence the quality of VFH reception in aeronautical radio?"
+  }
+]

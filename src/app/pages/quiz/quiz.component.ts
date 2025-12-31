@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import {
@@ -11,7 +11,7 @@ import {
   X,
   XCircle,
 } from 'lucide-angular';
-import { QuestionService, QuizService } from '../../core/services';
+import { QuestionService, QuizService, SettingsService } from '../../core/services';
 
 @Component({
   selector: 'app-quiz',
@@ -23,6 +23,7 @@ import { QuestionService, QuizService } from '../../core/services';
 export class QuizComponent implements OnInit {
   quizService = inject(QuizService);
   questionService = inject(QuestionService);
+  settingsService = inject(SettingsService);
   router = inject(Router);
 
   readonly ArrowLeft = ArrowLeft;
@@ -53,6 +54,38 @@ export class QuizComponent implements OnInit {
   });
 
   hasSession = computed(() => this.quizService.currentSession() !== null);
+
+  // Variant switching within question view
+  currentVariant = signal<'bzf' | 'bzf-e'>(this.settingsService.questionVariant());
+
+  // Reset displayed variant to the header selection whenever a new question loads
+  resetVariantOnQuestionChangeEffect = effect(() => {
+    const q = this.currentQuestion();
+    if (q) {
+      this.currentVariant.set(this.settingsService.questionVariant());
+    }
+  });
+
+  setVariant(variant: 'bzf' | 'bzf-e') {
+    this.currentVariant.set(variant);
+  }
+
+  getDisplayQuestionText(): string {
+    const q = this.currentQuestion();
+    if (!q) return '';
+    const variant = this.currentVariant();
+    const other = this.questionService.getVariantQuestionById(q.original.number, variant);
+    return other?.question ?? q.original.question;
+  }
+
+  getDisplayAnswerText(originalKey: string, fallback: string): string {
+    const q = this.currentQuestion();
+    if (!q) return fallback;
+    const variant = this.currentVariant();
+    const other = this.questionService.getVariantQuestionById(q.original.number, variant);
+    if (!other) return fallback;
+    return (other as any)[originalKey] ?? fallback;
+  }
 
   async ngOnInit() {
     // Wenn kein aktives Quiz im Service, aber eins gespeichert ist,

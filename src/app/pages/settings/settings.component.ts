@@ -13,7 +13,13 @@ import {
   Sun,
   Trash2,
 } from 'lucide-angular';
-import { Language, SettingsService, StorageService, TranslationService } from '../../core/services';
+import {
+  Language,
+  QuestionService,
+  SettingsService,
+  StorageService,
+  TranslationService,
+} from '../../core/services';
 
 @Component({
   selector: 'app-settings',
@@ -26,6 +32,7 @@ export class SettingsComponent {
   settingsService = inject(SettingsService);
   storageService = inject(StorageService);
   translationService = inject(TranslationService);
+  questionService = inject(QuestionService);
 
   readonly Sun = Sun;
   readonly Moon = Moon;
@@ -51,6 +58,12 @@ export class SettingsComponent {
 
   toggleImmediateFeedback() {
     this.settingsService.setImmediateFeedback(!this.settingsService.immediateFeedback());
+  }
+
+  setQuestionVariant(variant: 'bzf' | 'bzf-e') {
+    this.settingsService.setQuestionVariant(variant);
+    // Refresh active questions so search and counts reflect default variant
+    this.questionService.refreshActiveQuestions();
   }
 
   openResetDialog() {

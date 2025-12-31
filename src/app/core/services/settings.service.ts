@@ -1,19 +1,22 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { db } from '../db/database';
 
 export type Theme = 'light' | 'dark' | 'system';
+export type QuestionVariant = 'bzf' | 'bzf-e';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SettingsService {
   private _theme = signal<Theme>('system');
   private _immediateFeedback = signal<boolean>(true);
   private _effectiveTheme = signal<'light' | 'dark'>('light');
+  private _questionVariant = signal<QuestionVariant>('bzf');
 
   theme = this._theme.asReadonly();
   immediateFeedback = this._immediateFeedback.asReadonly();
   effectiveTheme = this._effectiveTheme.asReadonly();
+  questionVariant = this._questionVariant.asReadonly();
 
   isDark = computed(() => this._effectiveTheme() === 'dark');
 
@@ -26,6 +29,7 @@ export class SettingsService {
     try {
       const themeSetting = await db.settings.get('theme');
       const feedbackSetting = await db.settings.get('immediateFeedback');
+      const variantSetting = await db.settings.get('questionVariant');
 
       if (themeSetting) {
         this._theme.set(themeSetting.value as Theme);
@@ -33,6 +37,10 @@ export class SettingsService {
 
       if (feedbackSetting) {
         this._immediateFeedback.set(feedbackSetting.value as boolean);
+      }
+
+      if (variantSetting) {
+        this._questionVariant.set((variantSetting.value as QuestionVariant) ?? 'bzf');
       }
 
       this.applyTheme();
@@ -86,6 +94,11 @@ export class SettingsService {
   async setImmediateFeedback(enabled: boolean) {
     this._immediateFeedback.set(enabled);
     await db.settings.put({ key: 'immediateFeedback', value: enabled });
+  }
+
+  async setQuestionVariant(variant: QuestionVariant) {
+    this._questionVariant.set(variant);
+    await db.settings.put({ key: 'questionVariant', value: variant });
   }
 
   toggleTheme() {

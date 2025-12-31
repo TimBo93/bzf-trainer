@@ -90,14 +90,51 @@
   <!-- Question Content -->
   <div class="flex-1 container mx-auto px-4 py-6 max-w-3xl">
     @if (currentQuestion(); as question) {
-    <!-- Category Badge -->
+    <!-- Category Badge + Variant Switch inline -->
     @if (category(); as cat) {
-    <div class="mb-4">
+    <div class="mb-4 flex items-center justify-between gap-3">
       <span
         class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
       >
         {{ cat.name }}
       </span>
+      <div class="flex items-center gap-2">
+        <button
+          (click)="setVariant('bzf')"
+          class="px-3 py-1 rounded-full text-xs border"
+          [class.bg-primary]="currentVariant() === 'bzf'"
+          [class.text-primary-foreground]="currentVariant() === 'bzf'"
+        >
+          BZF
+        </button>
+        <button
+          (click)="setVariant('bzf-e')"
+          class="px-3 py-1 rounded-full text-xs border"
+          [class.bg-primary]="currentVariant() === 'bzf-e'"
+          [class.text-primary-foreground]="currentVariant() === 'bzf-e'"
+        >
+          BZF-E
+        </button>
+      </div>
+    </div>
+    } @else {
+    <div class="mb-4 flex items-center justify-end gap-2">
+      <button
+        (click)="setVariant('bzf')"
+        class="px-3 py-1 rounded-full text-xs border"
+        [class.bg-primary]="currentVariant() === 'bzf'"
+        [class.text-primary-foreground]="currentVariant() === 'bzf'"
+      >
+        BZF
+      </button>
+      <button
+        (click)="setVariant('bzf-e')"
+        class="px-3 py-1 rounded-full text-xs border"
+        [class.bg-primary]="currentVariant() === 'bzf-e'"
+        [class.text-primary-foreground]="currentVariant() === 'bzf-e'"
+      >
+        BZF-E
+      </button>
     </div>
     }
 
@@ -107,7 +144,7 @@
         >{{ 'quiz.question' | translate }} {{ question.original.number }}</span
       >
       <h2 class="text-lg sm:text-xl font-medium leading-relaxed">
-        {{ question.original.question }}
+        {{ getDisplayQuestionText() }}
       </h2>
     </div>
 
@@ -125,7 +162,9 @@
           >
             {{ answer.label }}
           </span>
-          <span class="flex-1 pt-1">{{ answer.text }}</span>
+          <span class="flex-1 pt-1">{{
+            getDisplayAnswerText(answer.originalKey, answer.text)
+          }}</span>
           @if (showFeedback()) { @if (answer.isCorrect) {
           <lucide-icon
             [img]="CheckCircle"
