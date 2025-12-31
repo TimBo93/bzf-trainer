@@ -1,8 +1,17 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { LucideAngularModule, Trophy, Target, Flame, TrendingUp, BookOpen, CheckCircle } from 'lucide-angular';
-import { QuestionService, StorageService } from '../../core/services';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import {
+  BookOpen,
+  CheckCircle,
+  Flame,
+  LucideAngularModule,
+  Target,
+  TrendingUp,
+  Trophy,
+} from 'lucide-angular';
 import { Category } from '../../core/models';
+import { QuestionService, StorageService } from '../../core/services';
 
 interface CategoryStat {
   category: Category;
@@ -15,9 +24,9 @@ interface CategoryStat {
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [DecimalPipe, LucideAngularModule],
+  imports: [DecimalPipe, LucideAngularModule, TranslateModule],
   templateUrl: './statistics.component.html',
-  styleUrl: './statistics.component.scss'
+  styleUrl: './statistics.component.scss',
 })
 export class StatisticsComponent implements OnInit {
   questionService = inject(QuestionService);
@@ -47,10 +56,7 @@ export class StatisticsComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      await Promise.all([
-        this.questionService.loadData(),
-        this.storageService.loadData()
-      ]);
+      await Promise.all([this.questionService.loadData(), this.storageService.loadData()]);
 
       this.calculateCategoryStats();
     } finally {
@@ -63,14 +69,14 @@ export class StatisticsComponent implements OnInit {
     const mapping = this.questionService.questionMapping();
     const progressByCategory = this.storageService.getProgressByCategory(mapping);
 
-    const stats: CategoryStat[] = categories.map(category => {
+    const stats: CategoryStat[] = categories.map((category) => {
       const progress = progressByCategory.get(category.id) ?? { total: 0, answered: 0, correct: 0 };
       return {
         category,
         total: progress.total,
         answered: progress.answered,
         correct: progress.correct,
-        percentage: progress.total > 0 ? Math.round((progress.correct / progress.total) * 100) : 0
+        percentage: progress.total > 0 ? Math.round((progress.correct / progress.total) * 100) : 0,
       };
     });
 

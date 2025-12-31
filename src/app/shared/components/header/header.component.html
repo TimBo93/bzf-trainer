@@ -20,7 +20,7 @@
         class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <lucide-icon [img]="Home" class="h-5 w-5"></lucide-icon>
-        <span class="sr-only">Home</span>
+        <span class="sr-only">{{ 'header.home' | translate }}</span>
       </a>
 
       <a
@@ -28,7 +28,7 @@
         class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <lucide-icon [img]="BarChart3" class="h-5 w-5"></lucide-icon>
-        <span class="sr-only">Statistiken</span>
+        <span class="sr-only">{{ 'header.statistics' | translate }}</span>
       </a>
 
       <a
@@ -36,8 +36,40 @@
         class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <lucide-icon [img]="Settings" class="h-5 w-5"></lucide-icon>
-        <span class="sr-only">Einstellungen</span>
+        <span class="sr-only">{{ 'header.settings' | translate }}</span>
       </a>
+
+      <!-- Language Dropdown -->
+      <div class="relative">
+        <button
+          (click)="toggleLanguageDropdown()"
+          class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring gap-1"
+        >
+          <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
+          <span class="text-xs font-semibold">{{ getCurrentLanguageLabel() }}</span>
+        </button>
+        @if (showLanguageDropdown()) {
+        <div
+          class="absolute right-0 top-full mt-1 bg-card border rounded-lg shadow-lg py-1 min-w-[120px] z-50"
+          (mouseleave)="closeLanguageDropdown()"
+        >
+          <button
+            (click)="setLanguage('de')"
+            class="w-full px-3 py-2 text-left text-sm hover:bg-accent transition-colors flex items-center gap-2"
+            [class.bg-accent]="translationService.language() === 'de'"
+          >
+            🇩🇪 Deutsch
+          </button>
+          <button
+            (click)="setLanguage('en')"
+            class="w-full px-3 py-2 text-left text-sm hover:bg-accent transition-colors flex items-center gap-2"
+            [class.bg-accent]="translationService.language() === 'en'"
+          >
+            🇬🇧 English
+          </button>
+        </div>
+        }
+      </div>
 
       <!-- Theme Toggle -->
       <button
@@ -49,7 +81,7 @@
         } @else {
         <lucide-icon [img]="Moon" class="h-5 w-5"></lucide-icon>
         }
-        <span class="sr-only">Theme wechseln</span>
+        <span class="sr-only">{{ 'header.theme' | translate }}</span>
       </button>
 
       <!-- About Button -->
@@ -58,7 +90,7 @@
         class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <lucide-icon [img]="Info" class="h-5 w-5"></lucide-icon>
-        <span class="sr-only">Über</span>
+        <span class="sr-only">{{ 'header.about' | translate }}</span>
       </button>
     </nav>
   </div>

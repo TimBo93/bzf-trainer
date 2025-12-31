@@ -10,10 +10,12 @@
   >
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto">
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">BZF I/II Trainer</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          {{ 'home.title' | translate }}
+        </h1>
         <p class="text-muted-foreground text-lg mb-8">
-          Übe die offiziellen Prüfungsfragen für dein Flugfunk-Zeugnis.
-          {{ totalQuestions() }} Fragen warten auf dich!
+          {{ 'home.subtitle' | translate }}
+          {{ totalQuestions() }} {{ 'home.questionsWaiting' | translate }}
         </p>
 
         <!-- Continue Quiz Banner -->
@@ -25,10 +27,11 @@
                 <lucide-icon [img]="RotateCcw" class="h-5 w-5 text-primary"></lucide-icon>
               </div>
               <div class="text-left">
-                <p class="font-medium">Laufendes Quiz fortsetzen</p>
+                <p class="font-medium">{{ 'home.continueQuiz' | translate }}</p>
                 <p class="text-sm text-muted-foreground">
-                  {{ getActiveQuizModeName(activeQuizInfo()!) }} - Frage
-                  {{ activeQuizInfo()!.progress }} von {{ activeQuizInfo()!.total }}
+                  {{ getActiveQuizModeName(activeQuizInfo()!) }} -
+                  {{ 'home.question' | translate }} {{ activeQuizInfo()!.progress }}
+                  {{ 'home.of' | translate }} {{ activeQuizInfo()!.total }}
                 </p>
               </div>
             </div>
@@ -37,13 +40,13 @@
                 (click)="abandonQuiz()"
                 class="px-4 py-2 text-sm border rounded-lg hover:bg-secondary transition-colors"
               >
-                Verwerfen
+                {{ 'home.discard' | translate }}
               </button>
               <button
                 (click)="continueQuiz()"
                 class="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
-                Fortsetzen
+                {{ 'home.continue' | translate }}
               </button>
             </div>
           </div>
@@ -54,22 +57,22 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <div class="bg-card rounded-xl p-4 shadow-sm border">
             <div class="text-2xl font-bold text-primary">{{ progressPercentage() }}%</div>
-            <div class="text-sm text-muted-foreground">Fortschritt</div>
+            <div class="text-sm text-muted-foreground">{{ 'home.progress' | translate }}</div>
           </div>
           <div class="bg-card rounded-xl p-4 shadow-sm border">
             <div class="text-2xl font-bold text-success">{{ correctQuestions() }}</div>
-            <div class="text-sm text-muted-foreground">Gelernt</div>
+            <div class="text-sm text-muted-foreground">{{ 'home.learned' | translate }}</div>
           </div>
           <div class="bg-card rounded-xl p-4 shadow-sm border">
             <div class="text-2xl font-bold">{{ successRate() | number : '1.0-0' }}%</div>
-            <div class="text-sm text-muted-foreground">Erfolgsquote</div>
+            <div class="text-sm text-muted-foreground">{{ 'home.successRate' | translate }}</div>
           </div>
           <div class="bg-card rounded-xl p-4 shadow-sm border">
             <div class="flex items-center justify-center gap-1">
               <lucide-icon [img]="Flame" class="h-5 w-5 text-orange-500"></lucide-icon>
               <span class="text-2xl font-bold">{{ streak() }}</span>
             </div>
-            <div class="text-sm text-muted-foreground">Tage Streak</div>
+            <div class="text-sm text-muted-foreground">{{ 'home.daysStreak' | translate }}</div>
           </div>
         </div>
 
@@ -86,7 +89,7 @@
 
   <!-- Quick Start Section -->
   <section class="container mx-auto px-4 py-8">
-    <h2 class="text-xl font-semibold mb-4">Schnellstart</h2>
+    <h2 class="text-xl font-semibold mb-4">{{ 'home.quickStart' | translate }}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <!-- Random Quiz -->
       <button
@@ -98,8 +101,8 @@
         >
           <lucide-icon [img]="Shuffle" class="h-6 w-6 text-primary"></lucide-icon>
         </div>
-        <span class="font-medium">20 Zufällige</span>
-        <span class="text-sm text-muted-foreground">Schnelles Training</span>
+        <span class="font-medium">{{ 'home.random20' | translate }}</span>
+        <span class="text-sm text-muted-foreground">{{ 'home.quickTraining' | translate }}</span>
       </button>
 
       <!-- All Questions -->
@@ -112,8 +115,10 @@
         >
           <lucide-icon [img]="BookOpen" class="h-6 w-6 text-blue-500"></lucide-icon>
         </div>
-        <span class="font-medium">Alle Fragen</span>
-        <span class="text-sm text-muted-foreground">{{ totalQuestions() }} Fragen</span>
+        <span class="font-medium">{{ 'home.allQuestions' | translate }}</span>
+        <span class="text-sm text-muted-foreground"
+          >{{ totalQuestions() }} {{ 'home.questions' | translate }}</span
+        >
       </button>
 
       <!-- Weak Questions -->
@@ -126,8 +131,8 @@
         >
           <lucide-icon [img]="Target" class="h-6 w-6 text-orange-500"></lucide-icon>
         </div>
-        <span class="font-medium">Schwachstellen</span>
-        <span class="text-sm text-muted-foreground">Gezielt üben</span>
+        <span class="font-medium">{{ 'home.weakSpots' | translate }}</span>
+        <span class="text-sm text-muted-foreground">{{ 'home.targetedPractice' | translate }}</span>
       </button>
 
       <!-- Statistics -->
@@ -140,15 +145,15 @@
         >
           <lucide-icon [img]="Trophy" class="h-6 w-6 text-green-500"></lucide-icon>
         </div>
-        <span class="font-medium">Statistiken</span>
-        <span class="text-sm text-muted-foreground">Dein Fortschritt</span>
+        <span class="font-medium">{{ 'home.statistics' | translate }}</span>
+        <span class="text-sm text-muted-foreground">{{ 'home.yourProgress' | translate }}</span>
       </a>
     </div>
   </section>
 
   <!-- Categories Section -->
   <section class="container mx-auto px-4 py-8">
-    <h2 class="text-xl font-semibold mb-4">Nach Kategorie üben</h2>
+    <h2 class="text-xl font-semibold mb-4">{{ 'home.byCategory' | translate }}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       @for (category of categories(); track category.id) {
       <button
@@ -158,9 +163,11 @@
         <div class="flex items-start justify-between mb-2">
           <div class="flex-1">
             <h3 class="font-medium group-hover:text-primary transition-colors">
-              {{ category.name }}
+              {{ 'categories.' + category.id + '.name' | translate }}
             </h3>
-            <p class="text-sm text-muted-foreground line-clamp-1">{{ category.description }}</p>
+            <p class="text-sm text-muted-foreground line-clamp-1">
+              {{ 'categories.' + category.id + '.description' | translate }}
+            </p>
           </div>
           <div class="ml-2 flex items-center gap-1 text-sm text-muted-foreground">
             <span>{{ getQuestionCountForCategory(category.id) }}</span>
@@ -188,10 +195,10 @@
 <!-- Confirm Dialog for starting new quiz -->
 @if (showConfirmDialog()) {
 <app-confirm-dialog
-  title="Laufendes Quiz abbrechen?"
+  [title]="'home.confirmTitle' | translate"
   [message]="confirmDialogMessage()"
-  confirmText="Neues Quiz starten"
-  cancelText="Abbrechen"
+  [confirmText]="'home.confirmNewQuiz' | translate"
+  [cancelText]="'home.cancel' | translate"
   confirmVariant="danger"
   (confirmed)="onConfirmNewQuiz()"
   (cancelled)="onCancelNewQuiz()"

@@ -10,6 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CheckCircle, Command, LucideAngularModule, Search, X } from 'lucide-angular';
 import { Question } from '../../../core/models';
 import { QuestionService } from '../../../core/services';
@@ -30,12 +31,13 @@ interface SearchResult {
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [FormsModule, LucideAngularModule],
+  imports: [FormsModule, LucideAngularModule, TranslateModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
 })
 export class SearchComponent implements OnInit, OnDestroy {
   private questionService = inject(QuestionService);
+  private translate = inject(TranslateService);
 
   readonly Search = Search;
   readonly X = X;
@@ -198,6 +200,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   getCategoryName(questionNumber: number): string {
     const category = this.questionService.getCategoryForQuestion(questionNumber);
-    return category?.name ?? 'Unbekannt';
+    if (category) {
+      return this.translate.instant('categories.' + category.id + '.name');
+    }
+    return this.translate.instant('search.unknown');
   }
 }

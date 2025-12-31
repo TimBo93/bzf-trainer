@@ -1,21 +1,32 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { LucideAngularModule, Home, RotateCcw, Trophy, Target, CheckCircle, XCircle, Percent } from 'lucide-angular';
-import { QuizService, QuestionService } from '../../core/services';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  CheckCircle,
+  Home,
+  LucideAngularModule,
+  Percent,
+  RotateCcw,
+  Target,
+  Trophy,
+  XCircle,
+} from 'lucide-angular';
 import { QuizSession } from '../../core/models';
+import { QuestionService, QuizService } from '../../core/services';
 
 @Component({
   selector: 'app-results',
   standalone: true,
-  imports: [RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './results.component.html',
-  styleUrl: './results.component.scss'
+  styleUrl: './results.component.scss',
 })
 export class ResultsComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   quizService = inject(QuizService);
   questionService = inject(QuestionService);
+  translateService = inject(TranslateService);
 
   readonly Home = Home;
   readonly RotateCcw = RotateCcw;
@@ -36,17 +47,41 @@ export class ResultsComponent implements OnInit {
 
   resultMessage = computed(() => {
     const pct = this.percentage();
-    if (pct >= 90) return { text: 'Ausgezeichnet!', emoji: '🎉', color: 'text-green-500' };
-    if (pct >= 75) return { text: 'Sehr gut!', emoji: '👏', color: 'text-green-500' };
-    if (pct >= 60) return { text: 'Gut gemacht!', emoji: '👍', color: 'text-blue-500' };
-    if (pct >= 50) return { text: 'Weiter üben!', emoji: '💪', color: 'text-yellow-500' };
-    return { text: 'Mehr Übung nötig', emoji: '📚', color: 'text-orange-500' };
+    if (pct === 100)
+      return {
+        text: this.translateService.instant('results.perfect'),
+        emoji: '🏆',
+        color: 'text-green-500',
+      };
+    if (pct >= 90)
+      return {
+        text: this.translateService.instant('results.excellent'),
+        emoji: '🎉',
+        color: 'text-green-500',
+      };
+    if (pct >= 75)
+      return {
+        text: this.translateService.instant('results.great'),
+        emoji: '👏',
+        color: 'text-green-500',
+      };
+    if (pct >= 60)
+      return {
+        text: this.translateService.instant('results.good'),
+        emoji: '👍',
+        color: 'text-blue-500',
+      };
+    return {
+      text: this.translateService.instant('results.keepPracticing'),
+      emoji: '💪',
+      color: 'text-yellow-500',
+    };
   });
 
   wrongAnswers = computed(() => {
     const s = this.session();
     if (!s) return [];
-    return s.answers.filter(a => !a.isCorrect);
+    return s.answers.filter((a) => !a.isCorrect);
   });
 
   async ngOnInit() {

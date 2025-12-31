@@ -17,7 +17,7 @@
             [class.text-destructive]="confirmVariant() === 'danger'">
           </lucide-icon>
         </div>
-        <h2 class="text-lg font-semibold">{{ title() }}</h2>
+        <h2 class="text-lg font-semibold">{{ getTitle() }}</h2>
       </div>
       <button
         (click)="cancel()"
@@ -28,7 +28,7 @@
 
     <!-- Message -->
     <div class="text-muted-foreground mb-6 whitespace-pre-line">
-      {{ message() }}
+      {{ getMessage() }}
     </div>
 
     <!-- Actions -->
@@ -36,7 +36,7 @@
       <button
         (click)="cancel()"
         class="px-4 py-2 rounded-lg border hover:bg-secondary transition-colors font-medium">
-        {{ cancelText() }}
+        {{ getCancelText() }}
       </button>
       <button
         (click)="confirm()"
@@ -47,7 +47,7 @@
         [class.bg-destructive]="confirmVariant() === 'danger'"
         [class.text-destructive-foreground]="confirmVariant() === 'danger'"
         [class.hover:bg-destructive/90]="confirmVariant() === 'danger'">
-        {{ confirmText() }}
+        {{ getConfirmText() }}
       </button>
     </div>
   </div>

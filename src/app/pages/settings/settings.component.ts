@@ -1,9 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   AlertTriangle,
   CheckCircle,
   FileText,
+  Globe,
   LucideAngularModule,
   MessageSquare,
   Monitor,
@@ -11,18 +13,19 @@ import {
   Sun,
   Trash2,
 } from 'lucide-angular';
-import { SettingsService, StorageService } from '../../core/services';
+import { Language, SettingsService, StorageService, TranslationService } from '../../core/services';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
 export class SettingsComponent {
   settingsService = inject(SettingsService);
   storageService = inject(StorageService);
+  translationService = inject(TranslationService);
 
   readonly Sun = Sun;
   readonly Moon = Moon;
@@ -32,6 +35,7 @@ export class SettingsComponent {
   readonly AlertTriangle = AlertTriangle;
   readonly CheckCircle = CheckCircle;
   readonly FileText = FileText;
+  readonly Globe = Globe;
 
   showResetConfirm = signal(false);
   resetSuccess = signal(false);
@@ -39,6 +43,10 @@ export class SettingsComponent {
 
   setTheme(theme: 'light' | 'dark' | 'system') {
     this.settingsService.setTheme(theme);
+  }
+
+  setLanguage(lang: Language) {
+    this.translationService.setLanguage(lang);
   }
 
   toggleImmediateFeedback() {

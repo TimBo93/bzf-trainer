@@ -1,0 +1,247 @@
+{
+  "header": {
+    "home": "Home",
+    "statistics": "Statistics",
+    "settings": "Settings",
+    "theme": "Toggle theme",
+    "about": "About"
+  },
+  "home": {
+    "title": "BZF I/II Trainer",
+    "subtitle": "Practice the official exam questions for your aviation radio certificate.",
+    "questionsWaiting": "questions are waiting for you!",
+    "continueQuiz": "Continue current quiz",
+    "question": "Question",
+    "of": "of",
+    "discard": "Discard",
+    "continue": "Continue",
+    "progress": "Progress",
+    "learned": "Learned",
+    "successRate": "Success rate",
+    "daysStreak": "Day streak",
+    "quickStart": "Quick Start",
+    "random20": "20 Random",
+    "quickTraining": "Quick training",
+    "allQuestions": "All Questions",
+    "questions": "Questions",
+    "weakSpots": "Weak Spots",
+    "targetedPractice": "Targeted practice",
+    "statistics": "Statistics",
+    "yourProgress": "Your progress",
+    "byCategory": "Practice by category",
+    "confirmTitle": "Abandon current quiz?",
+    "confirmNewQuiz": "Start new quiz",
+    "confirmMessage": "You still have an ongoing quiz:\n\n{{mode}} – Question {{progress}} of {{total}}\n\nDo you want to abandon the current quiz and start a new one?",
+    "cancel": "Cancel"
+  },
+  "mode": {
+    "random": "Random Questions",
+    "all": "All Questions",
+    "category": "Category",
+    "weak": "Weak Spots",
+    "retry": "Retry Mistakes"
+  },
+  "quiz": {
+    "continueTitle": "Continue quiz?",
+    "continueText": "You have an ongoing quiz that you can continue.",
+    "toHome": "To home",
+    "continueQuiz": "Continue quiz",
+    "noActiveQuiz": "No active quiz",
+    "backToHome": "Back to home",
+    "endQuiz": "End quiz",
+    "question": "Question",
+    "of": "of",
+    "correct": "Correct!",
+    "wrong": "Unfortunately wrong",
+    "correctAnswer": "The correct answer was:",
+    "finish": "Finish quiz",
+    "next": "Next question"
+  },
+  "results": {
+    "percent": "Percent",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "total": "Total",
+    "home": "Home",
+    "practiceErrors": "Practice errors",
+    "newQuiz": "New quiz",
+    "wrongQuestions": "Incorrectly answered questions",
+    "noResults": "No results found",
+    "toHome": "To home",
+    "perfect": "Perfect!",
+    "excellent": "Excellent!",
+    "great": "Very good!",
+    "good": "Well done!",
+    "keepPracticing": "Keep practicing!"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize the app to your needs",
+    "appearance": "Appearance",
+    "chooseTheme": "Choose your preferred color scheme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "language": "Language",
+    "chooseLanguage": "Choose your preferred language",
+    "quizSettings": "Quiz Settings",
+    "immediateFeedback": "Immediate Feedback",
+    "feedbackDesc": "Immediately show whether the answer was correct or wrong",
+    "dataManagement": "Data Management",
+    "resetProgress": "Reset Progress",
+    "resetDesc": "Delete all saved data and start over",
+    "reset": "Reset",
+    "aboutApp": "About the App",
+    "appDesc": "Practice app for the restricted radiotelephone certificate",
+    "appHelp": "This app helps you prepare for the BZF I and BZF II exam.",
+    "questionsIncluded": "All 261 official exam questions are included.",
+    "licenses": "View Open Source Licenses",
+    "deleteTitle": "Delete progress?",
+    "deleteWarning": "This action cannot be undone. All your learning progress will be permanently deleted.",
+    "deleting": "Deleting...",
+    "delete": "Delete",
+    "resetSuccess": "Progress has been reset"
+  },
+  "stats": {
+    "title": "Your Statistics",
+    "subtitle": "Overview of your learning progress",
+    "overallProgress": "Overall Progress",
+    "questionsLearned": "Questions learned",
+    "successRate": "Success rate",
+    "learningStreak": "Learning streak",
+    "days": "Days",
+    "byCategory": "Progress by Category",
+    "ofLearned": "of",
+    "learned": "learned",
+    "tip": "Tip",
+    "tip1": "Start with the categories that interest you most. Regular practice is the key to success!",
+    "tip2": "Good progress! Now focus on the categories with low percentages.",
+    "tip3": "You're on the right track! Use the \"Weak Spots\" mode to practice specifically.",
+    "tip4": "Excellent! You're almost ready for the exam. Review all questions regularly."
+  },
+  "licenses": {
+    "title": "Open Source Licenses",
+    "subtitle": "Used libraries and their licenses"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "searchQuestions": "Search questions and answers...",
+    "backToResults": "Back to results",
+    "question": "Question",
+    "answers": "Answers:",
+    "minChars": "Enter at least 2 characters to search.",
+    "example": "e.g. \"WILCO\", \"frequency\", \"emergency\"",
+    "noResults": "No results for \"{{query}}\"",
+    "tryAnother": "Try a different search term.",
+    "matchInAnswer": "Match in answer:",
+    "result": "result",
+    "results": "results",
+    "navigate": "navigate",
+    "select": "select",
+    "unknown": "Unknown"
+  },
+  "disclaimer": {
+    "title": "Notice",
+    "aboutTitle": "About this App",
+    "appName": "BZF I/II Trainer",
+    "readFirst": "Please read before using",
+    "hobbyProject": "Hobby Project",
+    "hobbyText": "This is a private hobby project by",
+    "freelancer": ", an IT freelancer.",
+    "purpose": "Purpose",
+    "purposeText": "This app is designed <strong>exclusively for learning for flight simulators</strong> like Microsoft Flight Simulator. It is not intended for preparation for a real BZF exam.",
+    "source": "Question Source",
+    "sourceText": "The questions come from the official question catalog of the <strong>Federal Network Agency for Electricity, Gas, Telecommunications, Post and Railways</strong> (as of 2024). The questions were extracted and grouped from the original PDF using AI.",
+    "aiBuilt": "🤖 Built with AI",
+    "aiText": "This website was built with support from <strong>Artificial Intelligence</strong>.",
+    "privacy": "Privacy",
+    "privacyText": "<strong>All data is stored exclusively locally in your browser.</strong> No data is transmitted to a backend.",
+    "feedback": "💬 Feedback welcome!",
+    "feedbackText": "I appreciate feedback from student pilots, (simulator) pilots, and instructors!",
+    "email": "Email:",
+    "close": "Close",
+    "understood": "Understood",
+    "language": "Language",
+    "languageNote": "Exam questions remain in official German."
+  },
+  "confirm": {
+    "title": "Confirmation",
+    "message": "Do you want to continue?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "language": {
+    "de": "Deutsch",
+    "en": "English"
+  },
+  "categories": {
+    "legal": {
+      "name": "Legal Foundations",
+      "description": "Telecommunications Act, radio certificates, responsibilities, BZF I/II permissions"
+    },
+    "definitions": {
+      "name": "Definitions",
+      "description": "Air/ground station, blind transmission, holding point and other terms"
+    },
+    "abbreviations": {
+      "name": "Abbreviations",
+      "description": "CTR, IMC, FIR, ATIS, AIS, SAR, UTC and more"
+    },
+    "q-codes": {
+      "name": "Q-Codes",
+      "description": "QNH, QFE, QDM, QDR, QTE and their application"
+    },
+    "message-types": {
+      "name": "Message Types & Priorities",
+      "description": "Distress, urgency, flight safety and operational messages"
+    },
+    "transmission": {
+      "name": "Transmission",
+      "description": "Phonetic alphabet, time, number and frequency transmission"
+    },
+    "callsigns": {
+      "name": "Callsigns",
+      "description": "Ground and aircraft stations, abbreviated callsigns"
+    },
+    "phrases": {
+      "name": "Standard Phrases",
+      "description": "Standard phraseology in aviation radio"
+    },
+    "procedures": {
+      "name": "Radio Procedures",
+      "description": "Calls, acknowledgments, radio checks, message repetition"
+    },
+    "atc": {
+      "name": "Air Traffic Control",
+      "description": "Clearances, instructions, position reports, compulsory reporting points"
+    },
+    "weather": {
+      "name": "Weather in Radio Communication",
+      "description": "ATIS, VOLMET, SIGMET, cloud coverage, CAVOK"
+    },
+    "emergency": {
+      "name": "Emergency Procedures",
+      "description": "MAYDAY, PAN PAN, transponder codes, radio failure, light signals"
+    },
+    "equipment": {
+      "name": "Radio Equipment & Technology",
+      "description": "VHF propagation, frequencies, range, interference"
+    },
+    "services": {
+      "name": "Air Traffic Services",
+      "description": "FIS, AIS, flight preparation, responsibilities"
+    },
+    "airspace": {
+      "name": "Airspace & Rules",
+      "description": "Airspace classes, VMC minima, visual flight rules, RMZ, TMZ"
+    },
+    "signals": {
+      "name": "Signals & Signs",
+      "description": "Light and ground signals, traffic pattern, right-of-way rules"
+    },
+    "navigation": {
+      "name": "Radio Navigation",
+      "description": "VOR, NDB, ADF, GPS, radar, bearing"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   ArrowLeft,
   ArrowRight,
@@ -15,7 +16,7 @@ import { QuestionService, QuizService } from '../../core/services';
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
 })

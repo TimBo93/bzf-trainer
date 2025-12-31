@@ -1,0 +1,247 @@
+{
+  "header": {
+    "home": "Home",
+    "statistics": "Statistiken",
+    "settings": "Einstellungen",
+    "theme": "Theme wechseln",
+    "about": "Über"
+  },
+  "home": {
+    "title": "BZF I/II Trainer",
+    "subtitle": "Übe die offiziellen Prüfungsfragen für dein Flugfunk-Zeugnis.",
+    "questionsWaiting": "Fragen warten auf dich!",
+    "continueQuiz": "Laufendes Quiz fortsetzen",
+    "question": "Frage",
+    "of": "von",
+    "discard": "Verwerfen",
+    "continue": "Fortsetzen",
+    "progress": "Fortschritt",
+    "learned": "Gelernt",
+    "successRate": "Erfolgsquote",
+    "daysStreak": "Tage Streak",
+    "quickStart": "Schnellstart",
+    "random20": "20 Zufällige",
+    "quickTraining": "Schnelles Training",
+    "allQuestions": "Alle Fragen",
+    "questions": "Fragen",
+    "weakSpots": "Schwachstellen",
+    "targetedPractice": "Gezielt üben",
+    "statistics": "Statistiken",
+    "yourProgress": "Dein Fortschritt",
+    "byCategory": "Nach Kategorie üben",
+    "confirmTitle": "Laufendes Quiz abbrechen?",
+    "confirmNewQuiz": "Neues Quiz starten",
+    "confirmMessage": "Du hast noch ein laufendes Quiz:\n\n{{mode}} – Frage {{progress}} von {{total}}\n\nMöchtest du das aktuelle Quiz abbrechen und ein neues starten?",
+    "cancel": "Abbrechen"
+  },
+  "mode": {
+    "random": "Zufällige Fragen",
+    "all": "Alle Fragen",
+    "category": "Kategorie",
+    "weak": "Schwachstellen",
+    "retry": "Fehler wiederholen"
+  },
+  "quiz": {
+    "continueTitle": "Quiz fortsetzen?",
+    "continueText": "Du hast ein laufendes Quiz, das du fortsetzen kannst.",
+    "toHome": "Zur Startseite",
+    "continueQuiz": "Quiz fortsetzen",
+    "noActiveQuiz": "Kein aktives Quiz",
+    "backToHome": "Zurück zur Startseite",
+    "endQuiz": "Quiz beenden",
+    "question": "Frage",
+    "of": "von",
+    "correct": "Richtig!",
+    "wrong": "Leider falsch",
+    "correctAnswer": "Die richtige Antwort war:",
+    "finish": "Quiz beenden",
+    "next": "Nächste Frage"
+  },
+  "results": {
+    "percent": "Prozent",
+    "correct": "Richtig",
+    "wrong": "Falsch",
+    "total": "Gesamt",
+    "home": "Startseite",
+    "practiceErrors": "Fehler üben",
+    "newQuiz": "Neues Quiz",
+    "wrongQuestions": "Falsch beantwortete Fragen",
+    "noResults": "Keine Ergebnisse gefunden",
+    "toHome": "Zur Startseite",
+    "perfect": "Perfekt!",
+    "excellent": "Ausgezeichnet!",
+    "great": "Sehr gut!",
+    "good": "Gut gemacht!",
+    "keepPracticing": "Weiter üben!"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Passe die App an deine Bedürfnisse an",
+    "appearance": "Erscheinungsbild",
+    "chooseTheme": "Wähle dein bevorzugtes Farbschema",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System",
+    "language": "Sprache",
+    "chooseLanguage": "Wähle deine bevorzugte Sprache",
+    "quizSettings": "Quiz-Einstellungen",
+    "immediateFeedback": "Sofortiges Feedback",
+    "feedbackDesc": "Zeige sofort an, ob die Antwort richtig oder falsch war",
+    "dataManagement": "Daten verwalten",
+    "resetProgress": "Fortschritt zurücksetzen",
+    "resetDesc": "Lösche alle gespeicherten Daten und beginne von vorn",
+    "reset": "Zurücksetzen",
+    "aboutApp": "Über die App",
+    "appDesc": "Übungsapp für das beschränkte Sprechfunkzeugnis",
+    "appHelp": "Diese App hilft dir bei der Vorbereitung auf die BZF I und BZF II Prüfung.",
+    "questionsIncluded": "Alle 261 offiziellen Prüfungsfragen sind enthalten.",
+    "licenses": "Open Source Lizenzen anzeigen",
+    "deleteTitle": "Fortschritt löschen?",
+    "deleteWarning": "Diese Aktion kann nicht rückgängig gemacht werden. Dein gesamter Lernfortschritt wird unwiderruflich gelöscht.",
+    "deleting": "Lösche...",
+    "delete": "Löschen",
+    "resetSuccess": "Fortschritt wurde zurückgesetzt"
+  },
+  "stats": {
+    "title": "Deine Statistiken",
+    "subtitle": "Überblick über deinen Lernfortschritt",
+    "overallProgress": "Gesamtfortschritt",
+    "questionsLearned": "Fragen gelernt",
+    "successRate": "Erfolgsquote",
+    "learningStreak": "Lernstreifen",
+    "days": "Tage",
+    "byCategory": "Fortschritt nach Kategorie",
+    "ofLearned": "von",
+    "learned": "gelernt",
+    "tip": "Tipp",
+    "tip1": "Beginne mit den Kategorien, die dich am meisten interessieren. Regelmäßiges Üben ist der Schlüssel zum Erfolg!",
+    "tip2": "Guter Fortschritt! Konzentriere dich nun auf die Kategorien mit niedrigem Prozentsatz.",
+    "tip3": "Du bist auf dem richtigen Weg! Nutze den \"Schwachstellen\"-Modus um gezielt zu üben.",
+    "tip4": "Hervorragend! Du bist fast bereit für die Prüfung. Wiederhole regelmäßig alle Fragen."
+  },
+  "licenses": {
+    "title": "Open Source Lizenzen",
+    "subtitle": "Verwendete Bibliotheken und deren Lizenzen"
+  },
+  "search": {
+    "placeholder": "Suchen...",
+    "searchQuestions": "Fragen und Antworten durchsuchen...",
+    "backToResults": "Zurück zu den Ergebnissen",
+    "question": "Frage",
+    "answers": "Antworten:",
+    "minChars": "Gib mindestens 2 Zeichen ein, um zu suchen.",
+    "example": "z.B. \"WILCO\", \"Frequenz\", \"Notfall\"",
+    "noResults": "Keine Ergebnisse für \"{{query}}\"",
+    "tryAnother": "Versuche einen anderen Suchbegriff.",
+    "matchInAnswer": "Treffer in Antwort:",
+    "result": "Ergebnis",
+    "results": "Ergebnisse",
+    "navigate": "navigieren",
+    "select": "auswählen",
+    "unknown": "Unbekannt"
+  },
+  "disclaimer": {
+    "title": "Hinweis",
+    "aboutTitle": "Über diese App",
+    "appName": "BZF I/II Trainer",
+    "readFirst": "Bitte vor der Nutzung lesen",
+    "hobbyProject": "Hobby-Projekt",
+    "hobbyText": "Dies ist ein privates Hobby-Projekt von",
+    "freelancer": ", einem IT-Freelancer.",
+    "purpose": "Verwendungszweck",
+    "purposeText": "Diese App dient <strong>ausschließlich zum Lernen für Flugsimulatoren</strong> wie dem Microsoft Flight Simulator. Sie ist nicht für die Vorbereitung auf eine echte BZF-Prüfung gedacht.",
+    "source": "Fragenquelle",
+    "sourceText": "Die Fragen stammen aus dem offiziellen Fragenkatalog der <strong>Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen</strong> (Stand 2024). Die Fragen wurden mit AI aus dem Original-PDF extrahiert und gruppiert.",
+    "aiBuilt": "🤖 Mit AI erstellt",
+    "aiText": "Diese Webseite wurde mit Unterstützung von <strong>Künstlicher Intelligenz</strong> programmiert.",
+    "privacy": "Datenschutz",
+    "privacyText": "<strong>Alle Daten werden ausschließlich lokal in deinem Browser gespeichert.</strong> Es findet keine Datenübertragung an ein Backend statt.",
+    "feedback": "💬 Feedback willkommen!",
+    "feedbackText": "Ich freue mich über Feedback von Flugschüler*innen, (Simulator-)Pilot*innen und Lehrer*innen!",
+    "email": "E-Mail:",
+    "close": "Schließen",
+    "understood": "Verstanden",
+    "language": "Sprache",
+    "languageNote": "Die Prüfungsfragen bleiben im amtlichen Deutsch."
+  },
+  "confirm": {
+    "title": "Bestätigung",
+    "message": "Möchtest du fortfahren?",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen"
+  },
+  "language": {
+    "de": "Deutsch",
+    "en": "English"
+  },
+  "categories": {
+    "legal": {
+      "name": "Rechtliche Grundlagen",
+      "description": "TKG, Flugfunkzeugnisse, Zuständigkeiten, BZF I/II Berechtigungen"
+    },
+    "definitions": {
+      "name": "Begriffsbestimmungen",
+      "description": "Luft-/Bodenfunkstelle, Blindsendung, Rollhalt und weitere Begriffe"
+    },
+    "abbreviations": {
+      "name": "Abkürzungen",
+      "description": "CTR, IMC, FIR, ATIS, AIS, SAR, UTC und weitere"
+    },
+    "q-codes": {
+      "name": "Q-Gruppen",
+      "description": "QNH, QFE, QDM, QDR, QTE und deren Anwendung"
+    },
+    "message-types": {
+      "name": "Meldungsarten & Prioritäten",
+      "description": "Not-, Dringlichkeits-, Flugsicherheits- und Flugbetriebsmeldungen"
+    },
+    "transmission": {
+      "name": "Übermittlung",
+      "description": "Buchstabiertafel, Zeit-, Zahlen- und Frequenzübermittlung"
+    },
+    "callsigns": {
+      "name": "Rufzeichen",
+      "description": "Boden- und Luftfunkstellen, abgekürzte Rufzeichen"
+    },
+    "phrases": {
+      "name": "Redewendungen",
+      "description": "Standard-Phraseologie im Flugfunk"
+    },
+    "procedures": {
+      "name": "Sprechfunkverfahren",
+      "description": "Anrufe, Bestätigungen, Funktest, Meldungen wiederholen"
+    },
+    "atc": {
+      "name": "Flugverkehrskontrolle",
+      "description": "Freigaben, Anweisungen, Standortmeldungen, Pflichtmeldepunkte"
+    },
+    "weather": {
+      "name": "Wetter im Funkverkehr",
+      "description": "ATIS, VOLMET, SIGMET, Bewölkungsgrade, CAVOK"
+    },
+    "emergency": {
+      "name": "Notverfahren",
+      "description": "MAYDAY, PAN PAN, Transponder-Codes, Funkausfall, Lichtsignale"
+    },
+    "equipment": {
+      "name": "Funkausrüstung & Technik",
+      "description": "UKW-Ausbreitung, Frequenzen, Reichweite, Störungen"
+    },
+    "services": {
+      "name": "Flugverkehrsdienste",
+      "description": "FIS, AIS, Flugvorbereitung, Zuständigkeiten"
+    },
+    "airspace": {
+      "name": "Lufträume & Regeln",
+      "description": "Luftraumklassen, VMC-Minima, Sichtflugregeln, RMZ, TMZ"
+    },
+    "signals": {
+      "name": "Signale & Zeichen",
+      "description": "Licht- und Bodensignale, Platzrunde, Vorflugregeln"
+    },
+    "navigation": {
+      "name": "Funknavigation",
+      "description": "VOR, NDB, ADF, GPS, Radar, Peilung"
+    }
+  }
+}

@@ -13,9 +13,11 @@
           <lucide-icon [img]="AlertTriangle" class="h-6 w-6 text-amber-500"></lucide-icon>
         </div>
         <div>
-          <h2 class="text-xl font-bold">{{ aboutMode() ? 'Über diese App' : 'Hinweis' }}</h2>
+          <h2 class="text-xl font-bold">
+            {{ (aboutMode() ? 'disclaimer.aboutTitle' : 'disclaimer.title') | translate }}
+          </h2>
           <p class="text-sm text-muted-foreground">
-            {{ aboutMode() ? 'BZF I/II Trainer' : 'Bitte vor der Nutzung lesen' }}
+            {{ (aboutMode() ? 'disclaimer.appName' : 'disclaimer.readFirst') | translate }}
           </p>
         </div>
       </div>
@@ -28,10 +30,39 @@
 
     <!-- Content -->
     <div class="space-y-4 text-sm text-muted-foreground">
+      <!-- Language Selector -->
+      <div class="bg-primary/10 rounded-xl p-4 border border-primary/20">
+        <p class="font-medium text-foreground mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Globe" class="h-4 w-4"></lucide-icon>
+          {{ 'disclaimer.language' | translate }}
+        </p>
+        <div class="flex gap-2 mb-2">
+          <button
+            (click)="setLanguage('de')"
+            class="flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+            [class.bg-primary]="translationService.language() === 'de'"
+            [class.text-primary-foreground]="translationService.language() === 'de'"
+            [class.bg-secondary]="translationService.language() !== 'de'"
+          >
+            🇩🇪 Deutsch
+          </button>
+          <button
+            (click)="setLanguage('en')"
+            class="flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+            [class.bg-primary]="translationService.language() === 'en'"
+            [class.text-primary-foreground]="translationService.language() === 'en'"
+            [class.bg-secondary]="translationService.language() !== 'en'"
+          >
+            🇬🇧 English
+          </button>
+        </div>
+        <p class="text-xs text-muted-foreground">{{ 'disclaimer.languageNote' | translate }}</p>
+      </div>
+
       <div class="bg-secondary/50 rounded-xl p-4">
-        <p class="font-medium text-foreground mb-1">Hobby-Projekt</p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.hobbyProject' | translate }}</p>
         <p>
-          Dies ist ein privates Hobby-Projekt von
+          {{ 'disclaimer.hobbyText' | translate }}
           <a
             href="https://borowski-software.de"
             target="_blank"
@@ -40,58 +71,35 @@
           >
             Tim Borowski
             <lucide-icon [img]="ExternalLink" class="h-3 w-3"></lucide-icon> </a
-          >, einem IT-Freelancer.
+          >{{ 'disclaimer.freelancer' | translate }}
         </p>
       </div>
 
       <div class="bg-secondary/50 rounded-xl p-4">
-        <p class="font-medium text-foreground mb-1">Verwendungszweck</p>
-        <p>
-          Diese App dient
-          <strong class="text-foreground">ausschließlich zum Lernen für Flugsimulatoren</strong>
-          wie dem Microsoft Flight Simulator. Sie ist nicht für die Vorbereitung auf eine echte
-          BZF-Prüfung gedacht.
-        </p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.purpose' | translate }}</p>
+        <p [innerHTML]="'disclaimer.purposeText' | translate"></p>
       </div>
 
       <div class="bg-secondary/50 rounded-xl p-4">
-        <p class="font-medium text-foreground mb-1">Fragenquelle</p>
-        <p>
-          Die Fragen stammen aus dem offiziellen Fragenkatalog der
-          <strong class="text-foreground"
-            >Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und
-            Eisenbahnen</strong
-          >
-          (Stand 2024). Die Fragen wurden mit AI aus dem Original-PDF extrahiert und gruppiert.
-        </p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.source' | translate }}</p>
+        <p [innerHTML]="'disclaimer.sourceText' | translate"></p>
       </div>
 
       <div class="bg-secondary/50 rounded-xl p-4">
-        <p class="font-medium text-foreground mb-1">🤖 Mit AI erstellt</p>
-        <p>
-          Diese Webseite wurde mit Unterstützung von
-          <strong class="text-foreground">Künstlicher Intelligenz</strong> programmiert.
-        </p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.aiBuilt' | translate }}</p>
+        <p [innerHTML]="'disclaimer.aiText' | translate"></p>
       </div>
 
       <div class="bg-secondary/50 rounded-xl p-4">
-        <p class="font-medium text-foreground mb-1">Datenschutz</p>
-        <p>
-          <strong class="text-foreground"
-            >Alle Daten werden ausschließlich lokal in deinem Browser gespeichert.</strong
-          >
-          Es findet keine Datenübertragung an ein Backend statt.
-        </p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.privacy' | translate }}</p>
+        <p [innerHTML]="'disclaimer.privacyText' | translate"></p>
       </div>
 
       <div class="bg-primary/10 rounded-xl p-4 border border-primary/20">
-        <p class="font-medium text-foreground mb-1">💬 Feedback willkommen!</p>
-        <p>
-          Ich freue mich über Feedback von Flugschüler*innen, (Simulator-)Pilot*innen und
-          Lehrer*innen!
-        </p>
+        <p class="font-medium text-foreground mb-1">{{ 'disclaimer.feedback' | translate }}</p>
+        <p>{{ 'disclaimer.feedbackText' | translate }}</p>
         <p class="mt-2">
-          <strong class="text-foreground">E-Mail:</strong>
+          <strong class="text-foreground">{{ 'disclaimer.email' | translate }}</strong>
           <a href="mailto:tim@borowski-software.de" class="text-primary hover:underline"
             >tim[at]borowski-software.de</a
           >
@@ -104,7 +112,7 @@
       (click)="accept()"
       class="w-full mt-6 py-3 px-6 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors"
     >
-      {{ aboutMode() ? 'Schließen' : 'Verstanden' }}
+      {{ (aboutMode() ? 'disclaimer.close' : 'disclaimer.understood') | translate }}
     </button>
   </div>
 </div>

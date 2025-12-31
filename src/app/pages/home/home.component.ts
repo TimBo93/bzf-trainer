@@ -1,6 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   BookOpen,
   CheckCircle,
@@ -20,7 +21,7 @@ import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/c
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, DecimalPipe, LucideAngularModule, ConfirmDialogComponent],
+  imports: [RouterLink, DecimalPipe, LucideAngularModule, ConfirmDialogComponent, TranslateModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
   questionService = inject(QuestionService);
   storageService = inject(StorageService);
   quizService = inject(QuizService);
+  translateService = inject(TranslateService);
 
   readonly Play = Play;
   readonly Shuffle = Shuffle;
@@ -63,9 +65,12 @@ export class HomeComponent implements OnInit {
   confirmDialogMessage = computed(() => {
     const info = this.activeQuizInfo();
     if (!info) return '';
-    return `Du hast noch ein laufendes Quiz:\n\n${this.getActiveQuizModeName(info)} – Frage ${
-      info.progress
-    } von ${info.total}\n\nMöchtest du das aktuelle Quiz abbrechen und ein neues starten?`;
+    const modeName = this.getActiveQuizModeName(info);
+    return this.translateService.instant('home.confirmMessage', {
+      mode: modeName,
+      progress: info.progress,
+      total: info.total,
+    });
   });
 
   progressPercentage = computed(() => {
@@ -94,20 +99,20 @@ export class HomeComponent implements OnInit {
   }
 
   getModeName(mode: QuizMode): string {
-    const modeNames: Record<QuizMode, string> = {
-      all: 'Alle Fragen',
-      random: 'Zufällige Fragen',
-      category: 'Kategorie',
-      weak: 'Schwachstellen',
-      exam: 'Prüfungsmodus',
+    const modeKeys: Record<QuizMode, string> = {
+      all: 'mode.all',
+      random: 'mode.random',
+      category: 'mode.category',
+      weak: 'mode.weak',
+      exam: 'mode.exam',
     };
-    return modeNames[mode] || mode;
+    return this.translateService.instant(modeKeys[mode] || mode);
   }
 
   getActiveQuizModeName(info: { mode: QuizMode; categoryId?: string }): string {
     if (info.mode === 'category' && info.categoryId) {
       const category = this.categories().find((c) => c.id === info.categoryId);
-      return category?.name ?? 'Kategorie';
+      return category?.name ?? this.translateService.instant('mode.category');
     }
     return this.getModeName(info.mode);
   }

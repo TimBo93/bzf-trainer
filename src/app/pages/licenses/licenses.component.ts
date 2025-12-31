@@ -1,10 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { ExternalLink, FileText, LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-licenses',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, TranslateModule],
   templateUrl: './licenses.component.html',
   styleUrl: './licenses.component.scss',
 })

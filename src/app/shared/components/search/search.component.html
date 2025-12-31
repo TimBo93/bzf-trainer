@@ -3,7 +3,7 @@
   (click)="openSearch()"
   class="flex items-center gap-2 px-3 py-1.5 text-sm text-muted-foreground bg-secondary/50 hover:bg-secondary border rounded-lg transition-colors">
   <lucide-icon [img]="Search" class="h-4 w-4"></lucide-icon>
-  <span class="hidden sm:inline">Suchen...</span>
+  <span class="hidden sm:inline">{{ 'search.placeholder' | translate }}</span>
   <kbd class="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs bg-background border rounded">
     @if (isMac()) {
       <lucide-icon [img]="Command" class="h-3 w-3"></lucide-icon>
@@ -29,7 +29,7 @@
           type="text"
           [value]="searchQuery()"
           (input)="onSearchInput($event)"
-          placeholder="Fragen und Antworten durchsuchen..."
+          [placeholder]="'search.searchQuestions' | translate"
           class="flex-1 bg-transparent text-lg outline-none placeholder:text-muted-foreground"
         />
         @if (searchQuery()) {
@@ -54,7 +54,7 @@
             <button
               (click)="backToResults()"
               class="text-sm text-primary hover:underline mb-4 flex items-center gap-1">
-              ← Zurück zu den Ergebnissen
+              ← {{ 'search.backToResults' | translate }}
             </button>
             
             <div class="space-y-4">
@@ -64,7 +64,7 @@
                   {{ getCategoryName(result.question.number) }}
                 </span>
                 <span class="text-muted-foreground">
-                  Frage {{ result.question.number }}
+                  {{ 'search.question' | translate }} {{ result.question.number }}
                 </span>
               </div>
               
@@ -75,7 +75,7 @@
               
               <!-- Answers -->
               <div class="space-y-2">
-                <p class="text-sm font-medium text-muted-foreground">Antworten:</p>
+                <p class="text-sm font-medium text-muted-foreground">{{ 'search.answers' | translate }}</p>
                 @for (answer of result.answers; track answer.label) {
                   <div
                     class="p-3 rounded-xl border-2 transition-colors"
@@ -106,14 +106,14 @@
           <!-- Empty State -->
           <div class="p-8 text-center text-muted-foreground">
             <lucide-icon [img]="Search" class="h-12 w-12 mx-auto mb-4 opacity-50"></lucide-icon>
-            <p>Gib mindestens 2 Zeichen ein, um zu suchen.</p>
-            <p class="text-sm mt-2">z.B. "WILCO", "Frequenz", "Notfall"</p>
+            <p>{{ 'search.minChars' | translate }}</p>
+            <p class="text-sm mt-2">{{ 'search.example' | translate }}</p>
           </div>
         } @else if (searchResults().length === 0) {
           <!-- No Results -->
           <div class="p-8 text-center text-muted-foreground">
-            <p>Keine Ergebnisse für "{{ searchQuery() }}"</p>
-            <p class="text-sm mt-2">Versuche einen anderen Suchbegriff.</p>
+            <p>{{ 'search.noResults' | translate: {query: searchQuery()} }}</p>
+            <p class="text-sm mt-2">{{ 'search.tryAnother' | translate }}</p>
           </div>
         } @else {
           <!-- Results List -->
@@ -132,7 +132,7 @@
                     <p class="font-medium line-clamp-2" [innerHTML]="highlightMatch(result.question.question)"></p>
                     @if (result.matchedIn === 'answer') {
                       <p class="text-sm text-muted-foreground mt-1 line-clamp-1">
-                        Treffer in Antwort: <span [innerHTML]="highlightMatch(result.matchedText)"></span>
+                        {{ 'search.matchInAnswer' | translate }} <span [innerHTML]="highlightMatch(result.matchedText)"></span>
                       </p>
                     }
                   </div>
@@ -146,16 +146,16 @@
       <!-- Footer -->
       @if (searchResults().length > 0 && !selectedResult()) {
         <div class="p-3 border-t text-xs text-muted-foreground flex items-center justify-between">
-          <span>{{ searchResults().length }} Ergebnis{{ searchResults().length !== 1 ? 'se' : '' }}</span>
+          <span>{{ searchResults().length }} {{ searchResults().length !== 1 ? ('search.results' | translate) : ('search.result' | translate) }}</span>
           <div class="flex items-center gap-4">
             <span class="flex items-center gap-1">
               <kbd class="px-1.5 py-0.5 bg-secondary rounded">↑</kbd>
               <kbd class="px-1.5 py-0.5 bg-secondary rounded">↓</kbd>
-              navigieren
+              {{ 'search.navigate' | translate }}
             </span>
             <span class="flex items-center gap-1">
               <kbd class="px-1.5 py-0.5 bg-secondary rounded">Enter</kbd>
-              auswählen
+              {{ 'search.select' | translate }}
             </span>
           </div>
         </div>

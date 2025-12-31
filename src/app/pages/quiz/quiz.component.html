@@ -13,9 +13,9 @@
       >
         <lucide-icon [img]="RotateCcw" class="h-8 w-8 text-primary"></lucide-icon>
       </div>
-      <h2 class="text-xl font-semibold mb-2">Quiz fortsetzen?</h2>
+      <h2 class="text-xl font-semibold mb-2">{{ 'quiz.continueTitle' | translate }}</h2>
       <p class="text-muted-foreground mb-8">
-        Du hast ein laufendes Quiz, das du fortsetzen kannst.
+        {{ 'quiz.continueText' | translate }}
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <button
@@ -23,14 +23,14 @@
           class="inline-flex items-center justify-center gap-2 px-5 py-3 border rounded-xl hover:bg-secondary transition-colors"
         >
           <lucide-icon [img]="Home" class="h-4 w-4"></lucide-icon>
-          Zur Startseite
+          {{ 'quiz.toHome' | translate }}
         </button>
         <button
           (click)="continueQuiz()"
           class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors"
         >
           <lucide-icon [img]="RotateCcw" class="h-4 w-4"></lucide-icon>
-          Quiz fortsetzen
+          {{ 'quiz.continueQuiz' | translate }}
         </button>
       </div>
     </div>
@@ -39,13 +39,13 @@
   <!-- No active session -->
   <div class="flex-1 flex items-center justify-center p-4">
     <div class="text-center">
-      <h2 class="text-xl font-semibold mb-4">Kein aktives Quiz</h2>
+      <h2 class="text-xl font-semibold mb-4">{{ 'quiz.noActiveQuiz' | translate }}</h2>
       <a
         routerLink="/"
         class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90"
       >
         <lucide-icon [img]="ArrowLeft" class="h-4 w-4"></lucide-icon>
-        Zurück zur Startseite
+        {{ 'quiz.backToHome' | translate }}
       </a>
     </div>
   </div>
@@ -58,12 +58,13 @@
           <button
             (click)="exitQuiz()"
             class="p-2 rounded-lg hover:bg-accent transition-colors"
-            title="Quiz beenden"
+            [title]="'quiz.endQuiz' | translate"
           >
             <lucide-icon [img]="X" class="h-5 w-5"></lucide-icon>
           </button>
           <span class="text-sm font-medium">
-            Frage {{ currentNumber() }} von {{ totalQuestions() }}
+            {{ 'quiz.question' | translate }} {{ currentNumber() }} {{ 'quiz.of' | translate }}
+            {{ totalQuestions() }}
           </span>
         </div>
         <div class="flex items-center gap-3 text-sm">
@@ -103,7 +104,7 @@
     <!-- Question Number & Text -->
     <div class="mb-6">
       <span class="text-sm text-muted-foreground mb-2 block"
-        >Frage {{ question.original.number }}</span
+        >{{ 'quiz.question' | translate }} {{ question.original.number }}</span
       >
       <h2 class="text-lg sm:text-xl font-medium leading-relaxed">
         {{ question.original.question }}
@@ -149,11 +150,11 @@
       "
     >
       @if (isAnswerCorrect(selectedAnswer()!)) {
-      <p class="font-medium text-green-600">✓ Richtig!</p>
+      <p class="font-medium text-green-600">✓ {{ 'quiz.correct' | translate }}</p>
       } @else {
-      <p class="font-medium text-red-500">✗ Leider falsch</p>
+      <p class="font-medium text-red-500">✗ {{ 'quiz.wrong' | translate }}</p>
       <p class="text-sm text-muted-foreground mt-1">
-        Die richtige Antwort war:
+        {{ 'quiz.correctAnswer' | translate }}
         <strong>{{ getCorrectAnswerText() }}</strong>
       </p>
       }
@@ -167,7 +168,7 @@
         (click)="finishQuiz()"
         class="flex-1 py-3 px-6 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
       >
-        Quiz beenden
+        {{ 'quiz.finish' | translate }}
         <lucide-icon [img]="CheckCircle" class="h-5 w-5"></lucide-icon>
       </button>
       } @else {
@@ -175,7 +176,7 @@
         (click)="nextQuestion()"
         class="flex-1 py-3 px-6 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
       >
-        Nächste Frage
+        {{ 'quiz.next' | translate }}
         <lucide-icon [img]="ArrowRight" class="h-5 w-5"></lucide-icon>
       </button>
       } }

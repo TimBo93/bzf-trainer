@@ -1,21 +1,40 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AlertCircle, LucideAngularModule, X } from 'lucide-angular';
 
 @Component({
   selector: 'app-confirm-dialog',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, TranslateModule],
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',
 })
 export class ConfirmDialogComponent {
+  private translate = inject(TranslateService);
+
   readonly AlertCircle = AlertCircle;
   readonly X = X;
 
-  title = input<string>('Bestätigung');
-  message = input<string>('Möchtest du fortfahren?');
-  confirmText = input<string>('Bestätigen');
-  cancelText = input<string>('Abbrechen');
+  title = input<string>('');
+  message = input<string>('');
+  confirmText = input<string>('');
+  cancelText = input<string>('');
+
+  getTitle(): string {
+    return this.title() || this.translate.instant('confirm.title');
+  }
+
+  getMessage(): string {
+    return this.message() || this.translate.instant('confirm.message');
+  }
+
+  getConfirmText(): string {
+    return this.confirmText() || this.translate.instant('confirm.confirm');
+  }
+
+  getCancelText(): string {
+    return this.cancelText() || this.translate.instant('confirm.cancel');
+  }
   confirmVariant = input<'primary' | 'danger'>('primary');
 
   confirmed = output<void>();

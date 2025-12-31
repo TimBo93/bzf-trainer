@@ -1,132 +1,149 @@
 <div class="min-h-screen pb-8">
   @if (isLoading()) {
-    <div class="flex items-center justify-center min-h-[60vh]">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-    </div>
+  <div class="flex items-center justify-center min-h-[60vh]">
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+  </div>
   } @else if (session(); as s) {
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-primary/10 via-background to-background py-12">
-      <div class="container mx-auto px-4 text-center">
-        <!-- Result Emoji & Message -->
-        <div class="text-6xl mb-4">{{ resultMessage().emoji }}</div>
-        <h1 class="text-3xl font-bold mb-2" [class]="resultMessage().color">
-          {{ resultMessage().text }}
-        </h1>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary/10 via-background to-background py-12">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Result Emoji & Message -->
+      <div class="text-6xl mb-4">{{ resultMessage().emoji }}</div>
+      <h1 class="text-3xl font-bold mb-2" [class]="resultMessage().color">
+        {{ resultMessage().text }}
+      </h1>
 
-        <!-- Score Circle -->
-        <div class="relative w-40 h-40 mx-auto my-8">
-          <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-            <!-- Background circle -->
-            <circle
-              cx="50" cy="50" r="45"
-              stroke="currentColor"
-              stroke-width="8"
-              fill="none"
-              class="text-secondary"
-            />
-            <!-- Progress circle -->
-            <circle
-              cx="50" cy="50" r="45"
-              stroke="currentColor"
-              stroke-width="8"
-              fill="none"
-              stroke-linecap="round"
-              [attr.stroke-dasharray]="283"
-              [attr.stroke-dashoffset]="283 - (283 * percentage()) / 100"
-              [class]="percentage() >= 75 ? 'text-green-500' : percentage() >= 50 ? 'text-yellow-500' : 'text-red-500'"
-              class="transition-all duration-1000"
-            />
-          </svg>
-          <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <span class="text-4xl font-bold">{{ percentage() }}</span>
-            <span class="text-sm text-muted-foreground">Prozent</span>
-          </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="flex justify-center gap-8 mb-8">
-          <div class="text-center">
-            <div class="flex items-center justify-center gap-2 text-2xl font-bold text-green-500">
-              <lucide-icon [img]="CheckCircle" class="h-6 w-6"></lucide-icon>
-              {{ s.correctCount }}
-            </div>
-            <div class="text-sm text-muted-foreground">Richtig</div>
-          </div>
-          <div class="text-center">
-            <div class="flex items-center justify-center gap-2 text-2xl font-bold text-red-500">
-              <lucide-icon [img]="XCircle" class="h-6 w-6"></lucide-icon>
-              {{ s.wrongCount }}
-            </div>
-            <div class="text-sm text-muted-foreground">Falsch</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold">{{ s.answers.length }}</div>
-            <div class="text-sm text-muted-foreground">Gesamt</div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap justify-center gap-3">
-          <button
-            (click)="goHome()"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-card border rounded-xl font-medium hover:bg-accent transition-colors">
-            <lucide-icon [img]="Home" class="h-5 w-5"></lucide-icon>
-            Startseite
-          </button>
-
-          @if (wrongAnswers().length > 0) {
-            <button
-              (click)="retryWrongQuestions()"
-              class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-xl font-medium hover:bg-orange-600 transition-colors">
-              <lucide-icon [img]="Target" class="h-5 w-5"></lucide-icon>
-              Fehler üben
-            </button>
-          }
-
-          <button
-            (click)="startNewQuiz()"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors">
-            <lucide-icon [img]="RotateCcw" class="h-5 w-5"></lucide-icon>
-            Neues Quiz
-          </button>
+      <!-- Score Circle -->
+      <div class="relative w-40 h-40 mx-auto my-8">
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+          <!-- Background circle -->
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            stroke="currentColor"
+            stroke-width="8"
+            fill="none"
+            class="text-secondary"
+          />
+          <!-- Progress circle -->
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            stroke="currentColor"
+            stroke-width="8"
+            fill="none"
+            stroke-linecap="round"
+            [attr.stroke-dasharray]="283"
+            [attr.stroke-dashoffset]="283 - (283 * percentage()) / 100"
+            [class]="
+              percentage() >= 75
+                ? 'text-green-500'
+                : percentage() >= 50
+                ? 'text-yellow-500'
+                : 'text-red-500'
+            "
+            class="transition-all duration-1000"
+          />
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-4xl font-bold">{{ percentage() }}</span>
+          <span class="text-sm text-muted-foreground">{{ 'results.percent' | translate }}</span>
         </div>
       </div>
-    </section>
 
-    <!-- Wrong Answers Section -->
-    @if (wrongAnswers().length > 0) {
-      <section class="container mx-auto px-4 py-8 max-w-3xl">
-        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-          <lucide-icon [img]="XCircle" class="h-5 w-5 text-red-500"></lucide-icon>
-          Falsch beantwortete Fragen ({{ wrongAnswers().length }})
-        </h2>
-
-        <div class="space-y-3">
-          @for (answer of wrongAnswers(); track answer.questionId) {
-            <div class="p-4 bg-card rounded-xl border">
-              <div class="flex items-start gap-3">
-                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-medium text-sm">
-                  {{ answer.questionId }}
-                </span>
-                <div class="flex-1 min-w-0">
-                  <p class="text-sm line-clamp-2">{{ getQuestionText(answer.questionId) }}</p>
-                </div>
-              </div>
-            </div>
-          }
+      <!-- Stats -->
+      <div class="flex justify-center gap-8 mb-8">
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-2 text-2xl font-bold text-green-500">
+            <lucide-icon [img]="CheckCircle" class="h-6 w-6"></lucide-icon>
+            {{ s.correctCount }}
+          </div>
+          <div class="text-sm text-muted-foreground">{{ 'results.correct' | translate }}</div>
         </div>
-      </section>
-    }
-  } @else {
-    <!-- No session found -->
-    <div class="flex-1 flex items-center justify-center p-4 min-h-[60vh]">
-      <div class="text-center">
-        <h2 class="text-xl font-semibold mb-4">Keine Ergebnisse gefunden</h2>
-        <a routerLink="/" class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90">
-          <lucide-icon [img]="Home" class="h-4 w-4"></lucide-icon>
-          Zur Startseite
-        </a>
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-2 text-2xl font-bold text-red-500">
+            <lucide-icon [img]="XCircle" class="h-6 w-6"></lucide-icon>
+            {{ s.wrongCount }}
+          </div>
+          <div class="text-sm text-muted-foreground">{{ 'results.wrong' | translate }}</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold">{{ s.answers.length }}</div>
+          <div class="text-sm text-muted-foreground">{{ 'results.total' | translate }}</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          (click)="goHome()"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-card border rounded-xl font-medium hover:bg-accent transition-colors"
+        >
+          <lucide-icon [img]="Home" class="h-5 w-5"></lucide-icon>
+          {{ 'results.home' | translate }}
+        </button>
+
+        @if (wrongAnswers().length > 0) {
+        <button
+          (click)="retryWrongQuestions()"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-xl font-medium hover:bg-orange-600 transition-colors"
+        >
+          <lucide-icon [img]="Target" class="h-5 w-5"></lucide-icon>
+          {{ 'results.practiceErrors' | translate }}
+        </button>
+        }
+
+        <button
+          (click)="startNewQuiz()"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors"
+        >
+          <lucide-icon [img]="RotateCcw" class="h-5 w-5"></lucide-icon>
+          {{ 'results.newQuiz' | translate }}
+        </button>
       </div>
     </div>
+  </section>
+
+  <!-- Wrong Answers Section -->
+  @if (wrongAnswers().length > 0) {
+  <section class="container mx-auto px-4 py-8 max-w-3xl">
+    <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+      <lucide-icon [img]="XCircle" class="h-5 w-5 text-red-500"></lucide-icon>
+      {{ 'results.wrongQuestions' | translate }} ({{ wrongAnswers().length }})
+    </h2>
+
+    <div class="space-y-3">
+      @for (answer of wrongAnswers(); track answer.questionId) {
+      <div class="p-4 bg-card rounded-xl border">
+        <div class="flex items-start gap-3">
+          <span
+            class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-medium text-sm"
+          >
+            {{ answer.questionId }}
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm line-clamp-2">{{ getQuestionText(answer.questionId) }}</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+  } } @else {
+  <!-- No session found -->
+  <div class="flex-1 flex items-center justify-center p-4 min-h-[60vh]">
+    <div class="text-center">
+      <h2 class="text-xl font-semibold mb-4">{{ 'results.noResults' | translate }}</h2>
+      <a
+        routerLink="/"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90"
+      >
+        <lucide-icon [img]="Home" class="h-4 w-4"></lucide-icon>
+        {{ 'results.toHome' | translate }}
+      </a>
+    </div>
+  </div>
   }
 </div>

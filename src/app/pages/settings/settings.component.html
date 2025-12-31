@@ -2,16 +2,59 @@
   <!-- Header -->
   <section class="bg-gradient-to-br from-primary/10 via-background to-background py-8">
     <div class="container mx-auto px-4">
-      <h1 class="text-2xl sm:text-3xl font-bold mb-2">Einstellungen</h1>
-      <p class="text-muted-foreground">Passe die App an deine Bedürfnisse an</p>
+      <h1 class="text-2xl sm:text-3xl font-bold mb-2">{{ 'settings.title' | translate }}</h1>
+      <p class="text-muted-foreground">{{ 'settings.subtitle' | translate }}</p>
     </div>
   </section>
 
   <div class="container mx-auto px-4 py-6 space-y-6">
+    <!-- Language Settings -->
+    <section class="bg-card rounded-xl border p-6">
+      <h2 class="text-lg font-semibold mb-4">{{ 'settings.language' | translate }}</h2>
+      <p class="text-sm text-muted-foreground mb-4">{{ 'settings.chooseLanguage' | translate }}</p>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button
+          (click)="setLanguage('de')"
+          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          [class]="
+            translationService.language() === 'de'
+              ? 'border-primary bg-primary/5'
+              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+          "
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-2xl"
+          >
+            🇩🇪
+          </div>
+          <span class="text-sm font-medium">Deutsch</span>
+        </button>
+
+        <button
+          (click)="setLanguage('en')"
+          class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all"
+          [class]="
+            translationService.language() === 'en'
+              ? 'border-primary bg-primary/5'
+              : 'border-transparent bg-secondary/50 hover:bg-secondary'
+          "
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-2xl"
+          >
+            🇬🇧
+          </div>
+          <span class="text-sm font-medium">English</span>
+        </button>
+      </div>
+      <p class="text-xs text-muted-foreground mt-3">{{ 'disclaimer.languageNote' | translate }}</p>
+    </section>
+
     <!-- Theme Settings -->
     <section class="bg-card rounded-xl border p-6">
-      <h2 class="text-lg font-semibold mb-4">Erscheinungsbild</h2>
-      <p class="text-sm text-muted-foreground mb-4">Wähle dein bevorzugtes Farbschema</p>
+      <h2 class="text-lg font-semibold mb-4">{{ 'settings.appearance' | translate }}</h2>
+      <p class="text-sm text-muted-foreground mb-4">{{ 'settings.chooseTheme' | translate }}</p>
 
       <div class="grid grid-cols-3 gap-3">
         <button
@@ -26,7 +69,7 @@
           <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
             <lucide-icon [img]="Sun" class="h-6 w-6 text-amber-500"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">Hell</span>
+          <span class="text-sm font-medium">{{ 'settings.light' | translate }}</span>
         </button>
 
         <button
@@ -41,7 +84,7 @@
           <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
             <lucide-icon [img]="Moon" class="h-6 w-6 text-slate-300"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">Dunkel</span>
+          <span class="text-sm font-medium">{{ 'settings.dark' | translate }}</span>
         </button>
 
         <button
@@ -58,14 +101,14 @@
           >
             <lucide-icon [img]="Monitor" class="h-6 w-6 text-white"></lucide-icon>
           </div>
-          <span class="text-sm font-medium">System</span>
+          <span class="text-sm font-medium">{{ 'settings.system' | translate }}</span>
         </button>
       </div>
     </section>
 
     <!-- Quiz Settings -->
     <section class="bg-card rounded-xl border p-6">
-      <h2 class="text-lg font-semibold mb-4">Quiz-Einstellungen</h2>
+      <h2 class="text-lg font-semibold mb-4">{{ 'settings.quizSettings' | translate }}</h2>
 
       <div class="flex items-center justify-between">
         <div class="flex items-start gap-3">
@@ -75,9 +118,9 @@
             <lucide-icon [img]="MessageSquare" class="h-5 w-5 text-blue-500"></lucide-icon>
           </div>
           <div>
-            <p class="font-medium">Sofortiges Feedback</p>
+            <p class="font-medium">{{ 'settings.immediateFeedback' | translate }}</p>
             <p class="text-sm text-muted-foreground">
-              Zeige sofort an, ob die Antwort richtig oder falsch war
+              {{ 'settings.feedbackDesc' | translate }}
             </p>
           </div>
         </div>
@@ -99,7 +142,7 @@
 
     <!-- Data Management -->
     <section class="bg-card rounded-xl border p-6">
-      <h2 class="text-lg font-semibold mb-4">Daten verwalten</h2>
+      <h2 class="text-lg font-semibold mb-4">{{ 'settings.dataManagement' | translate }}</h2>
 
       <div class="flex items-center justify-between">
         <div class="flex items-start gap-3">
@@ -109,9 +152,9 @@
             <lucide-icon [img]="Trash2" class="h-5 w-5 text-red-500"></lucide-icon>
           </div>
           <div>
-            <p class="font-medium">Fortschritt zurücksetzen</p>
+            <p class="font-medium">{{ 'settings.resetProgress' | translate }}</p>
             <p class="text-sm text-muted-foreground">
-              Lösche alle gespeicherten Daten und beginne von vorn
+              {{ 'settings.resetDesc' | translate }}
             </p>
           </div>
         </div>
@@ -119,27 +162,27 @@
           (click)="openResetDialog()"
           class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium"
         >
-          Zurücksetzen
+          {{ 'settings.reset' | translate }}
         </button>
       </div>
     </section>
 
     <!-- About Section -->
     <section class="bg-card rounded-xl border p-6">
-      <h2 class="text-lg font-semibold mb-4">Über die App</h2>
+      <h2 class="text-lg font-semibold mb-4">{{ 'settings.aboutApp' | translate }}</h2>
       <div class="space-y-2 text-sm text-muted-foreground">
         <p>
-          <strong class="text-foreground">BZF Trainer</strong> - Übungsapp für das beschränkte
-          Sprechfunkzeugnis
+          <strong class="text-foreground">BZF Trainer</strong> -
+          {{ 'settings.appDesc' | translate }}
         </p>
-        <p>Diese App hilft dir bei der Vorbereitung auf die BZF I und BZF II Prüfung.</p>
-        <p>Alle 261 offiziellen Prüfungsfragen sind enthalten.</p>
+        <p>{{ 'settings.appHelp' | translate }}</p>
+        <p>{{ 'settings.questionsIncluded' | translate }}</p>
         <a
           routerLink="/licenses"
           class="inline-flex items-center gap-2 mt-3 text-primary hover:underline"
         >
           <lucide-icon [img]="FileText" class="h-4 w-4"></lucide-icon>
-          Open Source Lizenzen anzeigen
+          {{ 'settings.licenses' | translate }}
         </a>
       </div>
     </section>
@@ -158,26 +201,26 @@
         <lucide-icon [img]="AlertTriangle" class="h-6 w-6 text-red-500"></lucide-icon>
       </div>
       <div>
-        <h3 class="font-semibold text-lg">Fortschritt löschen?</h3>
+        <h3 class="font-semibold text-lg">{{ 'settings.deleteTitle' | translate }}</h3>
       </div>
     </div>
     <p class="text-muted-foreground mb-6">
-      Diese Aktion kann nicht rückgängig gemacht werden. Dein gesamter Lernfortschritt wird
-      unwiderruflich gelöscht.
+      {{ 'settings.deleteWarning' | translate }}
     </p>
     <div class="flex gap-3">
       <button
         (click)="closeResetDialog()"
         class="flex-1 px-4 py-2 bg-secondary text-foreground rounded-lg hover:bg-secondary/80 transition-colors font-medium"
       >
-        Abbrechen
+        {{ 'confirm.cancel' | translate }}
       </button>
       <button
         (click)="confirmReset()"
         [disabled]="isResetting()"
         class="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium disabled:opacity-50"
       >
-        @if (isResetting()) { Lösche... } @else { Löschen }
+        @if (isResetting()) { {{ 'settings.deleting' | translate }} } @else {
+        {{ 'settings.delete' | translate }} }
       </button>
     </div>
   </div>
@@ -190,6 +233,6 @@
   class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in"
 >
   <lucide-icon [img]="CheckCircle" class="h-5 w-5"></lucide-icon>
-  <span class="font-medium">Fortschritt wurde zurückgesetzt</span>
+  <span class="font-medium">{{ 'settings.resetSuccess' | translate }}</span>
 </div>
 }

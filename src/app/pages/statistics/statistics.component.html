@@ -1,133 +1,155 @@
 <div class="min-h-screen pb-8">
   @if (isLoading()) {
-    <div class="flex items-center justify-center min-h-[60vh]">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-    </div>
+  <div class="flex items-center justify-center min-h-[60vh]">
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+  </div>
   } @else {
-    <!-- Header -->
-    <section class="bg-gradient-to-br from-primary/10 via-background to-background py-8">
-      <div class="container mx-auto px-4">
-        <h1 class="text-2xl sm:text-3xl font-bold mb-2">Deine Statistiken</h1>
-        <p class="text-muted-foreground">Überblick über deinen Lernfortschritt</p>
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-primary/10 via-background to-background py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-2xl sm:text-3xl font-bold mb-2">{{ 'stats.title' | translate }}</h1>
+      <p class="text-muted-foreground">{{ 'stats.subtitle' | translate }}</p>
+    </div>
+  </section>
+
+  <!-- Overview Cards -->
+  <section class="container mx-auto px-4 py-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Overall Progress -->
+      <div class="bg-card rounded-xl p-5 border shadow-sm">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+            <lucide-icon [img]="Trophy" class="h-5 w-5 text-primary"></lucide-icon>
+          </div>
+          <div>
+            <p class="text-sm text-muted-foreground">{{ 'stats.overallProgress' | translate }}</p>
+            <p class="text-2xl font-bold">{{ overallProgress() }}%</p>
+          </div>
+        </div>
+        <div class="w-full bg-secondary rounded-full h-2">
+          <div
+            class="bg-primary h-2 rounded-full transition-all"
+            [style.width.%]="overallProgress()"
+          ></div>
+        </div>
       </div>
-    </section>
 
-    <!-- Overview Cards -->
-    <section class="container mx-auto px-4 py-6">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Overall Progress -->
-        <div class="bg-card rounded-xl p-5 border shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-              <lucide-icon [img]="Trophy" class="h-5 w-5 text-primary"></lucide-icon>
-            </div>
-            <div>
-              <p class="text-sm text-muted-foreground">Gesamtfortschritt</p>
-              <p class="text-2xl font-bold">{{ overallProgress() }}%</p>
-            </div>
+      <!-- Questions Mastered -->
+      <div class="bg-card rounded-xl p-5 border shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+            <lucide-icon [img]="CheckCircle" class="h-5 w-5 text-green-500"></lucide-icon>
           </div>
-          <div class="w-full bg-secondary rounded-full h-2">
-            <div
-              class="bg-primary h-2 rounded-full transition-all"
-              [style.width.%]="overallProgress()">
-            </div>
-          </div>
-        </div>
-
-        <!-- Questions Mastered -->
-        <div class="bg-card rounded-xl p-5 border shadow-sm">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-              <lucide-icon [img]="CheckCircle" class="h-5 w-5 text-green-500"></lucide-icon>
-            </div>
-            <div>
-              <p class="text-sm text-muted-foreground">Fragen gelernt</p>
-              <p class="text-2xl font-bold">{{ correctQuestions() }}<span class="text-base font-normal text-muted-foreground">/{{ totalQuestions() }}</span></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Success Rate -->
-        <div class="bg-card rounded-xl p-5 border shadow-sm">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-              <lucide-icon [img]="TrendingUp" class="h-5 w-5 text-blue-500"></lucide-icon>
-            </div>
-            <div>
-              <p class="text-sm text-muted-foreground">Erfolgsquote</p>
-              <p class="text-2xl font-bold">{{ successRate() | number:'1.0-0' }}%</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Streak -->
-        <div class="bg-card rounded-xl p-5 border shadow-sm">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
-              <lucide-icon [img]="Flame" class="h-5 w-5 text-orange-500"></lucide-icon>
-            </div>
-            <div>
-              <p class="text-sm text-muted-foreground">Lernstreifen</p>
-              <p class="text-2xl font-bold">{{ streak() }} <span class="text-base font-normal text-muted-foreground">Tage</span></p>
-            </div>
+          <div>
+            <p class="text-sm text-muted-foreground">{{ 'stats.questionsLearned' | translate }}</p>
+            <p class="text-2xl font-bold">
+              {{ correctQuestions()
+              }}<span class="text-base font-normal text-muted-foreground"
+                >/{{ totalQuestions() }}</span
+              >
+            </p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Category Progress -->
-    <section class="container mx-auto px-4 py-6">
-      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-        <lucide-icon [img]="BookOpen" class="h-5 w-5"></lucide-icon>
-        Fortschritt nach Kategorie
-      </h2>
-
-      <div class="space-y-3">
-        @for (stat of categoryStats(); track stat.category.id) {
-          <div class="bg-card rounded-xl p-4 border">
-            <div class="flex items-center justify-between mb-2">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-medium truncate">{{ stat.category.name }}</h3>
-                <p class="text-sm text-muted-foreground">
-                  {{ stat.correct }} von {{ stat.total }} gelernt
-                </p>
-              </div>
-              <div class="ml-4 text-right">
-                <span class="text-lg font-bold" [class]="stat.percentage >= 75 ? 'text-green-500' : stat.percentage >= 50 ? 'text-yellow-500' : 'text-muted-foreground'">
-                  {{ stat.percentage }}%
-                </span>
-              </div>
-            </div>
-            <div class="w-full bg-secondary rounded-full h-2">
-              <div
-                [class]="'h-2 rounded-full transition-all ' + getProgressBarColor(stat.percentage)"
-                [style.width.%]="stat.percentage">
-              </div>
-            </div>
+      <!-- Success Rate -->
+      <div class="bg-card rounded-xl p-5 border shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
+            <lucide-icon [img]="TrendingUp" class="h-5 w-5 text-blue-500"></lucide-icon>
           </div>
+          <div>
+            <p class="text-sm text-muted-foreground">{{ 'stats.successRate' | translate }}</p>
+            <p class="text-2xl font-bold">{{ successRate() | number : '1.0-0' }}%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Streak -->
+      <div class="bg-card rounded-xl p-5 border shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
+            <lucide-icon [img]="Flame" class="h-5 w-5 text-orange-500"></lucide-icon>
+          </div>
+          <div>
+            <p class="text-sm text-muted-foreground">{{ 'stats.learningStreak' | translate }}</p>
+            <p class="text-2xl font-bold">
+              {{ streak() }}
+              <span class="text-base font-normal text-muted-foreground">{{
+                'stats.days' | translate
+              }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Progress -->
+  <section class="container mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+      <lucide-icon [img]="BookOpen" class="h-5 w-5"></lucide-icon>
+      {{ 'stats.byCategory' | translate }}
+    </h2>
+
+    <div class="space-y-3">
+      @for (stat of categoryStats(); track stat.category.id) {
+      <div class="bg-card rounded-xl p-4 border">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex-1 min-w-0">
+            <h3 class="font-medium truncate">
+              {{ 'categories.' + stat.category.id + '.name' | translate }}
+            </h3>
+            <p class="text-sm text-muted-foreground">
+              {{ stat.correct }} {{ 'stats.ofLearned' | translate }} {{ stat.total }}
+              {{ 'stats.learned' | translate }}
+            </p>
+          </div>
+          <div class="ml-4 text-right">
+            <span
+              class="text-lg font-bold"
+              [class]="
+                stat.percentage >= 75
+                  ? 'text-green-500'
+                  : stat.percentage >= 50
+                  ? 'text-yellow-500'
+                  : 'text-muted-foreground'
+              "
+            >
+              {{ stat.percentage }}%
+            </span>
+          </div>
+        </div>
+        <div class="w-full bg-secondary rounded-full h-2">
+          <div
+            [class]="'h-2 rounded-full transition-all ' + getProgressBarColor(stat.percentage)"
+            [style.width.%]="stat.percentage"
+          ></div>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="container mx-auto px-4 py-6">
+    <div class="bg-primary/5 rounded-xl p-6 border border-primary/10">
+      <h3 class="font-semibold mb-2 flex items-center gap-2">
+        <lucide-icon [img]="Target" class="h-5 w-5 text-primary"></lucide-icon>
+        {{ 'stats.tip' | translate }}
+      </h3>
+      <p class="text-muted-foreground">
+        @if (overallProgress() < 25) {
+        {{ 'stats.tip1' | translate }}
+        } @else if (overallProgress() < 50) {
+        {{ 'stats.tip2' | translate }}
+        } @else if (overallProgress() < 75) {
+        {{ 'stats.tip3' | translate }}
+        } @else {
+        {{ 'stats.tip4' | translate }}
         }
-      </div>
-    </section>
-
-    <!-- Tips Section -->
-    <section class="container mx-auto px-4 py-6">
-      <div class="bg-primary/5 rounded-xl p-6 border border-primary/10">
-        <h3 class="font-semibold mb-2 flex items-center gap-2">
-          <lucide-icon [img]="Target" class="h-5 w-5 text-primary"></lucide-icon>
-          Tipp
-        </h3>
-        <p class="text-muted-foreground">
-          @if (overallProgress() < 25) {
-            Beginne mit den Kategorien, die dich am meisten interessieren. Regelmäßiges Üben ist der Schlüssel zum Erfolg!
-          } @else if (overallProgress() < 50) {
-            Guter Fortschritt! Konzentriere dich nun auf die Kategorien mit niedrigem Prozentsatz.
-          } @else if (overallProgress() < 75) {
-            Du bist auf dem richtigen Weg! Nutze den "Schwachstellen"-Modus um gezielt zu üben.
-          } @else {
-            Hervorragend! Du bist fast bereit für die Prüfung. Wiederhole regelmäßig alle Fragen.
-          }
-        </p>
-      </div>
-    </section>
+      </p>
+    </div>
+  </section>
   }
 </div>
