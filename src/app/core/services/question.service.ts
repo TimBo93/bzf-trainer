@@ -63,6 +63,13 @@ export class QuestionService {
     this._questions.set(variant === 'bzf-e' ? this._questionsBZFE() : this._questionsBZF());
   }
 
+  /**
+   * Returns questions for a specific variant without changing the active set.
+   */
+  getVariantQuestions(variant: QuestionVariant): Question[] {
+    return variant === 'bzf-e' ? this._questionsBZFE() : this._questionsBZF();
+  }
+
   getQuestionsByIds(ids: number[]): Question[] {
     return ids.map((id) => this.getQuestionById(id)).filter((q): q is Question => q !== undefined);
   }

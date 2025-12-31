@@ -32,6 +32,27 @@
           [placeholder]="'search.searchQuestions' | translate"
           class="flex-1 bg-transparent text-lg outline-none placeholder:text-muted-foreground"
         />
+        <!-- Variant scope toggle -->
+        <div class="hidden md:flex items-center gap-1 mr-2">
+          <button
+            (click)="setSearchScope('bzf')"
+            class="px-2 py-1 text-xs rounded border"
+            [class.bg-primary/10]="searchScope() === 'bzf'"
+            [class.text-primary]="searchScope() === 'bzf'"
+          >{{ 'search.variantBzf' | translate }}</button>
+          <button
+            (click)="setSearchScope('bzf-e')"
+            class="px-2 py-1 text-xs rounded border"
+            [class.bg-primary/10]="searchScope() === 'bzf-e'"
+            [class.text-primary]="searchScope() === 'bzf-e'"
+          >{{ 'search.variantBzfe' | translate }}</button>
+          <button
+            (click)="setSearchScope('both')"
+            class="px-2 py-1 text-xs rounded border"
+            [class.bg-primary/10]="searchScope() === 'both'"
+            [class.text-primary]="searchScope() === 'both'"
+          >{{ 'search.variantBoth' | translate }}</button>
+        </div>
         @if (searchQuery()) {
           <button
             (click)="searchQuery.set(''); selectedResult.set(null)"
@@ -62,6 +83,9 @@
               <div class="flex items-center gap-2 text-sm">
                 <span class="px-2 py-1 bg-primary/10 text-primary rounded-full">
                   {{ getCategoryName(result.question.number) }}
+                </span>
+                <span class="px-2 py-1 bg-secondary rounded-full text-muted-foreground">
+                  {{ result.variant === 'bzf' ? ('search.variantBzf' | translate) : ('search.variantBzfe' | translate) }}
                 </span>
                 <span class="text-muted-foreground">
                   {{ 'search.question' | translate }} {{ result.question.number }}
@@ -127,6 +151,9 @@
                 <div class="flex items-start gap-3">
                   <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground shrink-0">
                     #{{ result.question.number }}
+                  </span>
+                  <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground shrink-0">
+                    {{ result.variant === 'bzf' ? ('search.variantBzf' | translate) : ('search.variantBzfe' | translate) }}
                   </span>
                   <div class="flex-1 min-w-0">
                     <p class="font-medium line-clamp-2" [innerHTML]="highlightMatch(result.question.question)"></p>

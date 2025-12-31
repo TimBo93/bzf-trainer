@@ -138,6 +138,9 @@
     "matchInAnswer": "Treffer in Antwort:",
     "result": "Ergebnis",
     "results": "Ergebnisse",
+    "variantBzf": "BZF",
+    "variantBzfe": "BZF-E",
+    "variantBoth": "Beide Varianten",
     "navigate": "navigieren",
     "select": "auswählen",
     "unknown": "Unbekannt"

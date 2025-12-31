@@ -14,6 +14,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CheckCircle, Command, LucideAngularModule, Search, X } from 'lucide-angular';
 import { Question } from '../../../core/models';
 import { QuestionService } from '../../../core/services';
+import { QuestionVariant } from '../../../core/services/settings.service';
 
 interface AnswerOption {
   label: string;
@@ -26,6 +27,7 @@ interface SearchResult {
   answers: AnswerOption[];
   matchedIn: 'question' | 'answer';
   matchedText: string;
+  variant: QuestionVariant;
 }
 
 @Component({
@@ -52,6 +54,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   selectedResult = signal<SearchResult | null>(null);
   highlightedIndex = signal(-1);
   isMac = signal(false);
+  // Search scope: 'both' searches across BZF and BZF-E
+  searchScope = signal<'bzf' | 'bzf-e' | 'both'>('both');
 
   private getAnswers(question: Question): AnswerOption[] {
     return [
@@ -66,38 +70,50 @@ export class SearchComponent implements OnInit, OnDestroy {
     const query = this.searchQuery().toLowerCase().trim();
     if (query.length < 2) return [];
 
-    const questions = this.questionService.questions();
+    const scope = this.searchScope();
+    const sources: { variant: QuestionVariant; questions: Question[] }[] =
+      scope === 'both'
+        ? [
+            { variant: 'bzf', questions: this.questionService.getVariantQuestions('bzf') },
+            { variant: 'bzf-e', questions: this.questionService.getVariantQuestions('bzf-e') },
+          ]
+        : [{ variant: scope, questions: this.questionService.getVariantQuestions(scope) }];
+
     const results: SearchResult[] = [];
 
-    for (const question of questions) {
-      const answers = this.getAnswers(question);
+    for (const source of sources) {
+      for (const question of source.questions) {
+        const answers = this.getAnswers(question);
 
-      // Search in question text
-      if (question.question.toLowerCase().includes(query)) {
-        results.push({
-          question,
-          answers,
-          matchedIn: 'question',
-          matchedText: question.question,
-        });
-        continue;
-      }
-
-      // Search in answers
-      for (const answer of answers) {
-        if (answer.text.toLowerCase().includes(query)) {
+        // Search in question text
+        if (question.question.toLowerCase().includes(query)) {
           results.push({
             question,
             answers,
-            matchedIn: 'answer',
-            matchedText: answer.text,
+            matchedIn: 'question',
+            matchedText: question.question,
+            variant: source.variant,
           });
-          break; // Only add question once
+          continue;
         }
-      }
 
-      // Limit results
-      if (results.length >= 20) break;
+        // Search in answers
+        for (const answer of answers) {
+          if (answer.text.toLowerCase().includes(query)) {
+            results.push({
+              question,
+              answers,
+              matchedIn: 'answer',
+              matchedText: answer.text,
+              variant: source.variant,
+            });
+            break; // Only add question once per variant
+          }
+        }
+
+        // Limit results
+        if (results.length >= 40) break; // allow more when searching both
+      }
     }
 
     return results;
@@ -170,6 +186,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   onSearchInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.searchQuery.set(value);
+    this.highlightedIndex.set(-1);
+    this.selectedResult.set(null);
+  }
+
+  setSearchScope(scope: 'bzf' | 'bzf-e' | 'both') {
+    this.searchScope.set(scope);
     this.highlightedIndex.set(-1);
     this.selectedResult.set(null);
   }
