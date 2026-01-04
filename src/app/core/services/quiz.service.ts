@@ -387,6 +387,47 @@ export class QuizService {
     await this.startQuiz('exam', undefined, questionCount);
   }
 
+  /**
+   * Starts a new quiz using an explicit set of question IDs.
+   * Useful for retrying wrong questions from a specific session.
+   */
+  async startSpecificQuestionsQuiz(questionIds: number[], mode: QuizMode = 'weak'): Promise<void> {
+    this._isLoading.set(true);
+
+    try {
+      await this.questionService.loadData();
+      await this.storageService.loadData();
+
+      if (!questionIds || questionIds.length === 0) {
+        throw new Error('No questions provided for custom quiz');
+      }
+
+      // Shuffle to avoid repeating the same order
+      const shuffledIds = this.shuffleArray(questionIds);
+
+      const session: QuizSession = {
+        id: crypto.randomUUID(),
+        mode,
+        startedAt: new Date(),
+        questionIds: shuffledIds,
+        answers: [],
+        correctCount: 0,
+        wrongCount: 0,
+      };
+
+      this._currentSession.set(session);
+      this._currentQuestionIndex.set(0);
+      this._selectedAnswer.set(null);
+      this._showFeedback.set(false);
+
+      this.loadCurrentQuestion();
+      this.saveActiveQuiz();
+      this.router.navigate(['/quiz']);
+    } finally {
+      this._isLoading.set(false);
+    }
+  }
+
   private shuffleArray<T>(array: T[]): T[] {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {

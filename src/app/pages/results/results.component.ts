@@ -119,10 +119,8 @@ export class ResultsComponent implements OnInit {
   retryWrongQuestions() {
     const wrong = this.wrongAnswers();
     if (wrong.length > 0) {
-      // Start a new quiz with only wrong questions
-      // This would require extending the quiz service
-      // For now, redirect to weak questions mode
-      this.quizService.startWeakQuestionsQuiz();
+      const ids = wrong.map((a) => a.questionId);
+      this.quizService.startSpecificQuestionsQuiz(ids, 'weak');
     }
   }
 
